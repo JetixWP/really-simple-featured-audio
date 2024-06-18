@@ -7,11 +7,7 @@
 Really Simple Featured Audio
 ===
 
-[🚀 [PRO] Grab the premium version at a Lifetime Deal](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme)
-
 Really Simple Featured Audio plugin provides a really straightforward way of adding featured audio support to your custom post types. Adding your own audios to the site is a breeze and you get an easy to use settings panel with the options you really need.
-
-https://www.youtube.com/watch?v=xHrj2lcNS5Q
 
 With Really Simple Featured Audio you get a metabox at posts, pages, CPTs & Woo products edit screen at the very bottom and a very similar interface as you're used to with featured image.
 
@@ -20,7 +16,6 @@ You get a really simple settings page which has all the controls you need for ma
 
 == 👉️ Features ==
 
-* **Embed support from Youtube, Dailymotion and Vimeo** - You can now embed audios from Youtube, Dailymotion and Vimeo directly at each post/page/product or any custom type that supports featured images.
 * **Self host audios** - Upload and feature audios on posts/pages and WooCommerce products directly from your site.
 * **WooCommerce Single and Shop Archives Support** - A straightforward implementation for WooCommerce Product Featured Audio.
 * **Astra Pro WooCommerce Module Support** - Support for vertical and horizontal product galleries.
@@ -36,18 +31,6 @@ You get a really simple settings page which has all the controls you need for ma
 This plugin came out of a real need with many plugins available out there yet none provides a good integration with WooCommerce.
 Really Simple Featured Audio plugin provides a straightforward implementation for WooCommerce Product Featured Audio, with which your set featured audio loads directly into product thumbnails along with any other product images.
 
-== 👉️ Astra Pro WooCommerce Module Support ==
-
-RSFA supports Astra Pro WooCommerce module with horizontal and vertical product gallery types, which in turn brings you more control and customizable features.
-
-== 👉️ Salient Theme WPBakery Builder Support ==
-
-RSFA supports Salient Theme WPBakery builder with its Post Loop Builder element, giving you more control and support for Custom post loops. You can also display Featured Audio on single pages via the shortcode - [rsfa].
-
-== 👉️ Elementor Pro Builder Support ==
-
-RSFA supports Elementor Pro builder with its Posts/archive widgets, you can use them to display Featured Audios for posts, pages and CPTs (with Featured Images). You can also display Featured Audio on single pages via the shortcode - [rsfa]
-
 == 👉️ How to use Shortcodes ==
 
 There are also shortcodes to embed featured audio at any post, page or product you want.
@@ -56,7 +39,7 @@ There are also shortcodes to embed featured audio at any post, page or product y
 
 [rsfa_by_postid] shortcode is for displaying featured audio of any post anywhere you want, you just need to pass a vaild post id to it e.g. [rsfa_by_postid post_id="281"]
 
-You can send a feedback or a feature request at [github.com/smalltowndev/really-simple-featured-audio](https://github.com/smalltowndev/really-simple-featured-audio) Or create a thread at forums here, in any case.
+You can send a feedback or a feature request at [github.com/jetixwp/really-simple-featured-audio](https://github.com/smalltowndev/really-simple-featured-audio) Or create a thread at forums here, in any case.
 
 == 👉️ How to use Shortcodes ==
 
@@ -67,27 +50,6 @@ There are also shortcodes to embed featured audio at any post, page or product y
 [rsfa_by_postid] shortcode is for displaying featured audio of any post anywhere you want, you just need to pass a vaild post id to it e.g. [rsfa_by_postid post_id="281"]
 
 You can send a feedback or a feature request at [github.com/JetixWP/really-simple-featured-audio](https://github.com/JetixWP/really-simple-featured-audio) Or create a thread at forums here, in any case.
-
-== 👉️ Premium Features ==
-
-Really Simple Featured Audio PRO plugin supports additional features, where we can continue to keep them maintained and updated.
-We get quite a few requests from you guys, and the plugin offers most if not all features from these requests while we continuously work towards adding more and more useful features.
-
-<strong>RSFA PRO plugin includes these features -</strong>
-
-* ✅ **Change Audio Aspect Ratio** - Apply sitewide featured audio aspect ratio such as 16:9, 3:2, 1:1 and more.
-* ✅ **Change Audio Order at Woo Product CPT** - Set audio order at single product pages of WooCommerce Product CPT.
-* ✅ **Support for more Premium/Custom Themes** - Loads additional compatibility for many supported Premium/Custom themes.
-* ✅ **Requests for Theme Compatibility** - We will take requests for additional theme compatibility.
-* ✅ **Priority Support** - Solving your problems are our priority with superfast response times.
-
-More features to come in the future, to name a few -
-
-* ✨ **Bricks Support**
-* ✨ **Featured Audio Blocks for Full Site Editing**
-* ✨ And more from your requests
-
-If you wish to grab the PRO version with a lifetime deal please do [checkout Pro at our website](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme)
 
 ### Contribution
 If you have a patch, or you've stumbled upon an issue with Really Simple Featured Audio plugin, you can contribute this back to the code. You can do so by creating a fork and adding a PR against it.
