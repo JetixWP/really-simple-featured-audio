@@ -1,0 +1,23 @@
+.rsfa-has-audio > figure.wp-block-post-featured-image, .rsfa-has-audio > figure.wp-block-post-featured-image > a {
+	height: auto !important;
+}
+
+.single.rsfa-has-audio .wp-block-post-featured-image span.wp-block-post-featured-image__overlay,
+.page.rsfa-has-audio .wp-block-post-featured-image span.wp-block-post-featured-image__overlay {
+	display: none;
+}
+
+.rsfa-has-audio audio.rsfa-audio,
+.rsfa-has-audio iframe.rsfa-audio {
+	height: auto;
+	width: 100% !important;
+	aspect-ratio: 16/9;
+}
+
+.rsfa-audio__wrapper + .woocommerce-product-gallery__image--placeholder {
+	display: none;
+}
+
+body.rsfa-archives-support .product.rsfa-has-audio .wc-block-components-product-image {
+	display: none;
+}

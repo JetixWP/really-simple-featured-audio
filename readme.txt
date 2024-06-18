@@ -1,0 +1,250 @@
+=== Really Simple Featured Audio - Featured audio support for Posts, Pages & WooCommerce Products ===
+Contributors: jetixwp, lushkant
+Requires at least: 6.0
+Requires PHP: 7.4
+Tested up to: 6.5.4
+Stable tag: 0.1.0
+Tags: audio, featured audio, woocommerce, product audio, audio embed
+License: GPLv2
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+
+Really Simple Featured Audio enables featured audio support for WordPress posts, pages, CPTs (with featured images) & WooCommerce Products.
+
+== Description ==
+
+Really Simple Featured Audio plugin provides a really straightforward way of adding featured audio support to your custom post types. Adding your own audios to the site is a breeze and you get an easy to use settings panel with the options you really need.
+
+https://www.youtube.com/watch?v=xHrj2lcNS5Q
+
+With Really Simple Featured Audio you get a metabox at posts, pages, CPTs & Woo products edit screen at the very bottom and a very similar interface as you're used to with featured image.
+
+You get a really simple settings page which has all the controls you need for managing featured audios throughout your site. Explore it yourself for a better look or take a look at screenshots below.
+
+
+== 👉️ Features ==
+
+* **Embed support from Youtube, Dailymotion and Vimeo** - You can now embed audios from Youtube, Dailymotion and Vimeo directly at each post/page/product or any custom type that supports featured images.
+* **Self host audios** - Upload and feature audios on posts/pages and WooCommerce products directly from your site.
+* **WooCommerce Single and Shop Archives Support** - A straightforward implementation for WooCommerce Product Featured Audio.
+* **Astra Pro WooCommerce Module Support** - Support for vertical and horizontal product galleries.
+* **Salient Theme WPBakery Builder Support** - Support for Post Loop Builder element with Salient theme.
+* **Elementor Pro Support** - Support for Posts/archive widgets with Elementor Pro builder.
+* **Support for Core themes** - We support all the newer core themes such as TwentyTwenty Four to Classic themes.
+* **Audio Controls such as Autoplay, Mute and more** - Manage everything for the featured audios, by setting them accordingly, options for these are available at settings page.
+* **Shortcodes** - Shortcodes to embed featured audio at any post, page or product you want.
+
+
+== 👉️ WooCommerce Support ==
+
+This plugin came out of a real need with many plugins available out there yet none provides a good integration with WooCommerce.
+Really Simple Featured Audio plugin provides a straightforward implementation for WooCommerce Product Featured Audio, with which your set featured audio loads directly into product thumbnails along with any other product images.
+
+== 👉️ Astra Pro WooCommerce Module Support ==
+
+RSFA supports Astra Pro WooCommerce module with horizontal and vertical product gallery types, which in turn brings you more control and customizable features.
+
+== 👉️ Salient Theme WPBakery Builder Support ==
+
+RSFA supports Salient Theme WPBakery builder with its Post Loop Builder element, giving you more control and support for Custom post loops. You can also display Featured Audio on single pages via the shortcode - [rsfa].
+
+== 👉️ Elementor Pro Builder Support ==
+
+RSFA supports Elementor Pro builder with its Posts/archive widgets, you can use them to display Featured Audios for posts, pages and CPTs (with Featured Images). You can also display Featured Audio on single pages via the shortcode - [rsfa]
+
+== 👉️ How to use Shortcodes ==
+
+There are also shortcodes to embed featured audio at any post, page or product you want.
+
+[rsfa] shortcode is for displaying set featured audio of the individual post anywhere in the post.
+
+[rsfa_by_postid] shortcode is for displaying featured audio of any post anywhere you want, you just need to pass a vaild post id to it e.g. [rsfa_by_postid post_id="281"]
+
+You can send a feedback or a feature request at [github.com/JetixWP/really-simple-featured-audio](https://github.com/JetixWP/really-simple-featured-audio) Or create a thread at forums here, in any case.
+
+== 👉️ Premium Features ==
+
+Really Simple Featured Audio PRO plugin supports additional features, where we can continue to keep them maintained and updated.
+We get quite a few requests from you guys, and the plugin offers most if not all features from these requests while we continuously work towards adding more and more useful features.
+
+<strong>RSFA PRO plugin includes these features -</strong>
+
+* ✅ **Change Audio Aspect Ratio** - Apply sitewide featured audio aspect ratio such as 16:9, 3:2, 1:1 and more.
+* ✅ **Change Audio Order at Woo Product CPT** - Set audio order at single product pages of WooCommerce Product CPT.
+* ✅ **Support for more Premium/Custom Themes** - Loads additional compatibility for many supported Premium/Custom themes.
+* ✅ **Requests for Theme Compatibility** - We will take requests for additional theme compatibility.
+* ✅ **Priority Support** - Solving your problems are our priority with superfast response times.
+
+More features to come in the future, to name a few -
+
+* ✨ **Bricks Support**
+* ✨ **Featured Audio Blocks for Full Site Editing**
+* ✨ And more from your requests
+
+If you wish to grab the PRO version with a lifetime deal please do [checkout Pro at our website](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme)
+
+== Screenshots ==
+
+1. Single post/page featured audio on Twenty Twenty-Three theme.
+2. Featured audio posts on Twenty Twenty-Three theme.
+3. WooCommerce Product page with self-hosted Featured Audio.
+4. Settings page view.
+5. Audio playback controls view at Really Simple Featured Audio settings.
+6. WooCommerce settings page view.
+7. Single Page view with Featured audio on Twenty nineteen theme.
+8. Showing Featured audio by post id shortcode via Block editor.
+
+
+== Frequently Asked Questions ==
+
+= Is there a Pro version for this? =
+Yes, and is available for purchase from our site. If you wish to get a lifetime deal for our plugin please visit [our website here](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme).
+
+= Will this plugin work with any theme? =
+Yes, as long as the theme you use follows standard WordPress/WooCommerce way of handling post thumbnails, this plugin should work without any problems.
+
+= Where can I get help? =
+For the free version of this plugin, support is limited to support forums here.
+And if you're a Pro user, you can send a support ticket via the [account](https://jetixwp.com/account) page from our site for any query you may have, and we will get back to you at the earliest.
+
+== Changelog ==
+
+= 0.12.0 =
+- New: Elementor compatibility settings tab
+- New: WooCommerce Product CPT support enabled by default
+- Improvement: New and improved Settings Page UI
+- Improvement: Other minor changes
+- Improvement: Updated translation files
+
+= 0.11.0 =
+- Fix: Elementor template header logo getting replaced in some cases
+- Improvement: Other minor changes
+- Improvement: Update Freemius SDK to v2.7.2
+- Improvement: Updated translation files
+
+= 0.10.0 =
+- New: Global settings tab for options that apply sitewide
+- New: Add `rsfa_allowed_html` filter at allowed html array for easy mods
+- Improvement: Restructure plugin and theme providers
+- Improvement: Other minor changes
+- Improvement: Compatibility with WordPress v6.5.x
+- Improvement: Update Freemius SDK to v2.7.0
+- Improvement: Updated translation files
+
+= 0.9.0 =
+- New: WooCommerce settings now migrated to its own tab
+- New: Promo settings for supporting active development
+- Improvement: Updated translation files
+- Improvement: Other minor changes
+
+= 0.8.6 =
+- New: Support for Elementor and Elementor Pro Posts/archive widgets
+- New: Override wp_kses_post allowed html array for audios
+- Fix: Shortcode output markup for spacing between attributes
+- Improvement: Updated translation files
+
+= 0.8.5 =
+- New: Support for Salient Theme WPBakery Builder with Post Loop Builder element
+- New: Hide all plugin notices from Settings page
+- Fix: Hide WooCommerce product page placeholder thumbnail when with featured audio only
+- Improvement: Default featured audio markup getters
+- Improvement: Updated translation files
+
+= 0.8.4 =
+- New: Support for Astra Pro WooCommerce module with Vertical and Horizontal product galleries
+- New: Featured audio checkers and getters
+- Improvement: Featured audio display checks
+- Improvement: Major code changes
+
+= 0.8.2 - January 21, 2023 =
+- New: RSFA Pro announcement at sidebar
+- Improvement: Minor code changes
+
+= 0.8.1 - December 16, 2023 =
+- New: Support for Pro add on
+- Fix: Warning at reading $product
+- Fix: Warning at reading post_type
+- Fix: Empty $url variable warnings
+- Improvement: Improve supported CPT options
+- Improvements: Improved markup handlers
+- Improvement: Minor code changes
+
+= 0.8.0 - December 14, 2023 =
+- New: Add TwentyTwenty Four Theme support
+- New: Support for PHP 8.1
+- New: Bumped min required WordPress version to v6.0
+- Fix: Settings checkbox not being respected when saved
+- Fix: Duplicate thumbnails being shown at Woo product single pages
+- Fix: Embed URLs not being shown when directly copy/pasted
+- Fix: Core themes support
+- Improvement: Update Freemius SDK to v2.6.1
+- Improvement: Minor code changes
+- Improvement: Compatibility with WordPress v6.4.x
+
+= 0.7.2 - August 01, 2023 =
+- Improvement: Update Freemius SDK to v2.5.10
+
+= 0.7.1 - June 20, 2023 =
+- Fix: Default self hosted audio controls
+- Fix: WooCommerce placeholder images appearing below featured audio
+- Improvements: Other minor code improvements
+
+= 0.7.0 - May 22, 2023 =
+- New: Custom post types support (Available via settings)
+- Fix: Default audio playback controls
+- Fix: Default Theme Compatibility engine throwing error at frontend
+- Improvement: Update Freemius SDK to v2.5.8
+- Improvements: Code improvements
+
+= 0.6.0 - April 23, 2023 =
+- New: Theme Compatibility Engine and controls at settings
+- New: Integrations and controls at settings
+- New: WooCommerce shop archives now supported
+- New: Directly copy and paste Youtube, Vimeo and Dailymotion audio urls at embeds
+- Fix: Audio autoplay in iOS devices
+- Fix: Settings page throwing error in some cases
+- Fix: Other minor fixes
+- Fix: Missing textdomain in strings
+- Improvement: Update Freemius SDK to v2.5.6
+- Improvement: Remove settings sidebar
+- Improvement: Core FSE themes support and fallback for classic themes
+- Improvement: Compatibility with WordPress v6.2.x
+
+= 0.5.5 - July 15, 2022 =
+- Compatibility up to WordPress 6.0.1
+- Minor code improvements
+- Update settings sidebar
+
+= 0.5.4 - June 18, 2022 =
+- Fix styling issue at edit screen
+- Update translation .pot file
+
+= 0.5.3 - June 18, 2022 =
+- Fix shortcode issues
+- Improve security issues as per WPCS standards
+- other code improvements
+
+= 0.5.2 - June 16, 2022 =
+- Update Freemius version to v2.5.0rc-2 for security issue
+- Improve code as per WordPress Coding Standards
+- Fix metabox not showing as per Enabled CPT types at settings
+- Other code improvements
+
+= 0.5.1 - June 13, 2021 =
+- Fix missing updater file
+
+= 0.5.0 - June 12, 2021 =
+- Adds Youtube, Dailymotion & Vimeo support
+- Update settings page
+- Other code improvements
+
+= 0.0.3 - January 11, 2021 =
+- Add option for Audio controls, loop, mute & picture-in-picture at Settings
+- Added Freemius for better customer feedback & support
+- Other minor improvements
+
+= 0.0.2 - September 15, 2020 =
+- Fix array_keys throwing error when post_types option empty
+- Add Settings action link at plugins page
+
+= 0.0.1 - September 13, 2020 =
+- Initial release

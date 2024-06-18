@@ -1,0 +1,15 @@
+.idea/
+.vscode/
+.DS_Store
+node_modules
+/vendor
+/includes/vendor
+/includes/composer.json
+/yarn-error.log
+/build
+/third-party
+phpcs.xml
+gulp.config.json
+report.txt
+really-simple-featured-audio.zip
+/freemius/assets/img
