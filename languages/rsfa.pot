@@ -1,0 +1,287 @@
+# Copyright (C) 2024 JetixWP Plugins
+# This file is distributed under the GPL2.
+msgid ""
+msgstr ""
+"Project-Id-Version: Really Simple Featured Audio 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/really-simple-featured-audio\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-06-19T17:35:54+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: really-simple-featured-audio\n"
+
+#. Plugin Name of the plugin
+#: really-simple-featured-audio.php
+#: includes/Settings/class-register.php:59
+#: includes/Settings/Views/html-admin-settings.php:26
+msgid "Really Simple Featured Audio"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: really-simple-featured-audio.php
+msgid "https://jetixwp.com/plugins/really-simple-featured-audio"
+msgstr ""
+
+#. Description of the plugin
+#: really-simple-featured-audio.php
+msgid "Adds support for Featured Audio to WordPress posts, pages & WooCommerce products."
+msgstr ""
+
+#. Author of the plugin
+#: really-simple-featured-audio.php
+msgid "JetixWP Plugins"
+msgstr ""
+
+#. Author URI of the plugin
+#: really-simple-featured-audio.php
+msgid "https://jetixwp.com"
+msgstr ""
+
+#: includes/class-metabox.php:68
+msgid "Featured Audio"
+msgstr ""
+
+#: includes/class-metabox.php:90
+msgid "Insert Audio"
+msgstr ""
+
+#: includes/class-metabox.php:91
+msgid "Use this audio"
+msgstr ""
+
+#: includes/class-metabox.php:119
+msgid "Upload Audio"
+msgstr ""
+
+#: includes/class-metabox.php:152
+msgid "Remove Audio"
+msgstr ""
+
+#: includes/class-metabox.php:159
+msgid "Audio url goes here"
+msgstr ""
+
+#: includes/class-metabox.php:160
+msgid "Directly copy &amp; paste audio urls from anywhere. Should be the absolute audio file ending with .mp3/.wav etc e.g. example.com/file/audio.mp3."
+msgstr ""
+
+#: includes/class-metabox.php:167
+msgid "Self"
+msgstr ""
+
+#: includes/class-metabox.php:175
+msgid "Embed"
+msgstr ""
+
+#: includes/class-metabox.php:181
+msgid "Please select a audio source"
+msgstr ""
+
+#: includes/class-plugin.php:195
+msgid "Settings"
+msgstr ""
+
+#: includes/class-shortcode.php:67
+msgid "Please add a post id!"
+msgstr ""
+
+#: includes/Compatibility/class-plugin-provider.php:45
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:30
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/Compatibility/class-plugin-provider.php:51
+msgid "Astra Pro"
+msgstr ""
+
+#: includes/Compatibility/class-plugin-provider.php:57
+msgid "Salient Core"
+msgstr ""
+
+#: includes/Compatibility/class-plugin-provider.php:63
+#: includes/Compatibility/Plugins/Elementor/class-settings.php:25
+msgid "Elementor"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:55
+msgid "Default"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:60
+msgid "Twenty Twenty"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:65
+msgid "Twenty Twenty-One"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:70
+msgid "Twenty Twenty-Two"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:75
+msgid "Twenty Twenty-Three"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:80
+msgid "Twenty Twenty-Four"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:122
+msgid "Failed at registration"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:123
+msgid "Unregistered"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:159
+msgid "Disabled (Legacy)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:160
+msgid "Auto (Do it for me)"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/class-settings.php:58
+msgid "Disable Elementor Support"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/class-settings.php:59
+msgid "Toggle this on if in Elementor you see the site logo, footer logo or any other part of the site images getting replaced with featured audio."
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-compatibility.php:112
+msgid "Products"
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:63
+msgid "Show audios at Product archives"
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:64
+msgid "When toggled on, it shows set audios at product archives such as Shop and Product category etc."
+msgstr ""
+
+#: includes/Settings/class-admin-settings.php:74
+msgid "Your settings have been saved."
+msgstr ""
+
+#: includes/Settings/class-admin-settings.php:132
+msgid "The changes you made will be lost if you navigate away from this page."
+msgstr ""
+
+#: includes/Settings/class-admin-settings.php:322
+msgid "Pro"
+msgstr ""
+
+#: includes/Settings/class-admin-settings.php:478
+msgid "Checkout Pro now"
+msgstr ""
+
+#: includes/Settings/class-admin-settings.php:539
+#: includes/Settings/class-admin-settings.php:604
+msgid "Toggle"
+msgstr ""
+
+#: includes/Settings/class-register.php:58
+msgid "Really Simple Featured Audio Settings"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:22
+#: includes/Settings/Tabs/class-controls.php:38
+msgid "Controls"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:35
+msgid "Note: Autoplay will only work if mute sound is enabled as per browser policy."
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:39
+msgid "Autoplay"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:40
+msgid "Loop"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:41
+msgid "Mute sound"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:50
+msgctxt "settings title"
+msgid "Self-hosted audios"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:51
+msgid "Please select the controls you wish to enable for your self hosted audios."
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:73
+msgctxt "settings title"
+msgid "Embed audios"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:74
+msgid "Please select the controls you wish to enable for your embedded audios."
+msgstr ""
+
+#: includes/Settings/Tabs/class-general.php:25
+msgid "General"
+msgstr ""
+
+#: includes/Settings/Tabs/class-general.php:81
+msgctxt "settings title"
+msgid "Theme Compatibility Engine"
+msgstr ""
+
+#: includes/Settings/Tabs/class-general.php:82
+msgid "If featured audios aren't working as expected in your theme, you may need to set this from the list of supported theme engines. (Default engine follows standard WordPress rules, and may not work for all themes)"
+msgstr ""
+
+#: includes/Settings/Tabs/class-general.php:92
+msgid "Status"
+msgstr ""
+
+#: includes/Settings/Tabs/class-general.php:95
+msgid "Auto"
+msgstr ""
+
+#: includes/Settings/Tabs/class-general.php:101
+msgid "Set engine"
+msgstr ""
+
+#: includes/Settings/Tabs/class-general.php:113
+msgctxt "settings title"
+msgid "Enable Post Types Support"
+msgstr ""
+
+#: includes/Settings/Tabs/class-general.php:114
+msgid "Please select the post types you wish to enable featured audio support at."
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:24
+msgid "Global"
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:40
+msgctxt "settings title"
+msgid "Blogs & Archives"
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:51
+msgid "Show audios at Blog archives"
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:52
+msgid "When toggled on, it shows set audios at blog home and archives such as category, tag archives etc."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:66
+msgid "Save changes"
+msgstr ""
