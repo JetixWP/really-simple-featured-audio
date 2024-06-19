@@ -55,8 +55,8 @@ class Register {
 	public function register_menu() {
 		add_submenu_page(
 			'options-general.php',
-			__( 'Really Simple Featured Audio Settings', 'rsfa' ),
-			__( 'Really Simple Featured Audio', 'rsfa' ),
+			__( 'Really Simple Featured Audio Settings', 'really-simple-featured-audio' ),
+			__( 'Really Simple Featured Audio', 'really-simple-featured-audio' ),
 			'manage_options',
 			'rsfa-settings',
 			array( $this, 'settings_page' )

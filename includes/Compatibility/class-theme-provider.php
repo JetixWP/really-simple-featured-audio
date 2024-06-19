@@ -52,32 +52,32 @@ class Theme_Provider {
 			'rsfa_theme_compatibility_engines',
 			array(
 				'default'           => array(
-					'title'       => __( 'Default', 'rsfa' ),
+					'title'       => __( 'Default', 'really-simple-featured-audio' ),
 					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/Fallback/class-compatibility.php',
 					'class'       => 'RSFA\Compatibility\Themes\Fallback\Compatibility',
 				),
 				'twentytwenty'      => array(
-					'title'       => __( 'Twenty Twenty', 'rsfa' ),
+					'title'       => __( 'Twenty Twenty', 'really-simple-featured-audio' ),
 					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/Core/Twentytwenty/class-compatibility.php',
 					'class'       => 'RSFA\Compatibility\Themes\Core\Twentytwenty\Compatibility',
 				),
 				'twentytwentyone'   => array(
-					'title'       => __( 'Twenty Twenty-One', 'rsfa' ),
+					'title'       => __( 'Twenty Twenty-One', 'really-simple-featured-audio' ),
 					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/Core/Twentytwenty_One/class-compatibility.php',
 					'class'       => 'RSFA\Compatibility\Themes\Core\Twentytwenty_One\Compatibility',
 				),
 				'twentytwentytwo'   => array(
-					'title'       => __( 'Twenty Twenty-Two', 'rsfa' ),
+					'title'       => __( 'Twenty Twenty-Two', 'really-simple-featured-audio' ),
 					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/Core/Twentytwenty_Two/class-compatibility.php',
 					'class'       => 'RSFA\Compatibility\Themes\Core\Twentytwenty_Two\Compatibility',
 				),
 				'twentytwentythree' => array(
-					'title'       => __( 'Twenty Twenty-Three', 'rsfa' ),
+					'title'       => __( 'Twenty Twenty-Three', 'really-simple-featured-audio' ),
 					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/Core/Twentytwenty_Three/class-compatibility.php',
 					'class'       => 'RSFA\Compatibility\Themes\Core\Twentytwenty_Three\Compatibility',
 				),
 				'twentytwentyfour'  => array(
-					'title'       => __( 'Twenty Twenty-Four', 'rsfa' ),
+					'title'       => __( 'Twenty Twenty-Four', 'really-simple-featured-audio' ),
 					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/Core/Twentytwenty_Four/class-compatibility.php',
 					'class'       => 'RSFA\Compatibility\Themes\Core\Twentytwenty_Four\Compatibility',
 				),
@@ -119,8 +119,8 @@ class Theme_Provider {
 		$theme_compat = $theme_engines[ $theme_slug ]['class']::get_instance();
 
 		if ( ! $theme_compat instanceof Base_Compatibility ) {
-			$options->set( 'theme-engine-error', __( 'Failed at registration', 'rsfa' ) );
-			$options->set( 'active-theme-engine', __( 'Unregistered', 'rsfa' ) );
+			$options->set( 'theme-engine-error', __( 'Failed at registration', 'really-simple-featured-audio' ) );
+			$options->set( 'active-theme-engine', __( 'Unregistered', 'really-simple-featured-audio' ) );
 			return;
 		}
 
@@ -156,8 +156,8 @@ class Theme_Provider {
 	 */
 	public function get_selectable_engine_options() {
 		$selectable_engines = array(
-			'disabled' => __( 'Disabled (Legacy)', 'rsfa' ),
-			'auto'     => __( 'Auto (Do it for me)', 'rsfa' ),
+			'disabled' => __( 'Disabled (Legacy)', 'really-simple-featured-audio' ),
+			'auto'     => __( 'Auto (Do it for me)', 'really-simple-featured-audio' ),
 		);
 
 		$theme_engines = $this->get_theme_engines();

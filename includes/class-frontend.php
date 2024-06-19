@@ -186,73 +186,10 @@ class FrontEnd {
 			return $url;
 		}
 
-		$parsed = wp_parse_url( esc_url( $url ) );
+        // Maybe some regex processing here.
+		$escaped_url = esc_url( $url );
 
-		switch ( $parsed['host'] ) {
-			case 'www.youtube.com':
-			case 'youtube.com':
-			case 'youtu.be':
-				$pattern = '/(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|vi|e(?:mbed)?)\/|\S*?[?&]v=|\S*?[?&]vi=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
-
-				$result = preg_match( $pattern, $url, $matches );
-
-				if ( false !== $result ) {
-					$id = $matches[1];
-				} else {
-					$id = false;
-				}
-
-				return array(
-					'host' => 'youtube',
-					'id'   => $id,
-				);
-
-			case 'vimeo.com':
-			case 'player.vimeo.com':
-				$pattern = '/\/\/(?:www\.|player\.)?vimeo.com\/(?:channels\/(?:\w+\/)?|groups\/(?:[^\/]*)\/audios\/|album\/(?:\d+)\/audio\/|audio\/|)(\d+)(?:[a-zA-Z0-9_\-]+)?/i';
-
-				$result = preg_match(
-					$pattern,
-					$url,
-					$matches
-				);
-
-				if ( false !== $result ) {
-					$id = $matches[1];
-				} else {
-					$id = false;
-				}
-
-				return array(
-					'host' => 'vimeo',
-					'id'   => $id,
-				);
-
-			case 'dailymotion.com':
-			case 'www.dailymotion.com':
-			case 'dai.ly':
-				$pattern = '/^(?:(?:https?):)?(?:\/\/)?(?:www\.)?(?:(?:dailymotion\.com(?:\/embed|\/hub)?\/audio)|dai\.ly)\/([a-zA-Z0-9]+)(?:_[\w_-]+)?$/';
-
-				$result = preg_match(
-					$pattern,
-					$url,
-					$matches
-				);
-
-				if ( $result ) {
-					$id = $matches[1];
-				} else {
-					$id = false;
-				}
-
-				return array(
-					'host' => 'dailymotion',
-					'id'   => $id,
-				);
-
-			default:
-				return $url;
-		}
+        return $escaped_url;
 	}
 
 	/**
@@ -265,15 +202,12 @@ class FrontEnd {
 	public function generate_embed_url( $url ) {
 		$embed_data = $this->parse_embed_url( $url );
 
-		if ( is_array( $embed_data ) && isset( $embed_data['host'] ) && 'youtube' === $embed_data['host'] ) {
-			$embed_url = 'https://www.youtube.com/embed/' . $embed_data['id'];
-		} elseif ( is_array( $embed_data ) && isset( $embed_data['host'] ) && 'vimeo' === $embed_data['host'] ) {
-			$embed_url = 'https://player.vimeo.com/audio/' . $embed_data['id'];
-		} elseif ( is_array( $embed_data ) && isset( $embed_data['host'] ) && 'dailymotion' === $embed_data['host'] ) {
-			$embed_url = 'https://www.dailymotion.com/embed/audio/' . $embed_data['id'];
-		} else {
-			$embed_url = $url;
-		}
+        // Do some post-processing here.
+		if ( ! empty( $embed_data) ) {
+            $embed_url = $embed_data;
+        } else {
+            $embed_url = '';
+        }
 
 		return $embed_url;
 	}
@@ -295,19 +229,8 @@ class FrontEnd {
 					'loop'                 => array(),
 					'muted'                => array(),
 					'controls'             => array(),
-					'autopictureinpicture' => array(),
 					'autoplay'             => array(),
 					'playsinline'          => array(),
-				),
-				'iframe' => array(
-					'id'              => array(),
-					'class'           => array(),
-					'src'             => array(),
-					'width'           => array(),
-					'style'           => array(),
-					'height'          => array(),
-					'frameborder'     => array(),
-					'allowfullscreen' => array(),
 				),
 				'div'    => array(
 					'class'             => array(),

@@ -19,7 +19,7 @@ class Controls extends Settings_Page {
 	 */
 	public function __construct() {
 		$this->id    = 'controls';
-		$this->label = __( 'Controls', 'rsfa' );
+		$this->label = __( 'Controls', 'really-simple-featured-audio' );
 
 		parent::__construct();
 	}
@@ -32,14 +32,13 @@ class Controls extends Settings_Page {
 	 * @return array
 	 */
 	public function get_settings( $current_section = '' ) {
-		$autoplay_note = __( 'Note: Autoplay will only work if mute sound is enabled as per browser policy.', 'rsfa' );
+		$autoplay_note = __( 'Note: Autoplay will only work if mute sound is enabled as per browser policy.', 'really-simple-featured-audio' );
 
 		$control_options = array(
-			'controls' => __( 'Controls', 'rsfa' ),
-			'autoplay' => __( 'Autoplay', 'rsfa' ),
-			'loop'     => __( 'Loop', 'rsfa' ),
-			'pip'      => __( 'Picture in Picture', 'rsfa' ),
-			'mute'     => __( 'Mute sound', 'rsfa' ),
+			'controls' => __( 'Controls', 'really-simple-featured-audio' ),
+			'autoplay' => __( 'Autoplay', 'really-simple-featured-audio' ),
+			'loop'     => __( 'Loop', 'really-simple-featured-audio' ),
+			'mute'     => __( 'Mute sound', 'really-simple-featured-audio' ),
 		);
 
 		$default_controls = get_default_audio_controls();
@@ -48,8 +47,8 @@ class Controls extends Settings_Page {
 			'rsfa_controls_settings',
 			array(
 				array(
-					'title' => esc_html_x( 'Self-hosted audios', 'settings title', 'rsfa' ),
-					'desc'  => __( 'Please select the controls you wish to enable for your self hosted audios.', 'rsfa' ),
+					'title' => esc_html_x( 'Self-hosted audios', 'settings title', 'really-simple-featured-audio' ),
+					'desc'  => __( 'Please select the controls you wish to enable for your self hosted audios.', 'really-simple-featured-audio' ),
 					'class' => 'rsfa-self-audio-controls',
 					'type'  => 'content',
 					'id'    => 'rsfa-self-audio-controls',
@@ -71,8 +70,8 @@ class Controls extends Settings_Page {
 					'id'   => 'rsfa_self_audio_controls_title',
 				),
 				array(
-					'title' => esc_html_x( 'Embed audios', 'settings title', 'rsfa' ),
-					'desc'  => __( 'Please select the controls you wish to enable for your embedded audios.', 'rsfa' ),
+					'title' => esc_html_x( 'Embed audios', 'settings title', 'really-simple-featured-audio' ),
+					'desc'  => __( 'Please select the controls you wish to enable for your embedded audios.', 'really-simple-featured-audio' ),
 					'class' => 'rsfa-embed-audio-controls',
 					'type'  => 'content',
 					'id'    => 'rsfa-embed-audio-controls',

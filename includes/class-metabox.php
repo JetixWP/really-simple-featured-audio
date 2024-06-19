@@ -65,7 +65,7 @@ class Metabox {
 		// Get enabled post types.
 		$post_types = get_post_types();
 		if ( ! empty( $post_types ) ) {
-			add_meta_box( 'featured-audio', __( 'Featured Audio', 'rsfa' ), array( $this, 'upload_audio' ), $post_types, 'side', 'low' );
+			add_meta_box( 'featured-audio', __( 'Featured Audio', 'really-simple-featured-audio' ), array( $this, 'upload_audio' ), $post_types, 'side', 'low' );
 		}
 	}
 
@@ -87,8 +87,8 @@ class Metabox {
 				'rsfa_custom_script',
 				'RSFA',
 				array(
-					'uploader_title'    => __( 'Insert Audio', 'rsfa' ),
-					'uploader_btn_text' => __( 'Use this audio', 'rsfa' ),
+					'uploader_title'    => __( 'Insert Audio', 'really-simple-featured-audio' ),
+					'uploader_btn_text' => __( 'Use this audio', 'really-simple-featured-audio' ),
 				)
 			);
 		}
@@ -116,7 +116,7 @@ class Metabox {
 		// Get the meta value of audio embed url.
 		$embed_url = get_post_meta( $post->ID, RSFA_EMBED_META_KEY, true );
 
-		$image     = ' button">' . __( 'Upload Audio', 'rsfa' );
+		$image     = ' button">' . __( 'Upload Audio', 'really-simple-featured-audio' );
 		$display   = 'none';
 		$audio_url = wp_get_attachment_url( $audio_id );
 
@@ -134,16 +134,12 @@ class Metabox {
 		$is_muted = ( is_array( $audio_controls ) && isset( $audio_controls['mute'] ) ) && $audio_controls['mute'];
 		$is_muted = $is_muted ? 'muted' : '';
 
-		// Get PictureInPicture option.
-		$is_pip = ( is_array( $audio_controls ) && isset( $audio_controls['pip'] ) ) && $audio_controls['pip'];
-		$is_pip = $is_pip ? 'autopictureinpicture' : '';
-
 		// Get audio controls option.
 		$has_controls = ( is_array( $audio_controls ) && isset( $audio_controls['controls'] ) ) && $audio_controls['controls'];
 		$has_controls = $has_controls ? 'controls' : '';
 
 		if ( $audio_url ) {
-			$image   = '"><audio src="' . esc_url( $audio_url ) . '" style="max-width:95%;display:block;" ' . esc_attr( $has_controls ) . ' ' . esc_attr( $is_autoplay ) . ' ' . esc_attr( $is_loop ) . ' ' . esc_attr( $is_muted ) . ' ' . esc_attr( $is_pip ) . '></audio>';
+			$image   = '"><audio src="' . esc_url( $audio_url ) . '" style="max-width:95%;display:block;" ' . esc_attr( $has_controls ) . ' ' . esc_attr( $is_autoplay ) . ' ' . esc_attr( $is_loop ) . ' ' . esc_attr( $is_muted ) . ' ' . '></audio>';
 			$display = 'inline-block';
 		}
 
@@ -153,22 +149,22 @@ class Metabox {
 			RSFA_META_KEY,
 			$audio_id,
 			$display,
-			__( 'Remove Audio', 'rsfa' )
+			__( 'Remove Audio', 'really-simple-featured-audio' )
 		);
 
 		$embed_markup = sprintf(
 			'<div class="rsfa-embed"><input type="url" name="%1$s" id="%1$s" value="%2$s" placeholder="%3$s" /><span><br><br>%4$s</span></div>',
 			RSFA_EMBED_META_KEY,
 			$embed_url,
-			__( 'Audio url goes here', 'rsfa' ),
-			__( 'Directly copy &amp; paste audio urls from Youtube, Vimeo &amp; Dailymotion.', 'rsfa' )
+			__( 'Audio url goes here', 'really-simple-featured-audio' ),
+			__( 'Directly copy &amp; paste audio urls from anywhere. Should be the absolute audio file ending with .mp3/.wav etc e.g. example.com/file/audio.mp3.', 'really-simple-featured-audio' )
 		);
 
 		$self_input = sprintf(
 			'<input type="radio" id="self" name="%1$s" value="self" %2$s><label for="self">%3$s</label><br>%4$s',
 			RSFA_SOURCE_META_KEY,
 			checked( 'self', $audio_source, false ),
-			__( 'Self', 'rsfa' ),
+			__( 'Self', 'really-simple-featured-audio' ),
 			$uploader_markup
 		);
 
@@ -176,13 +172,13 @@ class Metabox {
 			'<input type="radio" id="embed" name="%1$s" value="embed" %2$s><label for="embed">%3$s</label><br>%4$s',
 			RSFA_SOURCE_META_KEY,
 			checked( 'embed', $audio_source, false ),
-			__( 'Embed', 'rsfa' ),
+			__( 'Embed', 'really-simple-featured-audio' ),
 			$embed_markup
 		);
 
 		$select_source = sprintf(
 			'<div><p>%1$s</p>%2$s%3$s</div>',
-			__( 'Please select a audio source', 'rsfa' ),
+			__( 'Please select a audio source', 'really-simple-featured-audio' ),
 			$self_input,
 			$embed_input
 		);
@@ -252,7 +248,6 @@ class Metabox {
 				'style'                => array(),
 				'loop'                 => array(),
 				'muted'                => array(),
-				'autopictureinpicture' => array(),
 				'autoplay'             => array(),
 				'controls'             => array(),
 			),

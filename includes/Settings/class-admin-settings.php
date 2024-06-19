@@ -71,7 +71,7 @@ class Admin_Settings {
 		do_action( 'rsfa_update_options_' . $current_tab );
 		do_action( 'rsfa_update_options' );
 
-		self::add_message( __( 'Your settings have been saved.', 'rsfa' ) );
+		self::add_message( __( 'Your settings have been saved.', 'really-simple-featured-audio' ) );
 
 		// Clear any unwanted data and flush rules.
 		update_option( 'rsfa_queue_flush_rewrite_rules', 'yes' );
@@ -129,7 +129,7 @@ class Admin_Settings {
 			'rsfa_settings',
 			'rsfa_settings_data',
 			array(
-				'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'rsfa' ),
+				'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'really-simple-featured-audio' ),
 			)
 		);
 
@@ -319,7 +319,7 @@ class Admin_Settings {
 					}
 					if ( ! empty( $value['title'] ) ) {
 						echo '<a href="' . esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ) . '" target="_blank">';
-						echo '<h2 id="' . esc_attr( sanitize_title( $value['id'] ) ) . '-content-title"><span class="pro-tag">' . esc_html__( 'Pro', 'rsfa' ) . '</span>' . esc_html( $value['title'] ) . '</h2></a>';
+						echo '<h2 id="' . esc_attr( sanitize_title( $value['id'] ) ) . '-content-title"><span class="pro-tag">' . esc_html__( 'Pro', 'really-simple-featured-audio' ) . '</span>' . esc_html( $value['title'] ) . '</h2></a>';
 					}
 					if ( ! empty( $value['desc'] ) ) {
 						echo '<p id="' . esc_attr( sanitize_title( $value['id'] ) ) . '-content-desc">' . wp_kses_post( $value['desc'] ) . '</p>';
@@ -475,7 +475,7 @@ class Admin_Settings {
 							}
 							?>
                                     </select> <?php echo $description; // phpcs:ignore   ?>
-									<a href="<?php echo esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ); ?>" target="_blank"><?php echo esc_html__( 'Checkout Pro now', 'rsfa' ); ?></a>
+									<a href="<?php echo esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ); ?>" target="_blank"><?php echo esc_html__( 'Checkout Pro now', 'really-simple-featured-audio' ); ?></a>
 								</td>
 							</tr>
 								<?php
@@ -536,7 +536,7 @@ class Admin_Settings {
 												<?php checked( isset( $option_value[ $key ] ) ? $option_value[ $key ] : 0, true ); ?>
 											/>
 											<span>
-												<span><?php esc_html_e( 'Toggle', 'rsfa' ); ?></span>
+												<span><?php esc_html_e( 'Toggle', 'really-simple-featured-audio' ); ?></span>
 											</span>
 											<p><?php echo esc_html( $val ); ?></p>
 										</label>
@@ -601,7 +601,7 @@ class Admin_Settings {
 								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
 							/> <?php echo esc_html( $description ); ?>
 							<?php if ( $value['switch'] ) { ?>
-								<span><?php esc_html_e( 'Toggle', 'rsfa' ); ?></span>
+								<span><?php esc_html_e( 'Toggle', 'really-simple-featured-audio' ); ?></span>
 							<?php } ?>
 						</label> <?php echo wp_kses( $tooltip_html, wp_kses_allowed_html() ); ?>
 					<?php

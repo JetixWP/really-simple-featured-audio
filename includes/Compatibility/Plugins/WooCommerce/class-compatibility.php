@@ -109,7 +109,7 @@ class Compatibility extends Base_Compatibility {
 	 * @return array Supported post types
 	 */
 	public function update_post_types( $post_types ) {
-		$post_types['product'] = __( 'Products', 'rsfa' );
+		$post_types['product'] = __( 'Products', 'really-simple-featured-audio' );
 
 		return $post_types;
 	}
@@ -168,14 +168,11 @@ class Compatibility extends Base_Compatibility {
 	public function generate_inline_styles() {
 		$styles = '';
 
-		// Set product audios to 16/9 aspect ratio.
-		$styles .= '.woocommerce ul.products li.product .woocommerce-product-gallery__image audio.rsfa-audio,
-				    .woocommerce ul.products li.product .woocommerce-product-gallery__image iframe.rsfa-audio,
-					.woocommerce div.product div.woocommerce-product-gallery figure.woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image audio.rsfa-audio,
-				 .woocommerce div.product div.woocommerce-product-gallery figure.woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image iframe.rsfa-audio,
-				 .woocommerce.product.rsfa-has-audio div.woocommerce-product-gallery figure.woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image audio.rsfa-audio,
-				 .woocommerce.product.rsfa-has-audio div.woocommerce-product-gallery figure.woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image iframe.rsfa-audio,
-				 { height: auto; width: 100% !important; aspect-ratio: 16/9; }';
+		// Set product audios to 3/2 aspect ratio.
+		$styles .= '.woocommerce ul.products li.product .woocommerce-product-gallery__image .rsfa-audio-wrapper,
+					.woocommerce div.product div.woocommerce-product-gallery figure.woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image .rsfa-audio-wrapper,
+				 .woocommerce.product.rsfa-has-audio div.woocommerce-product-gallery figure.woocommerce-product-gallery__wrapper .woocommerce-product-gallery__image .rsfa-audio-wrapper
+				 { height: auto; width: 100% !important; aspect-ratio: 3/2; display: flex; align-items: center; background: rgba(0, 0, 0, 0.1); padding: 20px; box-sizing: border-box; }';
 
 		$styles .= '.woocommerce-loop-product__title { margin-top: 20px; }';
 
@@ -217,9 +214,6 @@ class Compatibility extends Base_Compatibility {
 		// Get mute option.
 		$is_muted = is_array( $audio_controls ) && isset( $audio_controls['mute'] );
 
-		// Get PictureInPicture option.
-		$is_pip = is_array( $audio_controls ) && isset( $audio_controls['pip'] );
-
 		// Get audio controls option.
 		$has_controls = is_array( $audio_controls ) && isset( $audio_controls['controls'] );
 
@@ -244,11 +238,10 @@ class Compatibility extends Base_Compatibility {
 					$is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
 					$is_loop      = $is_loop ? 'loop' : '';
 					$is_muted     = $is_muted ? 'muted' : '';
-					$is_pip       = $is_pip ? 'autopictureinpicture' : '';
 					$has_controls = $has_controls ? 'controls' : '';
 
 					if ( $audio_url ) {
-						$audio_html = '<div class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '"' . esc_attr( $wrapper_attributes ) . '><audio class="rsfa-audio" id="rsfa_audio_' . $id . '" src="' . $audio_url . '" style="max-width:100%;display:block;" ' . "{$has_controls} {$is_autoplay} {$is_loop} {$is_muted} {$is_pip}" . '></audio></div>';
+						$audio_html = '<div class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '"' . esc_attr( $wrapper_attributes ) . '><div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa_audio_' . $id . '" src="' . $audio_url . '" style="max-width:100%;display:block;" ' . "{$has_controls} {$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div></div>';
 					}
 				} else {
 					// Get the meta value of audio embed url.
@@ -257,15 +250,14 @@ class Compatibility extends Base_Compatibility {
 					// Generate audio embed url.
 					$embed_url = Plugin::get_instance()->frontend_provider->generate_embed_url( $input_url );
 
-					// Prepare mark up attributes.
-					$is_autoplay  = $is_autoplay ? 'autoplay=1&' : 'autoplay=0&';
-					$is_loop      = $is_loop ? 'loop=1&' : '';
-					$is_muted     = $is_muted ? 'mute=1&muted=1&' : '';
-					$is_pip       = $is_pip ? 'picture-in-picture=1&' : '';
-					$has_controls = $has_controls ? 'controls=1&' : 'controls=0&';
+                    // Prepare mark up attributes.
+                    $is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
+                    $is_loop      = $is_loop ? 'loop' : '';
+                    $is_muted     = $is_muted ? 'muted' : '';
+                    $has_controls = $has_controls ? 'controls' : '';
 
 					if ( $embed_url ) {
-						$audio_html = '<div class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '" ' . esc_attr( $wrapper_attributes ) . '><iframe class="rsfa-audio" width="100%" height="540" src="' . $embed_url . "?{$has_controls}{$is_autoplay}{$is_loop}{$is_muted}{$is_pip}" . '" allow="" frameborder="0"></iframe></div>';
+						$audio_html = '<div class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '" ' . esc_attr( $wrapper_attributes ) . '><div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa_audio_' . $id . '" src="' . $embed_url . '" ' . "{$has_controls} {$is_autoplay} {$is_loop} {$is_muted}" . '"></audio></div></div>';
 					}
 				}
 			}

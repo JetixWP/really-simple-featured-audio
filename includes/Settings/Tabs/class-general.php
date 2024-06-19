@@ -22,7 +22,7 @@ class General extends Settings_Page {
 	 */
 	public function __construct() {
 		$this->id    = 'general';
-		$this->label = __( 'General', 'rsfa' );
+		$this->label = __( 'General', 'really-simple-featured-audio' );
 
 		parent::__construct();
 	}
@@ -78,8 +78,8 @@ class General extends Settings_Page {
 
 		$settings = array(
 			array(
-				'title' => esc_html_x( 'Theme Compatibility Engine', 'settings title', 'rsfa' ),
-				'desc'  => __( 'If featured audios aren\'t working as expected in your theme, you may need to set this from the list of supported theme engines. (Default engine follows standard WordPress rules, and may not work for all themes)', 'rsfa' ),
+				'title' => esc_html_x( 'Theme Compatibility Engine', 'settings title', 'really-simple-featured-audio' ),
+				'desc'  => __( 'If featured audios aren\'t working as expected in your theme, you may need to set this from the list of supported theme engines. (Default engine follows standard WordPress rules, and may not work for all themes)', 'really-simple-featured-audio' ),
 				'class' => 'rsfa-theme-compatibility-engine',
 				'type'  => 'content',
 				'id'    => 'rsfa-theme-compatibility',
@@ -89,16 +89,16 @@ class General extends Settings_Page {
 				'id'   => 'rsfa_theme_support_title',
 			),
 			array(
-				'title'   => __( 'Status', 'rsfa' ),
+				'title'   => __( 'Status', 'really-simple-featured-audio' ),
 				'desc'    => '',
 				'id'      => 'theme-engine-status',
-				'default' => __( 'Auto', 'rsfa' ),
+				'default' => __( 'Auto', 'really-simple-featured-audio' ),
 				'class'   => 'disabled' !== $current_engine ? 'engine-active' : 'engine-inactive',
 				'type'    => 'status',
 				'current' => $compatibility_engines[ $current_engine ] ?? $current_engine,
 			),
 			array(
-				'title'   => __( 'Set engine', 'rsfa' ),
+				'title'   => __( 'Set engine', 'really-simple-featured-audio' ),
 				'desc'    => '',
 				'id'      => 'theme-compatibility-engine',
 				'default' => 'auto',
@@ -110,8 +110,8 @@ class General extends Settings_Page {
 				'id'   => 'rsfa_theme_support_title',
 			),
 			array(
-				'title' => esc_html_x( 'Enable Post Types Support', 'settings title', 'rsfa' ),
-				'desc'  => __( 'Please select the post types you wish to enable featured audio support at.', 'rsfa' ),
+				'title' => esc_html_x( 'Enable Post Types Support', 'settings title', 'really-simple-featured-audio' ),
+				'desc'  => __( 'Please select the post types you wish to enable featured audio support at.', 'really-simple-featured-audio' ),
 				'class' => 'rsfa-enable-post-types',
 				'type'  => 'content',
 				'id'    => 'rsfa-enable-post-types',

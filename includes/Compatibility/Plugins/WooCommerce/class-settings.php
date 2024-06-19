@@ -27,7 +27,7 @@ class Settings extends Settings_Page {
 	 */
 	public function __construct() {
 		$this->id    = 'woocommerce';
-		$this->label = __( 'WooCommerce', 'rsfa' );
+		$this->label = __( 'WooCommerce', 'really-simple-featured-audio' );
 
 		parent::__construct();
 	}
@@ -60,8 +60,8 @@ class Settings extends Settings_Page {
 					'id'   => 'rsfa_woocommerce_title',
 				),
 				array(
-					'title'   => __( 'Show audios at Product archives', 'rsfa' ),
-					'desc'    => __( 'When toggled on, it shows set audios at product archives such as Shop and Product category etc.', 'rsfa' ),
+					'title'   => __( 'Show audios at Product archives', 'really-simple-featured-audio' ),
+					'desc'    => __( 'When toggled on, it shows set audios at product archives such as Shop and Product category etc.', 'really-simple-featured-audio' ),
 					'id'      => 'product_archives_visibility',
 					'default' => true,
 					'type'    => 'checkbox',

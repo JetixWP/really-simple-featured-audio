@@ -22,7 +22,7 @@ class Settings extends Settings_Page {
 	 */
 	public function __construct() {
 		$this->id    = 'elementor';
-		$this->label = __( 'Elementor', 'rsfa' );
+		$this->label = __( 'Elementor', 'really-simple-featured-audio' );
 
 		parent::__construct();
 	}
@@ -55,8 +55,8 @@ class Settings extends Settings_Page {
 					'id'   => 'rsfa_elementor_title',
 				),
 				array(
-					'title'   => __( 'Disable Elementor Support', 'rsfa' ),
-					'desc'    => __( 'Toggle this on if in Elementor you see the site logo, footer logo or any other part of the site images getting replaced with featured audio.', 'rsfa' ),
+					'title'   => __( 'Disable Elementor Support', 'really-simple-featured-audio' ),
+					'desc'    => __( 'Toggle this on if in Elementor you see the site logo, footer logo or any other part of the site images getting replaced with featured audio.', 'really-simple-featured-audio' ),
 					'id'      => 'disable_elementor_support',
 					'default' => false,
 					'type'    => 'checkbox',

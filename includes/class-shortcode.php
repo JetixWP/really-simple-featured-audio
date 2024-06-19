@@ -64,7 +64,7 @@ class Shortcode {
 	 */
 	public function show_audio_by_post_id( $atts ) {
 		if ( is_array( $atts ) && ! isset( $atts['post_id'] ) ) {
-			return esc_html__( 'Please add a post id!', 'rsfa' );
+			return esc_html__( 'Please add a post id!', 'really-simple-featured-audio' );
 		}
 
 		$post = get_post( $atts['post_id'] );
@@ -99,9 +99,6 @@ class Shortcode {
 		// Get mute option.
 		$is_muted = ( is_array( $audio_controls ) && isset( $audio_controls['mute'] ) ) && $audio_controls['mute'];
 
-		// Get PictureInPicture option.
-		$is_pip = ( is_array( $audio_controls ) && isset( $audio_controls['pip'] ) ) && $audio_controls['pip'];
-
 		// Get audio controls option.
 		$has_controls = ( is_array( $audio_controls ) && isset( $audio_controls['controls'] ) ) && $audio_controls['controls'];
 
@@ -116,11 +113,10 @@ class Shortcode {
 					$is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
 					$is_loop      = $is_loop ? 'loop' : '';
 					$is_muted     = $is_muted ? 'muted' : '';
-					$is_pip       = $is_pip ? 'autopictureinpicture' : '';
 					$has_controls = $has_controls ? 'controls' : '';
 
 					if ( $audio_url ) {
-						return '<audio class="rsfa-audio" id="rsfa-audio-' . esc_attr( $post_id ) . '" src="' . esc_url( $audio_url ) . '" style="max-width:100%;display:block;" ' . esc_attr( $has_controls ) . ' ' . esc_attr( $is_autoplay ) . ' ' . esc_attr( $is_loop ) . ' ' . esc_attr( $is_muted ) . ' ' . esc_attr( $is_pip ) . '></audio>';
+						return '<div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa-audio-' . esc_attr( $post_id ) . '" src="' . esc_url( $audio_url ) . '" style="max-width:100%;display:block;" ' . esc_attr( $has_controls ) . ' ' . esc_attr( $is_autoplay ) . ' ' . esc_attr( $is_loop ) . ' ' . esc_attr( $is_muted ) . ' ' . '></audio></div>';
 					}
 				}
 
@@ -130,15 +126,14 @@ class Shortcode {
 				// Generate audio embed URL.
 				$embed_url = Plugin::get_instance()->frontend_provider->generate_embed_url( $input_url );
 
-				// Prepare mark up attributes.
-				$is_autoplay  = $is_autoplay ? 'autoplay=1&' : 'autoplay=0&';
-				$is_loop      = $is_loop ? 'loop=1&' : '';
-				$is_muted     = $is_muted ? 'mute=1&muted=1&' : '';
-				$is_pip       = $is_pip ? 'picture-in-picture=1&' : '';
-				$has_controls = $has_controls ? 'controls=1&' : 'controls=0&';
+                // Prepare mark up attributes.
+                $is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
+                $is_loop      = $is_loop ? 'loop' : '';
+                $is_muted     = $is_muted ? 'muted' : '';
+                $has_controls = $has_controls ? 'controls' : '';
 
 				if ( $embed_url ) {
-					return '<div><iframe class="rsfa-audio" width="100%" height="540" src="' . esc_url( $embed_url . '?' . esc_attr( $has_controls ) . esc_attr( $is_autoplay ) . esc_attr( $is_loop ) . esc_attr( $is_muted ) . esc_attr( $is_pip ) ) . '" allow="" frameborder="0"></iframe></div>';
+					return '<div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa-audio-' . esc_attr( $post_id ) . '" src="' . esc_url( $embed_url ) . '" ' . esc_attr( $has_controls ) . esc_attr( $is_autoplay ) . esc_attr( $is_loop ) . esc_attr( $is_muted ) . '"></audio></div>';
 				}
 			}
 		}

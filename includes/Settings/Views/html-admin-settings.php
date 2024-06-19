@@ -23,7 +23,7 @@ if ( ! $tab_exists ) {
 	<div class="plugin-header">
 		<div class="plugin-header-wrap">
 			<div class="plugin-info">
-				<h1 class="menu-title"><?php esc_html_e( 'Really Simple Featured Audio', 'rsfa' ); ?></h1>
+				<h1 class="menu-title"><?php esc_html_e( 'Really Simple Featured Audio', 'really-simple-featured-audio' ); ?></h1>
 				<?php do_action( 'rsfa_extend_plugin_header' ); ?>
 				<div class="plugin-version">
 					<span>v<?php echo esc_html( RSFA_VERSION ); ?></span>
@@ -63,7 +63,7 @@ if ( ! $tab_exists ) {
 					?>
 					<p class="submit">
 						<?php if ( empty( $GLOBALS['hide_save_button'] ) ) : ?>
-							<button name="save" class="button-primary rsfa-save-button" type="submit" value="<?php esc_attr_e( 'Save changes', 'rsfa' ); ?>"><?php esc_html_e( 'Save changes', 'rsfa' ); ?></button>
+							<button name="save" class="button-primary rsfa-save-button" type="submit" value="<?php esc_attr_e( 'Save changes', 'really-simple-featured-audio' ); ?>"><?php esc_html_e( 'Save changes', 'really-simple-featured-audio' ); ?></button>
 						<?php endif; ?>
 						<?php wp_nonce_field( 'rsfa-settings' ); ?>
 					</p>

@@ -151,7 +151,7 @@ final class Plugin {
 	 * @return void
 	 */
 	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'rsfa', false, dirname( RSFA_PLUGIN_BASE ) . '/languages/' );
+		load_plugin_textdomain( 'really-simple-featured-audio', false, dirname( RSFA_PLUGIN_BASE ) . '/languages/' );
 	}
 
 	/**
@@ -192,7 +192,7 @@ final class Plugin {
 
 		return array_merge(
 			array(
-				'settings' => "<a href='{$settings_url}'>" . esc_html__( 'Settings', 'rsfa' ) . '</a>',
+				'settings' => "<a href='{$settings_url}'>" . esc_html__( 'Settings', 'really-simple-featured-audio' ) . '</a>',
 			),
 			$actions
 		);
