@@ -8,7 +8,7 @@
  * Author URI:  https://jetixwp.com
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: rsfa
+ * Text Domain: really-simple-featured-audio
  * Domain Path: /languages/
  *
  * @package RSFA

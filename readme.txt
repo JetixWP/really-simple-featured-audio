@@ -1,4 +1,4 @@
-=== Really Simple Featured Audio - Featured audio support for Posts, Pages & WooCommerce Products ===
+=== Really Simple Featured Audio - Featured audio support for Posts, Pages & Products ===
 Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 7.4
@@ -22,6 +22,7 @@ You get a really simple settings page which has all the controls you need for ma
 == 👉️ Features ==
 
 * **Self host audios** - Upload and feature audios on posts/pages and WooCommerce products directly from your site.
+* **Embed support for Audio from external sources** – Embed audio files from anywhere directly at each post/page/product or any custom type that supports featured images.
 * **WooCommerce Single and Shop Archives Support** - A straightforward implementation for WooCommerce Product Featured Audio.
 * **Astra Pro WooCommerce Module Support** - Support for vertical and horizontal product galleries.
 * **Salient Theme WPBakery Builder Support** - Support for Post Loop Builder element with Salient theme.
@@ -60,23 +61,13 @@ You can send a feedback or a feature request at [github.com/JetixWP/really-simpl
 
 == Screenshots ==
 
-1. Single post/page featured audio on Twenty Twenty-Three theme.
-2. Featured audio posts on Twenty Twenty-Three theme.
-3. WooCommerce Product page with self-hosted Featured Audio.
-4. Settings page view.
-5. Audio playback controls view at Really Simple Featured Audio settings.
-6. WooCommerce settings page view.
-7. Single Page view with Featured audio on Twenty nineteen theme.
-8. Showing Featured audio by post id shortcode via Block editor.
-
-
 == Frequently Asked Questions ==
 
 = Will this plugin work with any theme? =
 Yes, as long as the theme you use follows standard WordPress/WooCommerce way of handling post thumbnails, this plugin should work without any problems.
 
 = Where can I get help? =
-For the free version of this plugin, support is limited to support forums here.
+You can get support at the forums here.
 
 == Changelog ==
 
