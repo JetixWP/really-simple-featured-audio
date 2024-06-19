@@ -34,12 +34,9 @@ class Updater {
 	 * @return void
 	 */
 	public function init() {
-		$routines = array(
-			'0.5.0' => 'upgrade_0_5',
-			'0.5.1' => 'upgrade_0_5',
-		);
+		$routines = array();
 
-		$version = get_option( self::OPTION, '0.0.3' );
+		$version = get_option( self::OPTION, '0.1.0' );
 
 		if ( version_compare( RSFA_VERSION, $version, '=' ) ) {
 			return;
@@ -74,28 +71,5 @@ class Updater {
 	protected function finish_up( $previous_version ) {
 		update_option( self::PREVIOUS_OPTION, $previous_version );
 		update_option( self::OPTION, RSFA_VERSION );
-	}
-
-	/**
-	 * Upgrade to 0.5.0 & 0.5.1
-	 *
-	 * @return void
-	 */
-	protected function upgrade_0_5() {
-		$set_options = array(
-			'autoplay' => Options::get_instance()->get( 'audio_autoplay' ),
-			'loop'     => Options::get_instance()->get( 'audio_loop' ),
-			'mute'     => Options::get_instance()->get( 'mute_audio' ),
-			'pip'      => Options::get_instance()->get( 'picture_in_picture' ),
-			'controls' => Options::get_instance()->get( 'audio_controls', true ),
-		);
-
-		$updated_values = array();
-
-		foreach ( $set_options as $option => $value ) {
-			$updated_values[ $option ] = $value ? $value : 0;
-		}
-
-		Options::get_instance()->set( 'self_audio_controls', $updated_values );
 	}
 }
