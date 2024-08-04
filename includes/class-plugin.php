@@ -228,7 +228,7 @@ final class Plugin {
 			// Modified html goes here.
 			return sprintf(
 			/* translators: %1$s is a link to RSFA's plugin page, %2$s is a link to JetixWP's website, and %3$s is the existing html,. */
-				__( '%1$s is developed and maintained by %2$s. %3$s', 'wp-migrate-db' ),
+				__( '%1$s is developed and maintained by %2$s. %3$s', 'really-simple-featured-audio' ),
 				'<a href="https://jetixwp.com/plugins/really-simple-featured-audio">Really Simple Featured Audio</a>',
 				'<a href="https://jetixwp.com/" target="_blank">JetixWP</a>',
 				$html

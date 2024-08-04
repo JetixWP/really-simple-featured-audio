@@ -41,25 +41,13 @@ class Plugin_Provider {
 		$this->plugin_engines = apply_filters(
 			'rsfa_plugin_compatibility_engines',
 			array(
-				'woocommerce'  => array(
+				'woocommerce' => array(
 					'title'            => __( 'WooCommerce', 'really-simple-featured-audio' ),
 					'file_source'      => self::COMPAT_DIR . 'WooCommerce/class-compatibility.php',
 					'class'            => 'RSFA\Compatibility\Plugins\WooCommerce\Compatibility',
 					'has_class_loaded' => 'WooCommerce',
 				),
-				'astra-addon'  => array(
-					'title'            => __( 'Astra Pro', 'really-simple-featured-audio' ),
-					'file_source'      => self::COMPAT_DIR . 'AstraPro/class-compatibility.php',
-					'class'            => 'RSFA\Compatibility\Plugins\AstraPro\Compatibility',
-					'has_class_loaded' => 'Astra_Addon_Update',
-				),
-				'salient-core' => array(
-					'title'            => __( 'Salient Core', 'really-simple-featured-audio' ),
-					'file_source'      => RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/SalientCore/class-compatibility.php',
-					'class'            => 'RSFA\Compatibility\Plugins\SalientCore\Compatibility',
-					'has_class_loaded' => 'Salient_Core',
-				),
-				'elementor'    => array(
+				'elementor'   => array(
 					'title'            => __( 'Elementor', 'really-simple-featured-audio' ),
 					'file_source'      => RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/Elementor/class-compatibility.php',
 					'class'            => 'RSFA\Compatibility\Plugins\Elementor\Compatibility',

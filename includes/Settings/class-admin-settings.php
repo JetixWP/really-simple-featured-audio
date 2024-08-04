@@ -357,7 +357,7 @@ class Admin_Settings {
 								class="<?php echo esc_attr( $value['class'] ); ?>"
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
 								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
-								/><?php echo esc_html( $value['suffix'] ); ?> <?php echo $description; // phpcs:ignore. ?>
+								/><?php echo esc_html( $value['suffix'] ); ?> <?php echo wp_kses_post( $description ); ?>
 						</td>
 					</tr>
 					<?php
@@ -440,7 +440,7 @@ class Admin_Settings {
 									<?php
 								}
 								?>
-							</select> <?php echo $description; // phpcs:ignore   ?>
+							</select> <?php echo wp_kses_post( $description ); ?>
 						</td>
 					</tr>
 					<?php
@@ -474,7 +474,7 @@ class Admin_Settings {
 											<?php
 							}
 							?>
-                                    </select> <?php echo $description; // phpcs:ignore   ?>
+									</select> <?php echo wp_kses_post( $description ); ?>
 									<a href="<?php echo esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ); ?>" target="_blank"><?php echo esc_html__( 'Checkout Pro now', 'really-simple-featured-audio' ); ?></a>
 								</td>
 							</tr>
@@ -522,7 +522,7 @@ class Admin_Settings {
 					?>
 					<tr valign="top">
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
-							<?php echo $description; // phpcs:ignore	?>
+							<?php echo wp_kses_post( $description ); ?>
 							<fieldset>
 								<ul>
 									<?php foreach ( $value['options'] as $key => $val ) : ?>
@@ -695,15 +695,11 @@ class Admin_Settings {
 	 * Loops though the RSFA options array and outputs each field.
 	 *
 	 * @param array $options Options array to output.
-	 * @param array $data    Optional. Data to use for saving. Defaults to $_POST.
 	 * @return bool
 	 */
-	public static function save_fields( $options, $data = null ) {
+	public static function save_fields( $options ) {
 		$nonce = isset( $_POST['_wpnonce'] ) ? sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ) : '';
-		if ( is_null( $data ) && wp_verify_nonce( $nonce, 'rsfa-settings' ) ) {
-			$data = $_POST;
-		}
-		if ( empty( $data ) ) {
+		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'rsfa-settings' ) ) {
 			return false;
 		}
 
@@ -722,11 +718,11 @@ class Admin_Settings {
 				parse_str( $option['id'], $option_name_array );
 				$option_name  = current( array_keys( $option_name_array ) );
 				$setting_name = key( $option_name_array[ $option_name ] );
-				$raw_value    = isset( $data[ $option_name ][ $setting_name ] ) ? wp_unslash( $data[ $option_name ][ $setting_name ] ) : null;
+				$raw_value    = isset( $_POST[ $option_name ][ $setting_name ] ) ? wp_unslash( $_POST[ $option_name ][ $setting_name ] ) : null;
 			} else {
 				$option_name  = $option['id'];
 				$setting_name = '';
-				$raw_value    = isset( $data[ $option['id'] ] ) ? wp_unslash( $data[ $option['id'] ] ) : null;
+				$raw_value    = isset( $_POST[ $option['id'] ] ) ? wp_unslash( $_POST[ $option['id'] ] ) : null;
 			}
 
 			// Format the value based on option type.

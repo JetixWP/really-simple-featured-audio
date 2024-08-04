@@ -1,9 +1,9 @@
 === Really Simple Featured Audio - Featured audio support for Posts, Pages & Products ===
 Contributors: jetixwp, lushkant
 Requires at least: 6.0
-Requires PHP: 7.4
-Tested up to: 6.5.4
-Stable tag: 0.1.0
+Requires PHP: 8.0
+Tested up to: 6.6.1
+Stable tag: 0.2.0
 Tags: audio, featured audio, woocommerce, product audio, audio embed
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -24,8 +24,6 @@ You get a really simple settings page which has all the controls you need for ma
 * **Self host audios** - Upload and feature audios on posts/pages and WooCommerce products directly from your site.
 * **Embed support for Audio from external sources** – Embed audio files from anywhere directly at each post/page/product or any custom type that supports featured images.
 * **WooCommerce Single and Shop Archives Support** - A straightforward implementation for WooCommerce Product Featured Audio.
-* **Astra Pro WooCommerce Module Support** - Support for vertical and horizontal product galleries.
-* **Salient Theme WPBakery Builder Support** - Support for Post Loop Builder element with Salient theme.
 * **Elementor Pro Support** - Support for Posts/archive widgets with Elementor Pro builder.
 * **Support for Core themes** - We support all the newer core themes such as TwentyTwenty Four to Classic themes.
 * **Audio Controls such as Autoplay, Mute and more** - Manage everything for the featured audios, by setting them accordingly, options for these are available at settings page.
@@ -36,14 +34,6 @@ You get a really simple settings page which has all the controls you need for ma
 
 This plugin came out of a real need with many plugins available out there yet none provides a good integration with WooCommerce.
 Really Simple Featured Audio plugin provides a straightforward implementation for WooCommerce Product Featured Audio, with which your set featured audio loads directly into product thumbnails along with any other product images.
-
-== 👉️ Astra Pro WooCommerce Module Support ==
-
-RSFA supports Astra Pro WooCommerce module with horizontal and vertical product gallery types, which in turn brings you more control and customizable features.
-
-== 👉️ Salient Theme WPBakery Builder Support ==
-
-RSFA supports Salient Theme WPBakery builder with its Post Loop Builder element, giving you more control and support for Custom post loops. You can also display Featured Audio on single pages via the shortcode - [rsfa].
 
 == 👉️ Elementor Pro Builder Support ==
 
@@ -70,6 +60,9 @@ Yes, as long as the theme you use follows standard WordPress/WooCommerce way of 
 You can get support at the forums here.
 
 == Changelog ==
+
+= 0.2.0 =
+- Wp.org review update
 
 = 0.1.0 =
 - Initial release

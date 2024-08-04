@@ -186,10 +186,10 @@ class FrontEnd {
 			return $url;
 		}
 
-        // Maybe some regex processing here.
+		// Maybe some regex processing here.
 		$escaped_url = esc_url( $url );
 
-        return $escaped_url;
+		return $escaped_url;
 	}
 
 	/**
@@ -202,12 +202,12 @@ class FrontEnd {
 	public function generate_embed_url( $url ) {
 		$embed_data = $this->parse_embed_url( $url );
 
-        // Do some post-processing here.
-		if ( ! empty( $embed_data) ) {
-            $embed_url = $embed_data;
-        } else {
-            $embed_url = '';
-        }
+		// Do some post-processing here.
+		if ( ! empty( $embed_data ) ) {
+			$embed_url = $embed_data;
+		} else {
+			$embed_url = '';
+		}
 
 		return $embed_url;
 	}
@@ -222,15 +222,15 @@ class FrontEnd {
 			'rsfa_allowed_html',
 			array(
 				'audio'  => array(
-					'id'                   => array(),
-					'class'                => array(),
-					'src'                  => array(),
-					'style'                => array(),
-					'loop'                 => array(),
-					'muted'                => array(),
-					'controls'             => array(),
-					'autoplay'             => array(),
-					'playsinline'          => array(),
+					'id'          => array(),
+					'class'       => array(),
+					'src'         => array(),
+					'style'       => array(),
+					'loop'        => array(),
+					'muted'       => array(),
+					'controls'    => array(),
+					'autoplay'    => array(),
+					'playsinline' => array(),
 				),
 				'div'    => array(
 					'class'             => array(),
@@ -259,17 +259,6 @@ class FrontEnd {
 				'strong' => array(),
 			)
 		);
-	}
-
-	/**
-	 * Generate dynamic CSS.
-	 *
-	 * @return string
-	 */
-	public function generate_dynamic_css() {
-		$css = '';
-
-		return apply_filters( 'rsfa_generated_dynamic_css', $css );
 	}
 
 	/**

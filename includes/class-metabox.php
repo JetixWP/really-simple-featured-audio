@@ -80,6 +80,10 @@ class Metabox {
 		if ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) {
 			// Enqueue all necessary WP Media APIs.
 			wp_enqueue_media();
+            // Enqueue CSS styles.
+            wp_enqueue_style( 'rsfa-custom-styles', RSFA_PLUGIN_URL . 'assets/css/edit-screen.css', array(), filemtime( RSFA_PLUGIN_DIR . 'assets/css/edit-screen.css' )  );
+
+
 			// Enqueue plugin script.
 			wp_enqueue_script( 'rsfa_custom_script', RSFA_PLUGIN_URL . 'assets/js/rsfa-media.js', array( 'jquery' ), RSFA_VERSION, true );
 
@@ -183,12 +187,9 @@ class Metabox {
 			$embed_input
 		);
 
-		$styles = '<style>.rsfa-self, .rsfa-embed { padding: 10px 0; } .remove-audio { margin-top: 6px; }</style>';
-
 		printf(
-			'%1$s%2$s',
+			'%1$s',
 			wp_kses( $select_source, $this->get_allowed_html() ),
-			wp_kses( $styles, $this->get_allowed_html() ),
 		);
 	}
 

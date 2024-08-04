@@ -15,7 +15,7 @@ $tab_exists        = isset( $tabs[ $current_tab ] ) || has_action( 'rsfa_section
 $current_tab_label = isset( $tabs[ $current_tab ] ) ? $tabs[ $current_tab ] : '';
 
 if ( ! $tab_exists ) {
-	wp_safe_redirect( admin_url( 'admin.php?page=rsfa-settings' ) );
+	wp_safe_redirect( admin_url( 'options-general.php?page=rsfa-settings' ) );
 	exit;
 }
 ?>
@@ -43,7 +43,7 @@ if ( ! $tab_exists ) {
 					<?php
 
 					foreach ( $tabs as $slug => $label ) {
-						echo '<a href="' . esc_html( admin_url( 'admin.php?page=rsfa-settings&tab=' . esc_attr( $slug ) ) ) . '" class="nav-tab ' . ( $current_tab === $slug ? 'nav-tab-active' : '' ) . '">' . esc_html( $label ) . '</a>';
+						echo '<a href="' . esc_html( admin_url( 'options-general.php?page=rsfa-settings&tab=' . esc_attr( $slug ) ) ) . '" class="nav-tab ' . ( $current_tab === $slug ? 'nav-tab-active' : '' ) . '">' . esc_html( $label ) . '</a>';
 					}
 
 					do_action( 'rsfa_settings_tabs' );

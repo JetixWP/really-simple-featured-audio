@@ -182,13 +182,13 @@ function rsfa_admin_fields( $options ) {
  * @param array $options Option fields to save.
  * @param array $data Passed data.
  */
-function rsfa_update_options( $options, $data = null ) {
+function rsfa_update_options( $options ) {
 
 	if ( ! class_exists( 'Admin_Settings', false ) ) {
 		include __DIR__ . '/class-admin-settings.php';
 	}
 
-	Admin_Settings::save_fields( $options, $data );
+	Admin_Settings::save_fields( $options );
 }
 
 /**
