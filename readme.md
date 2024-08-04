@@ -19,8 +19,6 @@ You get a really simple settings page which has all the controls you need for ma
 * **Self host audios** - Upload and feature audios on posts/pages and WooCommerce products directly from your site.
 * **Embed support for Audio from external sources** – Embed audio files from anywhere directly at each post/page/product or any custom type that supports featured images.
 * **WooCommerce Single and Shop Archives Support** - A straightforward implementation for WooCommerce Product Featured Audio.
-* **Astra Pro WooCommerce Module Support** - Support for vertical and horizontal product galleries.
-* **Salient Theme Builder (WPBakery) Support** - Support for Post Loop Builder element within Salient theme.
 * **Elementor Pro Support** - Support for Posts/archive widgets with Elementor Pro builder.
 * **Support for Core themes** - We support all the newer core themes such as TwentyTwenty Four to Classic themes.
 * **Audio Controls such as Autoplay, Mute and more** - Manage everything for the featured audios, by setting them accordingly, options for these are available at settings page.
