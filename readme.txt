@@ -3,7 +3,7 @@ Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
 Tested up to: 6.6.1
-Stable tag: 0.2.0
+Stable tag: 0.3.0
 Tags: audio, featured audio, woocommerce, product audio, audio embed
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -60,6 +60,9 @@ Yes, as long as the theme you use follows standard WordPress/WooCommerce way of 
 You can get support at the forums here.
 
 == Changelog ==
+
+= 0.3.0 =
+- Wp.org review update
 
 = 0.2.0 =
 - Wp.org review update
