@@ -690,6 +690,20 @@ class Admin_Settings {
 	}
 
 	/**
+	 * Conditionally sanitize data.
+	 *
+	 * @param mixed $data Could be anything but that's what we are sanitizing for.
+	 * @return array|string
+	 */
+	public static function sanitize_post_data( $data ) {
+		if ( is_array( $data ) ) {
+			return array_map( 'self::sanitize_post_data', $data );
+		} else {
+			return sanitize_text_field( $data );
+		}
+	}
+
+	/**
 	 * Save admin fields.
 	 *
 	 * Loops though the RSFA options array and outputs each field.
@@ -718,11 +732,13 @@ class Admin_Settings {
 				parse_str( $option['id'], $option_name_array );
 				$option_name  = current( array_keys( $option_name_array ) );
 				$setting_name = key( $option_name_array[ $option_name ] );
-				$raw_value    = isset( $_POST[ $option_name ][ $setting_name ] ) ? wp_unslash( $_POST[ $option_name ][ $setting_name ] ) : null;
+				// Review note: Using a custom method to sanitize data in case of arrays (for multi-selects) which under the hood uses sanitize_text_field efficiently for sanitizing data conditionally, please check the method 'sanitize_post_data' above.
+				$raw_value    = isset( $_POST[ $option_name ][ $setting_name ] ) ? self::sanitize_post_data( wp_unslash( $_POST[ $option_name ][ $setting_name ] ) ) : null; // phpcs:ignore.
 			} else {
 				$option_name  = $option['id'];
 				$setting_name = '';
-				$raw_value    = isset( $_POST[ $option['id'] ] ) ? wp_unslash( $_POST[ $option['id'] ] ) : null;
+				// Review note: Using a custom method to sanitize data in case of arrays (for multi-select fields) which under the hood uses sanitize_text_field efficiently for sanitizing data conditionally, please check the method 'sanitize_post_data' above.
+				$raw_value    = isset( $_POST[ $option['id'] ] ) ? self::sanitize_post_data( wp_unslash( $_POST[ $option['id'] ] ) ) : null; // phpcs:ignore.
 			}
 
 			// Format the value based on option type.
