@@ -50,6 +50,10 @@ There are also shortcodes to embed featured audio at any post, page or product y
 You can send a feedback or a feature request at [github.com/JetixWP/really-simple-featured-audio](https://github.com/JetixWP/really-simple-featured-audio) Or create a thread at forums here, in any case.
 
 == Screenshots ==
+1. Blog page with Featured audio on Twenty Twenty-Four theme.
+2. WooCommerce Shop page with Featured audio.
+3. Product page with Featured Audio gallery.
+4. Settings page view.
 
 == Frequently Asked Questions ==
 
