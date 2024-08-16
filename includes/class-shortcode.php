@@ -116,7 +116,7 @@ class Shortcode {
 					$has_controls = $has_controls ? 'controls' : '';
 
 					if ( $audio_url ) {
-						return '<div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa-audio-' . esc_attr( $post_id ) . '" src="' . esc_url( $audio_url ) . '" style="max-width:100%;display:block;" ' . esc_attr( $has_controls ) . ' ' . esc_attr( $is_autoplay ) . ' ' . esc_attr( $is_loop ) . ' ' . esc_attr( $is_muted ) . ' ' . '></audio></div>';
+						return '<div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa-audio-' . esc_attr( $post_id ) . '" src="' . esc_url( $audio_url ) . '" style="max-width:100%;display:block;" ' . "{$has_controls} {$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div>';
 					}
 				}
 
@@ -126,17 +126,16 @@ class Shortcode {
 				// Generate audio embed URL.
 				$embed_url = Plugin::get_instance()->frontend_provider->generate_embed_url( $input_url );
 
-                // Prepare mark up attributes.
-                $is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
-                $is_loop      = $is_loop ? 'loop' : '';
-                $is_muted     = $is_muted ? 'muted' : '';
-                $has_controls = $has_controls ? 'controls' : '';
+				// Prepare mark up attributes.
+				$has_controls = $has_controls ? 'controls' : '';
+				$is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
+				$is_loop      = $is_loop ? 'loop' : '';
+				$is_muted     = $is_muted ? 'muted' : '';
 
 				if ( $embed_url ) {
-					return '<div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa-audio-' . esc_attr( $post_id ) . '" src="' . esc_url( $embed_url ) . '" ' . esc_attr( $has_controls ) . esc_attr( $is_autoplay ) . esc_attr( $is_loop ) . esc_attr( $is_muted ) . '"></audio></div>';
+					return '<div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa-audio-' . esc_attr( $post_id ) . '" src="' . esc_url( $embed_url ) . '" ' . "{$has_controls} {$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div>';
 				}
 			}
 		}
 	}
-
 }

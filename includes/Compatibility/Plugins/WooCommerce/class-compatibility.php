@@ -250,14 +250,14 @@ class Compatibility extends Base_Compatibility {
 					// Generate audio embed url.
 					$embed_url = Plugin::get_instance()->frontend_provider->generate_embed_url( $input_url );
 
-                    // Prepare mark up attributes.
-                    $is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
-                    $is_loop      = $is_loop ? 'loop' : '';
-                    $is_muted     = $is_muted ? 'muted' : '';
-                    $has_controls = $has_controls ? 'controls' : '';
+					// Prepare mark up attributes.
+					$has_controls = $has_controls ? 'controls' : '';
+					$is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
+					$is_loop      = $is_loop ? 'loop' : '';
+					$is_muted     = $is_muted ? 'muted' : '';
 
 					if ( $embed_url ) {
-						$audio_html = '<div class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '" ' . esc_attr( $wrapper_attributes ) . '><div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa_audio_' . $id . '" src="' . $embed_url . '" ' . "{$has_controls} {$is_autoplay} {$is_loop} {$is_muted}" . '"></audio></div></div>';
+						$audio_html = '<div class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '" ' . esc_attr( $wrapper_attributes ) . '><div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa_audio_' . $id . '" src="' . $embed_url . '" ' . "{$has_controls} {$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div></div>';
 					}
 				}
 			}
@@ -329,7 +329,8 @@ class Compatibility extends Base_Compatibility {
 	public function modify_body_classes( $classes ) {
 		$options = Options::get_instance();
 
-		$product_archives_visibility = $options->get( 'product_archives_visibility' );
+		// Default is enabled.
+		$product_archives_visibility = $options->has( 'product_archives_visibility' ) ? $options->get( 'product_archives_visibility' ) : true;
 
 		if ( $product_archives_visibility && ( is_shop() || is_product_category() || is_product_tag() ) ) {
 			$classes[] = 'rsfa-archives-support';

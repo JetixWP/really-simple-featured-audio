@@ -1,9 +1,9 @@
-=== Really Simple Featured Audio - Featured audio support for Posts, Pages & Products ===
+=== Really Simple Featured Audio - Featured audio support for Posts, Pages & WooCommerce Products ===
 Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
 Tested up to: 6.6.1
-Stable tag: 0.3.0
+Stable tag: 0.4.0
 Tags: audio, featured audio, woocommerce, product audio, audio embed
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -12,7 +12,7 @@ Really Simple Featured Audio enables featured audio support for WordPress posts,
 
 == Description ==
 
-Really Simple Featured Audio plugin provides a really straightforward way of adding featured audio support to your custom post types. Adding your own audios to the site is a breeze and you get an easy to use settings panel with the options you really need.
+Really Simple Featured Audio plugin provides a really straightforward way of adding featured audio support to your custom post types. Host audio podcasts, blogs and Featured audio for WooCommerce products easily. Adding your own audios to the site is a breeze and you get an easy to use settings panel with the options you really need.
 
 With Really Simple Featured Audio you get a metabox at posts, pages, CPTs & Woo products edit screen at the very bottom and a very similar interface as you're used to with featured image.
 
@@ -22,7 +22,7 @@ You get a really simple settings page which has all the controls you need for ma
 == 👉️ Features ==
 
 * **Self host audios** - Upload and feature audios on posts/pages and WooCommerce products directly from your site.
-* **Embed support for Audio from external sources** – Embed audio files from anywhere directly at each post/page/product or any custom type that supports featured images.
+* **Embed support for Audio from external sources** – Embed audio files from anywhere (link should end in .mp3/wav or supported audio files) directly at each post/page/product or any custom type that supports featured images.
 * **WooCommerce Single and Shop Archives Support** - A straightforward implementation for WooCommerce Product Featured Audio.
 * **Elementor Pro Support** - Support for Posts/archive widgets with Elementor Pro builder.
 * **Support for Core themes** - We support all the newer core themes such as TwentyTwenty Four to Classic themes.
@@ -50,16 +50,25 @@ There are also shortcodes to embed featured audio at any post, page or product y
 You can send a feedback or a feature request at [github.com/JetixWP/really-simple-featured-audio](https://github.com/JetixWP/really-simple-featured-audio) Or create a thread at forums here, in any case.
 
 == Screenshots ==
+1. Blog page with Featured audio on Twenty Twenty-Four theme.
+2. WooCommerce Shop page with Featured audio.
+3. Product page with Featured Audio gallery.
+4. Settings page view.
 
 == Frequently Asked Questions ==
 
 = Will this plugin work with any theme? =
-Yes, as long as the theme you use follows standard WordPress/WooCommerce way of handling post thumbnails, this plugin should work without any problems.
+Well Yes and No, So Yes as long as the theme you use follows standard WordPress/WooCommerce way of handling post thumbnails, this plugin should work without any problems and No if the theme goes beyond the standard ways of Featured post thumbnails in such cases we need to add custom support for it.
 
 = Where can I get help? =
-You can get support at the forums here.
+You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 0.4.0 =
+- Wp.org release
+- Fixes issue at Woo Shop pages with new block themes
+- Other minor changes
 
 = 0.3.0 =
 - Wp.org review update
