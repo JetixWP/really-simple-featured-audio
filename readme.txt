@@ -3,8 +3,8 @@ Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
 Tested up to: 6.6.1
-Stable tag: 0.4.0
-Tags: audio, featured audio, woocommerce, product audio, audio embed
+Stable tag: 0.5.0
+Tags: audio, featured audio, woocommerce, product audio, featured
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,10 @@ Well Yes and No, So Yes as long as the theme you use follows standard WordPress/
 You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 0.5.0 =
+- Add Freemius SDK
+- Other minor changes
 
 = 0.4.0 =
 - Wp.org release
