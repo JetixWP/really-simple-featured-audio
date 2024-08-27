@@ -93,7 +93,7 @@ final class Plugin {
 			 *
 			 * Fires when RSFA is fully loaded and instantiated.
 			 *
-			 * @since 0.6.0
+			 * @since 0.5.0
 			 */
 			do_action( 'rsfa_loaded' );
 		}
