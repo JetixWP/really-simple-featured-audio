@@ -50,7 +50,7 @@ body.settings_page_rsfa-settings #wpcontent {
 
 .plugin-header .brand-info .brand-logo {
 	width: auto;
-	height: 2.25rem;
+	height: 2.75rem;
 }
 
 .rsfa-wrapper .nav-content {
@@ -444,7 +444,7 @@ body.settings_page_rsfa-settings #wpcontent {
 	padding: 4px 20px;
 }
 
-.rsfa .sidebar .upgrade-box,
+.rsfa .sidebar .help-box,
 .rsfa .notice-box {
 	background: #fff;
 	border: 1px solid #dcdcdc;
@@ -452,17 +452,17 @@ body.settings_page_rsfa-settings #wpcontent {
 }
 
 
-.rsfa .sidebar .upgrade-box > *,
+.rsfa .sidebar .help-box > *,
 .rsfa .notice-box > * {
 	margin-bottom: 15px;
 }
 
-.rsfa .sidebar .upgrade-box .desc,
+.rsfa .sidebar .help-box .desc,
 .rsfa .notice-box .desc {
 	font-size: 15px;
 }
 
-.rsfa .sidebar .upgrade-box .button.button-primary,
+.rsfa .sidebar .help-box .button.button-primary,
 .rsfa .notice-box .button.button-primary {
 	font-size: 16px;
 	width: 100%;
@@ -471,7 +471,7 @@ body.settings_page_rsfa-settings #wpcontent {
 	color: #fff;
 }
 
-.rsfa .upgrade-btn {
+.rsfa .help-btn {
 	padding: 6px 10px;
 	border: 2px solid transparent;
 	border-radius: 4px;

@@ -70,6 +70,27 @@ if ( ! $tab_exists ) {
 				</div>
 
 				<div class="sidebar">
+					<div class="help-box">
+						<div>
+							<h3>👋 Thank you for using our plugin!</h3>
+							<p class="desc">We are currently looking for user feedback to improve it further for most use cases. If you have something to suggest, please feel free to drop your request at - <a href="https://wordpress.org/support/plugin/really-simple-featured-audio/" target="_blank">the plugin support forum</a>.</p>
+						</div>
+						<div>
+							<p class="desc"><strong>If you find this useful,</strong> we really appreciate a review from you and it also helps us understand how you feel about this plugin - <a class="desc" href="https://wordpress.org/support/plugin/really-simple-featured-audio/reviews/#new-post" target="_blank">Review this plugin</a>
+							</p>
+						</div>
+
+						<div>
+							<p class="desc">If you like this plugin, you will absolutely love our other plugins.</p>
+						</div>
+						<div>
+							<a class="button button-primary" href="https://jetixwp.com/plugins?utm_campaign=settings-sidebar&utm_source=rsfa-plugin" target="_blank">✨ View all Plugins</a>
+						</div>
+						<div>
+							<p><em>Thank you for using RSFA again, you are not just any supporter but truly the founders of our small but mighty product agency.</em></p>
+							<p><strong>Krishna</strong>, Founder and Lead Developer at JetixWP</p>
+						</div>
+					</div>
 					<?php do_action( 'rsfa_extend_settings_sidebar' ); ?>
 				</div>
 			</div>
