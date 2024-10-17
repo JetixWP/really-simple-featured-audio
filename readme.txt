@@ -67,6 +67,7 @@ You can get support at the forums here or via support@jetixwp.com.
 
 = 0.7.0 =
 - Minor improvements
+- Upgrade Freemius SDK to v2.8.1
 
 = 0.6.0 =
 - Fix an issue with wp_kses filter overriding existing allowed_html tags
