@@ -10,11 +10,6 @@
 .rsfa-has-audio .rsfa-audio-wrapper {
 	height: auto;
 	width: 100% !important;
-	aspect-ratio: 3/2;
-	display: flex;
-	align-items: center;
-	background: rgba(0, 0, 0, 0.1);
-	padding: 20px;
 	box-sizing: border-box;
 }
 
