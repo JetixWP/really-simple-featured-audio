@@ -99,24 +99,24 @@ class Shortcode {
 		// Get mute option.
 		$is_muted = ( is_array( $audio_controls ) && isset( $audio_controls['mute'] ) ) && $audio_controls['mute'];
 
-		// Get audio controls option.
-		$has_controls = ( is_array( $audio_controls ) && isset( $audio_controls['controls'] ) ) && $audio_controls['controls'];
-
 		if ( ! empty( $post_types ) ) {
 			if ( in_array( $post_type, $post_types, true ) ) {
+				$post        = get_post( $post_id );
+				$post_title  = $post instanceof \WP_Post ? esc_html( $post->post_title ) : '';
+				$post_author = $post instanceof \WP_Post ? esc_html( get_the_author_meta( 'display_name', $post->post_author ) ) : '';
+
+				// Prepare mark up attributes.
+				$_autoplay = $is_autoplay ? 'autoplay playsinline' : '';
+				$_loop     = $is_loop ? 'loop' : '';
+				$_muted    = $is_muted ? 'muted' : '';
 
 				if ( 'self' === $audio_source ) {
 					$audio_id  = get_post_meta( $post_id, RSFA_META_KEY, true );
 					$audio_url = wp_get_attachment_url( $audio_id );
 
-					// Prepare mark up attributes.
-					$is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
-					$is_loop      = $is_loop ? 'loop' : '';
-					$is_muted     = $is_muted ? 'muted' : '';
-					$has_controls = $has_controls ? 'controls' : '';
-
 					if ( $audio_url ) {
-						return '<div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa-audio-' . esc_attr( $post_id ) . '" src="' . esc_url( $audio_url ) . '" style="max-width:100%;display:block;" ' . "{$has_controls} {$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div>';
+						$jwp_player_html = FrontEnd::render_jwp_player( $post_id, $audio_url, $post_title, $post_author, $is_autoplay, $is_loop, $is_muted );
+						return $jwp_player_html . '<div id="rsfa-id-' . esc_attr( $post_id ) . '" class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa-audio-' . esc_attr( $post_id ) . '" src="' . esc_url( $audio_url ) . '" style="max-width:100%;display:block;" ' . "{$_autoplay} {$_loop} {$_muted}" . '></audio></div>';
 					}
 				}
 
@@ -126,14 +126,9 @@ class Shortcode {
 				// Generate audio embed URL.
 				$embed_url = Plugin::get_instance()->frontend_provider->generate_embed_url( $input_url );
 
-				// Prepare mark up attributes.
-				$has_controls = $has_controls ? 'controls' : '';
-				$is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
-				$is_loop      = $is_loop ? 'loop' : '';
-				$is_muted     = $is_muted ? 'muted' : '';
-
 				if ( $embed_url ) {
-					return '<div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa-audio-' . esc_attr( $post_id ) . '" src="' . esc_url( $embed_url ) . '" ' . "{$has_controls} {$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div>';
+					$jwp_player_html = FrontEnd::render_jwp_player( $post_id, $embed_url, $post_title, $post_author, $is_autoplay, $is_loop, $is_muted );
+					return $jwp_player_html . '<div id="rsfa-id-' . esc_attr( $post_id ) . '" class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa-audio-' . esc_attr( $post_id ) . '" src="' . esc_url( $embed_url ) . '" ' . "{$_autoplay} {$_loop} {$_muted}" . '></audio></div>';
 				}
 			}
 		}
