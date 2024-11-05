@@ -161,7 +161,7 @@ class FrontEnd {
 					$audio_id = get_post_meta( $post->ID, RSFA_META_KEY, true );
 
 					if ( $audio_id ) {
-						return '<div style="clear:both">' . do_shortcode( '[rsfa]' ) . '</div>';
+						return '<div  style="clear:both">' . do_shortcode( '[rsfa]' ) . '</div>';
 					}
 				} else {
 					// Get the meta value of audio embed url.
@@ -362,5 +362,49 @@ class FrontEnd {
 		}
 
 		return $allowed_html;
+	}
+
+	/**
+	 * Renders JWP Player with data.
+	 *
+	 * @param int    $id Post id.
+	 * @param string $audio_url Audio URL.
+	 * @param string $title Audio Title.
+	 * @param string $artist Artist Name.
+	 * @param bool   $autoplay To autoplay.
+	 * @param bool   $loop To loop.
+	 * @param bool   $muted To mute.
+	 * @return string
+	 */
+	public static function render_jwp_player( $id, $audio_url, $title = '', $artist = '', $autoplay = false, $loop = false, $muted = false ) {
+		$id        = esc_attr( $id );
+		$audio_url = esc_url( $audio_url );
+		$title     = esc_attr( $title );
+		$artist    = esc_attr( $artist );
+		$autoplay  = boolval( esc_attr( $autoplay ) );
+		$loop      = boolval( esc_attr( $loop ) );
+		$muted     = boolval( esc_attr( $muted ) );
+
+		return "<script>
+                            document.addEventListener(\"DOMContentLoaded\", function() {
+                               const allSelectorsFound = document.querySelectorAll('#rsfa-id-{$id}');
+                        
+                               if (allSelectorsFound.length) {
+                                   allSelectorsFound.forEach(function(selector) {
+                                       window.JWP_Audio_Player_Instance = new JWP_Audio_Player.Player({
+                                          container: selector,
+                                          autoPlay: " . wp_json_encode( $autoplay ) . ',
+                                          loop: ' . wp_json_encode( $loop ) . ',
+                                          muted: ' . wp_json_encode( $muted ) . ",
+                                          audio: {
+                                            title: '$title',
+                                            artist: '$artist',
+                                            src: '$audio_url',
+                                          }
+                                        })
+                                     })
+                               }
+                            });
+</script>";
 	}
 }
