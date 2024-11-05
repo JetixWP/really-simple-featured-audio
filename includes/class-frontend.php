@@ -48,7 +48,61 @@ class FrontEnd {
 	 */
 	public function get_posts_hooks() {
 		add_filter( 'post_thumbnail_html', array( $this, 'get_post_audio' ), 10, 5 );
-		add_filter( 'wp_kses_allowed_html', array( $this, 'update_wp_kses_allowed_html' ), 10, 2 );
+		// add_filter( 'wp_kses_allowed_html', array( $this, 'update_wp_kses_allowed_html' ), 10, 2 );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+	}
+
+	/**
+	 * Enqueues scripts required for media uploader.
+	 *
+	 * @retun void
+	 */
+	public function enqueue_scripts() {
+		// Register Audio Player.
+		wp_register_style( 'rsfa-audio-player', RSFA_PLUGIN_URL . 'assets/css/jwp-audio-player.css', array(), filemtime( RSFA_PLUGIN_DIR . 'assets/css/jwp-audio-player.css' ) );
+		wp_register_script( 'rsfa-audio-player', RSFA_PLUGIN_URL . 'assets/js/jwp-audio-player.min.js', array( 'jquery' ), RSFA_VERSION, true );
+
+		// Enqueue Audio Player.
+		wp_enqueue_style( 'rsfa-audio-player' );
+		wp_enqueue_script( 'rsfa-audio-player' );
+
+		$cover_url      = RSFA_PLUGIN_URL . 'assets/images/audio_frame.png';
+		$cover_dark_url = RSFA_PLUGIN_URL . 'assets/images/audio_dark_frame.png';
+
+		// Add light and dark mode default player cover.
+		wp_add_inline_style(
+			'rsfa-audio-player',
+			"
+            .jwp {
+                --cover-img-url: url('$cover_url');
+            }
+
+            /* Dark mode. */
+            .jwp[data-theme=\"dark\"] {
+                --cover-img-url: url('$cover_dark_url');
+            }
+            @media (prefers-color-scheme: dark) {
+                .jwp[data-theme=\"auto\"] {
+                    --cover-img-url: url('$cover_dark_url');
+                }
+            }
+        "
+		);
+
+		// To prevent redirects on featured anchors at loop.
+		wp_add_inline_script(
+			'rsfa-audio-player',
+			"jQuery(document).ready(function($) {
+            $(
+            '.rsfa-has-audio > figure.wp-block-post-featured-image > a'
+            ).on('click', function(event) {
+                 if (event.target !== this) {
+                   event.preventDefault(); // for preventing anchor tag default functionality.
+                   return;
+                }
+            });
+        });"
+		);
 	}
 
 	/**
