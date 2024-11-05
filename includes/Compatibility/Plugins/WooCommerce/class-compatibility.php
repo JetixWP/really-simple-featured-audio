@@ -9,6 +9,7 @@ namespace RSFA\Compatibility\Plugins\WooCommerce;
 
 defined( 'ABSPATH' ) || exit;
 
+use RSFA\FrontEnd;
 use RSFA\Options;
 use RSFA\Plugin;
 use RSFA\Compatibility\Plugins\Base_Compatibility;
@@ -214,9 +215,6 @@ class Compatibility extends Base_Compatibility {
 		// Get mute option.
 		$is_muted = is_array( $audio_controls ) && isset( $audio_controls['mute'] );
 
-		// Get audio controls option.
-		$has_controls = is_array( $audio_controls ) && isset( $audio_controls['controls'] );
-
 		$audio_html = '';
 
 		if ( ! empty( $post_types ) ) {
@@ -230,18 +228,23 @@ class Compatibility extends Base_Compatibility {
 					return '<div class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . esc_url( $thumbnail ) . '"' . esc_attr( $wrapper_attributes ) . '><img width="' . $gallery_thumbnail['width'] . '" height="' . $gallery_thumbnail['height'] . '" src="' . esc_url( $thumbnail ) . '" alt /></div>';
 				}
 
+				// Prepare mark up attributes.
+				$is_autoplay = $is_autoplay ? 'autoplay playsinline' : '';
+				$is_loop     = $is_loop ? 'loop' : '';
+				$is_muted    = $is_muted ? 'muted' : '';
+
+				$post        = get_post( $id );
+				$post_title  = $post instanceof \WP_Post ? esc_html( $post->post_title ) : '';
+				$post_author = $post instanceof \WP_Post ? esc_html( get_the_author_meta( 'display_name', $post->post_author ) ) : '';
+
 				if ( 'self' === $audio_source ) {
 					$media_id  = get_post_meta( $id, RSFA_META_KEY, true );
 					$audio_url = esc_url( wp_get_attachment_url( $media_id ) );
 
-					// Prepare mark up attributes.
-					$is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
-					$is_loop      = $is_loop ? 'loop' : '';
-					$is_muted     = $is_muted ? 'muted' : '';
-					$has_controls = $has_controls ? 'controls' : '';
-
 					if ( $audio_url ) {
-						$audio_html = '<div class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '"' . esc_attr( $wrapper_attributes ) . '><div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa_audio_' . $id . '" src="' . $audio_url . '" style="max-width:100%;display:block;" ' . "{$has_controls} {$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div></div>';
+						$jwp_player_html = FrontEnd::render_jwp_player( $id, $audio_url, $post_title, $post_author );
+						$audio_html      = $jwp_player_html;
+						$audio_html     .= '<div id="rsfa-id-' . esc_attr( $id ) . '" class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '"' . esc_attr( $wrapper_attributes ) . '><div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa_audio_' . $id . '" src="' . $audio_url . '" style="max-width:100%;display:block;" ' . "{$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div></div>';
 					}
 				} else {
 					// Get the meta value of audio embed url.
@@ -250,14 +253,10 @@ class Compatibility extends Base_Compatibility {
 					// Generate audio embed url.
 					$embed_url = Plugin::get_instance()->frontend_provider->generate_embed_url( $input_url );
 
-					// Prepare mark up attributes.
-					$has_controls = $has_controls ? 'controls' : '';
-					$is_autoplay  = $is_autoplay ? 'autoplay playsinline' : '';
-					$is_loop      = $is_loop ? 'loop' : '';
-					$is_muted     = $is_muted ? 'muted' : '';
-
 					if ( $embed_url ) {
-						$audio_html = '<div class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '" ' . esc_attr( $wrapper_attributes ) . '><div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa_audio_' . $id . '" src="' . $embed_url . '" ' . "{$has_controls} {$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div></div>';
+						$jwp_player_html = FrontEnd::render_jwp_player( $id, $embed_url, $post_title, $post_author );
+						$audio_html      = $jwp_player_html;
+						$audio_html     .= '<div id="rsfa-id-' . esc_attr( $id ) . '" class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '" ' . esc_attr( $wrapper_attributes ) . '><div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa_audio_' . $id . '" src="' . $embed_url . '" ' . "{$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div></div>';
 					}
 				}
 			}
