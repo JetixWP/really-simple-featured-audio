@@ -3,7 +3,7 @@ Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
 Tested up to: 6.7
-Stable tag: 0.7.0
+Stable tag: 1.0.0
 Tags: audio, podcast, woocommerce, featured, music
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -64,6 +64,12 @@ Well Yes and No, So Yes as long as the theme you use follows standard WordPress/
 You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 1.0.0 =
+- New: All new JWP Audio Player
+- Improvement: Upgrade Freemius SDK to v2.9.0
+- Improvement: Other major improvements
+- Improvement: Update translations
 
 = 0.7.0 =
 - Minor improvements
