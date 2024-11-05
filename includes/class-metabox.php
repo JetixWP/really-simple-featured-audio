@@ -37,7 +37,7 @@ class Metabox {
 		// Allows display property at style attribute for wp_kses.
 		add_filter(
 			'safe_style_css',
-			function( $styles ) {
+			function ( $styles ) {
 				$styles[] = 'display';
 				return $styles;
 			}
@@ -80,9 +80,8 @@ class Metabox {
 		if ( 'post.php' === $pagenow || 'post-new.php' === $pagenow ) {
 			// Enqueue all necessary WP Media APIs.
 			wp_enqueue_media();
-            // Enqueue CSS styles.
-            wp_enqueue_style( 'rsfa-custom-styles', RSFA_PLUGIN_URL . 'assets/css/edit-screen.css', array(), filemtime( RSFA_PLUGIN_DIR . 'assets/css/edit-screen.css' )  );
-
+			// Enqueue CSS styles.
+			wp_enqueue_style( 'rsfa-custom-styles', RSFA_PLUGIN_URL . 'assets/css/edit-screen.css', array(), filemtime( RSFA_PLUGIN_DIR . 'assets/css/edit-screen.css' ) );
 
 			// Enqueue plugin script.
 			wp_enqueue_script( 'rsfa_custom_script', RSFA_PLUGIN_URL . 'assets/js/rsfa-media.js', array( 'jquery' ), RSFA_VERSION, true );
@@ -245,12 +244,12 @@ class Metabox {
 	public function get_allowed_html() {
 		return array(
 			'audio' => array(
-				'src'                  => array(),
-				'style'                => array(),
-				'loop'                 => array(),
-				'muted'                => array(),
-				'autoplay'             => array(),
-				'controls'             => array(),
+				'src'      => array(),
+				'style'    => array(),
+				'loop'     => array(),
+				'muted'    => array(),
+				'autoplay' => array(),
+				'controls' => array(),
 			),
 			'input' => array(
 				'type'        => array(),

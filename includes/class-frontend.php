@@ -48,7 +48,7 @@ class FrontEnd {
 	 */
 	public function get_posts_hooks() {
 		add_filter( 'post_thumbnail_html', array( $this, 'get_post_audio' ), 10, 5 );
-		// add_filter( 'wp_kses_allowed_html', array( $this, 'update_wp_kses_allowed_html' ), 10, 2 );
+		add_filter( 'wp_kses_allowed_html', array( $this, 'update_wp_kses_allowed_html' ), 10, 2 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
@@ -311,6 +311,7 @@ class FrontEnd {
 				'br'     => array(),
 				'i'      => array(),
 				'strong' => array(),
+				'script' => array(), // Intentional for JWP Audio Player inline script.
 			)
 		);
 	}
