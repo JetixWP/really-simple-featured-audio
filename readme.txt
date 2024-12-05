@@ -2,8 +2,8 @@
 Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
-Tested up to: 6.7
-Stable tag: 1.0.0
+Tested up to: 6.7.1
+Stable tag: 1.0.1
 Tags: audio, podcast, woocommerce, featured, music
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -64,6 +64,14 @@ Well Yes and No, So Yes as long as the theme you use follows standard WordPress/
 You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 1.0.1 =
+- New: Support for TwentyTwent-Five theme
+- Fix: Missing generate_dynamic_css method at Frontend class
+- Fix: Deprecated use of self callable for PHP 8.2+ support
+- Improvement: Upgrade Freemius SDK v2.10.0 the Composer way
+- Improvement: Other minor improvements
+- Improvement: Update translations
 
 = 1.0.0 =
 - New: All new JWP Audio Player
