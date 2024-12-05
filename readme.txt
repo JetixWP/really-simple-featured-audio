@@ -3,7 +3,7 @@ Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
 Tested up to: 6.7.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 Tags: audio, podcast, woocommerce, featured, music
 License: GPLv2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -64,6 +64,9 @@ Well Yes and No, So Yes as long as the theme you use follows standard WordPress/
 You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 1.0.2 =
+- Fix: In some cases installing/activating other Freemius based plugins causes a fatal error
 
 = 1.0.1 =
 - New: Support for TwentyTwent-Five theme
