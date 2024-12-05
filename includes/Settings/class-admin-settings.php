@@ -697,7 +697,7 @@ class Admin_Settings {
 	 */
 	public static function sanitize_post_data( $data ) {
 		if ( is_array( $data ) ) {
-			return array_map( 'self::sanitize_post_data', $data );
+			return array_map( array( self::class, 'sanitize_post_data' ), $data );
 		} else {
 			return sanitize_text_field( $data );
 		}
