@@ -267,6 +267,17 @@ class FrontEnd {
 	}
 
 	/**
+	 * Generate dynamic CSS.
+	 *
+	 * @return string
+	 */
+	public function generate_dynamic_css() {
+		$css = '';
+
+		return apply_filters( 'rsfa_generated_dynamic_css', $css );
+	}
+
+	/**
 	 * Get allowed HTML elements.
 	 *
 	 * @return array List of elements.
