@@ -81,6 +81,11 @@ class Theme_Provider {
 					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/Core/Twentytwenty_Four/class-compatibility.php',
 					'class'       => 'RSFA\Compatibility\Themes\Core\Twentytwenty_Four\Compatibility',
 				),
+				'twentytwentyfive'  => array(
+					'title'       => __( 'Twenty Twenty-Five', 'really-simple-featured-audio' ),
+					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/Core/Twentytwenty_Five/class-compatibility.php',
+					'class'       => 'RSFA\Compatibility\Themes\Core\Twentytwenty_Five\Compatibility',
+				),
 			)
 		);
 	}
