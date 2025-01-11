@@ -9,6 +9,7 @@ namespace RSFA\Compatibility\Themes\Core\Twentytwenty_Five;
 
 use RSFA\Compatibility\Themes\Base_Compatibility;
 use RSFA\Options;
+use RSFA\Plugin;
 
 /**
  * Class Compatibility
@@ -51,6 +52,9 @@ class Compatibility extends Base_Compatibility {
 
 		// Enqueue styles.
 		wp_enqueue_style( 'rsfa-twentytwentyfive' );
+
+		// Add generated CSS.
+		wp_add_inline_style( 'rsfa-twentytwentyfive', Plugin::get_instance()->frontend_provider->generate_dynamic_css() );
 	}
 
 	/**
