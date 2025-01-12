@@ -49,7 +49,7 @@ if ( ! function_exists( 'rsfa_fs' ) ) {
 					'type'           => 'plugin',
 					'public_key'     => 'pk_966ab730c951fb6730786c41ce9ad',
 					'is_premium'     => false,
-					'has_addons'     => false,
+					'has_addons'     => true,
 					'has_paid_plans' => false,
 					'menu'           => array(
 						'slug'       => 'rsfa-settings',
