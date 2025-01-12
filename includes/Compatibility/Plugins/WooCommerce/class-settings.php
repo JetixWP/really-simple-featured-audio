@@ -78,6 +78,49 @@ class Settings extends Settings_Page {
 			);
 		}
 
+		if ( ! \RSFA\Plugin::get_instance()->has_pro_active() ) {
+			$settings = array_merge(
+				$settings,
+				array(
+					array(
+						'type' => 'title',
+						'id'   => 'rsfa_pro_woocommerce',
+					),
+					array(
+						'title'   => __( 'Featured Audio Order', 'rsfv' ),
+						'desc'    => __( 'Set audio order on single product page/gallery, available in the Pro version.', 'really-simple-featured-audio' ),
+						'id'      => 'promo-global-woo-audio-order',
+						'default' => 'first',
+						'type'    => 'promo-select',
+						'options' => array(
+							'first'  => __( 'First (Default)', 'really-simple-featured-audio' ),
+							'second' => __( 'Second', 'really-simple-featured-audio' ),
+							'last'   => __( 'Last', 'really-simple-featured-audio' ),
+						),
+					),
+					array(
+						'type' => 'sectionend',
+						'id'   => 'rsfa_pro_woocommerce',
+					),
+					array(
+						'type' => 'title',
+						'id'   => 'rsfa_pro_change_default_gallery_thumb',
+					),
+					array(
+						'title'   => __( 'Default Gallery Thumb', 'really-simple-featured-audio' ),
+						'desc'    => __( 'Set default product gallery thumb on single product page.', 'really-simple-featured-audio' ),
+						'id'      => 'promo-default-woo-gallery-audio-thumb',
+						'default' => RSFA_PLUGIN_URL . 'assets/images/audio_frame.png',
+						'type'    => 'promo-media-image',
+					),
+					array(
+						'type' => 'sectionend',
+						'id'   => 'rsfa_pro_change_default_gallery_thumb',
+					),
+				)
+			);
+		}
+
 		return apply_filters( 'rsfa_get_settings_' . $this->id, $settings );
 	}
 

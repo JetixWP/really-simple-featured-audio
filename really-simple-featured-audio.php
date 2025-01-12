@@ -3,7 +3,7 @@
  * Plugin Name: Really Simple Featured Audio
  * Plugin URI:  https://jetixwp.com/plugins/really-simple-featured-audio
  * Description: Adds support for Featured Audio to WordPress posts, pages & WooCommerce products.
- * Version:     1.0.2
+ * Version:     1.0.3
  * Author:      JetixWP Plugins
  * Author URI:  https://jetixwp.com
  * License:     GPL2
@@ -16,7 +16,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'RSFA_VERSION', '1.0.2' );
+define( 'RSFA_VERSION', '1.0.3' );
 define( 'RSFA_PLUGIN_FILE', __FILE__ );
 define( 'RSFA_PLUGIN_URL', plugin_dir_url( RSFA_PLUGIN_FILE ) );
 define( 'RSFA_PLUGIN_DIR', plugin_dir_path( RSFA_PLUGIN_FILE ) );
@@ -49,7 +49,7 @@ if ( ! function_exists( 'rsfa_fs' ) ) {
 					'type'           => 'plugin',
 					'public_key'     => 'pk_966ab730c951fb6730786c41ce9ad',
 					'is_premium'     => false,
-					'has_addons'     => false,
+					'has_addons'     => true,
 					'has_paid_plans' => false,
 					'menu'           => array(
 						'slug'       => 'rsfa-settings',

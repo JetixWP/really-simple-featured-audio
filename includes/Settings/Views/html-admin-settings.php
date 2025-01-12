@@ -70,6 +70,7 @@ if ( ! $tab_exists ) {
 				</div>
 
 				<div class="sidebar">
+					<?php if ( ! class_exists( '\RSFA_Pro\Plugin' ) ) : ?>
 					<div class="help-box">
 						<div>
 							<h3>👋 Thank you for using our plugin!</h3>
@@ -91,6 +92,7 @@ if ( ! $tab_exists ) {
 							<p><strong>Krishna</strong>, Founder and Lead Developer at JetixWP</p>
 						</div>
 					</div>
+					<?php endif; ?>
 					<?php do_action( 'rsfa_extend_settings_sidebar' ); ?>
 				</div>
 			</div>

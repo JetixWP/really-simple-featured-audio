@@ -388,8 +388,34 @@ body.settings_page_rsfa-settings #wpcontent {
 	outline: none;
 }
 
+.rsfa tr[class*="promo-"] img {
+	opacity: 0.6;
+	height: 80px;
+	width: auto;
+}
+
+.rsfa tr[class*="promo-"] a.disabled {
+	pointer-events: none;
+	cursor: none;
+	display: block;
+	margin-top: 10px;
+	opacity: 0.6;
+}
+
 .rsfa td[class*=" forminp-promo-"] select {
 	opacity: 0.7;
+}
+
+.rsfa .forminp-media-image .media-image {
+	height: 80px;
+	width: auto;
+	max-width: 100%;
+	display: block;
+	margin-bottom: 10px;
+}
+
+.rsfa .forminp-media-image .rsfa-remove-image-btn {
+	margin-left: 10px;
 }
 
 .rsfa.getpro .tab-content .rsfa-button {

@@ -121,6 +121,10 @@ class Admin_Settings {
 		global $current_section, $current_tab;
 
 		do_action( 'rsfa_settings_start' );
+
+		// Enqueue all necessary WP Media APIs.
+		wp_enqueue_media();
+
 		wp_enqueue_style( 'rsfa_settings', RSFA_PLUGIN_URL . 'assets/css/admin-settings.css', array(), filemtime( RSFA_PLUGIN_DIR . 'assets/css/admin-settings.css' ) );
 		wp_enqueue_script( 'rsfa_settings', RSFA_PLUGIN_URL . 'assets/js/admin-settings.js', array( 'jquery', 'wp-util', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'iris' ), filemtime( RSFA_PLUGIN_DIR . 'assets/js/admin-settings.js' ), true );
 		do_action( 'rsfa_settings_after_scripts' );
@@ -129,7 +133,9 @@ class Admin_Settings {
 			'rsfa_settings',
 			'rsfa_settings_data',
 			array(
-				'i18n_nav_warning' => __( 'The changes you made will be lost if you navigate away from this page.', 'really-simple-featured-audio' ),
+				'i18n_nav_warning'  => __( 'The changes you made will be lost if you navigate away from this page.', 'really-simple-featured-audio' ),
+				'uploader_title'    => __( 'Select Thumbnail Image', 'really-simple-featured-audio' ),
+				'uploader_btn_text' => __( 'Use this image', 'really-simple-featured-audio' ),
 			)
 		);
 
@@ -254,6 +260,10 @@ class Admin_Settings {
 			$field_description = self::get_field_description( $value );
 			$description       = $field_description['description'];
 			$tooltip_html      = $field_description['tooltip_html'];
+
+			$allowed_html_tags = self::get_settings_allowed_html();
+			$pro_tag_html      = '<span class="pro-tag">' . esc_html__( 'Pro', 'really-simple-featured-audio' ) . '</span>';
+			$pro_link_html     = '<a href="' . esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ) . '" target="_blank">' . esc_html__( 'Checkout Pro now', 'really-simple-featured-audio' ) . '</a>';
 
 			// Switch based on type.
 			switch ( $value['type'] ) {
@@ -481,6 +491,68 @@ class Admin_Settings {
 								<?php
 					break;
 
+				case 'media-image':
+					$option_value = $value['value'];
+					// Get the meta value of video attachment.
+					$image_id      = $option_value;
+					$image_url     = wp_get_attachment_url( $image_id );
+					$display       = 'none';
+					$default_image = $value['default'];
+					$has_image_set = false;
+
+					if ( ! empty( $option_value ) && $option_value !== $default_image ) {
+						$has_image_set = true;
+					}
+
+					if ( ! empty( $image_url ) && ! empty( $option_value ) ) {
+						$display = 'inline-block';
+					} else {
+						$image_url = $default_image;
+					}
+					?>
+					<tr valign="top">
+						<th scope="row" class="titledesc">
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?></label>
+						</th>
+						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
+							<img class="<?php echo esc_attr( $value['type'] ); ?>" id="<?php echo esc_attr( $value['type'] ) . '-' . esc_attr( $value['id'] ); ?>" src="<?php echo esc_url( $image_url ); ?>" />
+							<a href="#" class="rsfa-upload-image-btn" data-element-id="<?php echo esc_attr( $value['type'] ) . '-' . esc_attr( $value['id'] ); ?>"><?php esc_html_e( 'Change Image', 'really-simple-featured-audio' ); ?></a>
+							<a href="#" class="rsfa-remove-image-btn" data-default-image="<?php echo esc_url( $default_image ); ?>" style="display:<?php echo esc_attr( $display ); ?>;"><?php esc_html_e( 'Revert to Default', 'really-simple-featured-audio' ); ?></a>
+							<input
+								name="<?php echo esc_attr( $value['id'] ); ?>"
+								id="<?php echo esc_attr( $value['id'] ); ?>"
+								type="hidden"
+								style="<?php echo esc_attr( $value['css'] ); ?>"
+								value="<?php echo $has_image_set ? esc_attr( $option_value ) : ''; ?>"
+								class="<?php echo esc_attr( $value['class'] ); ?>"
+								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
+								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
+								/><?php echo esc_html( $value['suffix'] ); ?>
+								<?php echo $description; // phpcs:ignore. ?>
+						</td>
+					</tr>
+					<?php
+					break;
+				case 'promo-media-image':
+					// Get the meta value of video attachment.
+					$default_image = $value['default'];
+					$image_url     = $default_image;
+					?>
+					<tr valign="top" class="<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
+						<th scope="row" class="titledesc">
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><a href="<?php echo esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ); ?>" target="_blank"><?php echo wp_kses( $pro_tag_html, $allowed_html_tags ) . esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?></a></label>
+						</th>
+						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
+							<img class="<?php echo esc_attr( $value['type'] ); ?>" id="<?php echo esc_attr( $value['type'] ) . '-' . esc_attr( $value['id'] ); ?>" src="<?php echo esc_url( $image_url ); ?>" />
+							<a href="#" class="disabled"><?php esc_html_e( 'Change Image', 'rsfv' ); ?></a>
+							<?php echo esc_html( $value['suffix'] ); ?>
+							<?php echo $description; // phpcs:ignore. ?>
+							<?php echo wp_kses( $pro_link_html, $allowed_html_tags ); ?>
+						</td>
+					</tr>
+					<?php
+					break;
+
 				// Radio inputs.
 				case 'radio':
 					$option_value = $value['value'];
@@ -646,6 +718,54 @@ class Admin_Settings {
 					break;
 			}
 		}
+	}
+
+	/**
+	 * Get allowed html tags for settings.
+	 *
+	 * @return array
+	 */
+	public static function get_settings_allowed_html() {
+		return array(
+			'abbr'       => array(
+				'title' => true,
+			),
+			'acronym'    => array(
+				'title' => true,
+			),
+			'b'          => array(),
+			'blockquote' => array(
+				'cite' => true,
+			),
+			'cite'       => array(),
+			'code'       => array(),
+			'del'        => array(
+				'datetime' => true,
+			),
+			'em'         => array(),
+			'i'          => array(),
+			'q'          => array(
+				'cite' => true,
+			),
+			's'          => array(),
+			'strike'     => array(),
+			'strong'     => array(),
+			'a'          => array(
+				'href'   => array(),
+				'title'  => array(),
+				'class'  => array(),
+				'id'     => array(),
+				'target' => array(),
+			),
+			'span'       => array(
+				'title' => array(),
+				'src'   => array(),
+				'alt'   => array(),
+				'class' => array(),
+				'id'    => array(),
+			),
+			'br'         => array(),
+		);
 	}
 
 	/**
