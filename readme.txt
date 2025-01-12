@@ -5,7 +5,7 @@ Requires PHP: 8.0
 Tested up to: 6.7.1
 Stable tag: 1.0.3
 Tags: audio, podcast, woocommerce, featured, music
-License: GPLv2
+License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Really Simple Featured Audio enables featured audio support for WordPress posts, pages, CPTs (with featured images) & WooCommerce Products.
@@ -67,6 +67,7 @@ You can get support at the forums here or via support@jetixwp.com.
 
 = 1.0.3 =
 - New: Pro Addon support
+- Fix: Missing dynamic CSS at theme engines
 - Improvement: Other minor improvements
 - Improvement: Update translations
 
