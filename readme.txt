@@ -3,7 +3,7 @@ Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
 Tested up to: 6.7.1
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Tags: audio, podcast, woocommerce, featured, music
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -64,6 +64,9 @@ Well Yes and No, So Yes as long as the theme you use follows standard WordPress/
 You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 1.0.5 =
+- Improvement: Patch release
 
 = 1.0.4 =
 - New: Settings toggle for Blog Single
