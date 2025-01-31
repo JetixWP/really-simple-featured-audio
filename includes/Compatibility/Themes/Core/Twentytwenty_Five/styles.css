@@ -24,3 +24,7 @@
 body.rsfa-archives-support .product.rsfa-has-audio .wc-block-components-product-image {
 	display: none;
 }
+
+.rsfa-has-audio .wp-block-post-featured-image {
+	aspect-ratio: auto !important;
+}

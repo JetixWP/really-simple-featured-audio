@@ -12,7 +12,7 @@ Really Simple Featured Audio enables featured audio support for WordPress posts,
 
 == Description ==
 
-Really Simple Featured Audio plugin provides a really straightforward way of adding featured audio support to your custom post types. Host audio podcasts, blogs and Featured audio for WooCommerce products easily. Adding your own audios to the site is a breeze and you get an easy to use settings panel with the options you really need.
+Really Simple Featured Audio plugin provides a really straightforward way of adding featured audio support to your Posts, Pages & WooCommerce Products. Host audio podcasts, blogs and Featured audio for WooCommerce products easily. Adding your own audios to the site is a breeze and you get an easy to use settings panel with the options you really need.
 
 With Really Simple Featured Audio you get a metabox at posts, pages, CPTs & Woo products edit screen at the very bottom and a very similar interface as you're used to with featured image.
 
@@ -64,6 +64,13 @@ Well Yes and No, So Yes as long as the theme you use follows standard WordPress/
 You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 1.0.4 =
+- New: Settings toggle for Blog Single
+- Fix: Settings toggle for Blog Archives not working
+- Improvement: Updated Twenty-Twenty Five theme compatibility engine
+- Improvement: Other minor improvements
+- Improvement: Update translations
 
 = 1.0.3 =
 - New: Pro Addon support
