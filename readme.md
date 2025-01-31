@@ -7,7 +7,7 @@
 Really Simple Featured Audio
 ===
 
-Really Simple Featured Audio plugin provides a really straightforward way of adding featured audio support to your custom post types. Adding your own audios to the site is a breeze and you get an easy to use settings panel with the options you really need.
+Really Simple Featured Audio plugin provides a really straightforward way of adding featured audio support to your Posts, Pages & WooCommerce Products. Adding your own audios to the site is a breeze and you get an easy to use settings panel with the options you really need.
 
 With Really Simple Featured Audio you get a metabox at posts, pages, CPTs & Woo products edit screen at the very bottom and a very similar interface as you're used to with featured image.
 

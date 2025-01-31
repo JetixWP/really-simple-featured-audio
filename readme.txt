@@ -65,6 +65,13 @@ You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
 
+= 1.0.4 =
+- New: Settings toggle for Blog Single
+- Fix: Settings toggle for Blog Archives not working
+- Improvement: Updated Twenty-Twenty Five theme compatibility engine
+- Improvement: Other minor improvements
+- Improvement: Update translations
+
 = 1.0.3 =
 - New: Pro Addon support
 - Fix: Missing dynamic CSS at theme engines
