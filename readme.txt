@@ -64,6 +64,9 @@ You can send a feedback or a feature request at [github.com/JetixWP/really-simpl
 = Will this plugin work with any theme? =
 Well Yes and No, So Yes as long as the theme you use follows standard WordPress/WooCommerce way of handling post thumbnails, this plugin should work without any problems and No if the theme goes beyond the standard ways of Featured post thumbnails in such cases we need to add custom support for it.
 
+= Is there a Pro version for this? =
+Yes, and is available for purchase from our site. If you wish to get a lifetime deal for our plugin please visit [our website here](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme).
+
 = Where can I get help? =
 You can get support at the forums here or via support@jetixwp.com.
 
