@@ -76,7 +76,7 @@ class General extends Settings_Page {
 		if ( ! class_exists( '\RSFA_Pro\Plugin' ) ) {
 			$pro_compatibility_engines = $plugin->theme_provider->get_selectable_pro_engine_options_promo();
 			$compatibility_engine      = $options->get( 'theme-compatibility-engine' );
-			$engine_description        = in_array( $compatibility_engine, array_keys( $pro_compatibility_engines ), true ) ? __( 'If you set a PRO compatibility engine in the Free version of the plugin, the compatibility will fall back to the Default engine.', 'really-simple-featured-audio' ) : '';
+			$engine_description        = in_array( $compatibility_engine, array_keys( $pro_compatibility_engines ), true ) ? __( 'If you set a PRO compatibility engine in the Free version of the plugin, the compatibility will fall back to the Default engine.', 'really-simple-featured-audio' ) : __( 'If you don\'t see your theme in this list, feel free to send us an email to add support for it at support@jetixwp.com', 'really-simple-featured-audio' );
 		}
 
 		$default_enabled_post_types = apply_filters(
