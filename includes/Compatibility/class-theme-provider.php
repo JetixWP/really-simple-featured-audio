@@ -86,6 +86,22 @@ class Theme_Provider {
 					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/Core/Twentytwenty_Five/class-compatibility.php',
 					'class'       => 'RSFA\Compatibility\Themes\Core\Twentytwenty_Five\Compatibility',
 				),
+				// Third Party.
+				'ollie'             => array(
+					'title'       => __( 'Ollie', 'really-simple-featured-audio' ),
+					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/ThirdParty/Ollie/class-compatibility.php',
+					'class'       => 'RSFA\Compatibility\Themes\ThirdParty\Ollie\Compatibility',
+				),
+				'neve'              => array(
+					'title'       => __( 'Neve', 'really-simple-featured-audio' ),
+					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/ThirdParty/Neve/class-compatibility.php',
+					'class'       => 'RSFA\Compatibility\Themes\ThirdParty\Neve\Compatibility',
+				),
+				'generatepress'     => array(
+					'title'       => __( 'GeneratePress', 'really-simple-featured-audio' ),
+					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/ThirdParty/GeneratePress/class-compatibility.php',
+					'class'       => 'RSFA\Compatibility\Themes\ThirdParty\GeneratePress\Compatibility',
+				),
 			)
 		);
 	}
