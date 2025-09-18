@@ -52,6 +52,13 @@ class Admin_Settings {
 
 			$settings = apply_filters( 'rsfa_get_settings_pages', $settings );
 
+			$settings[] = include 'Tabs/class-version-control.php';
+
+			// To make sure Promotional tabs shows up at the very last.
+			$settings[] = include 'Tabs/class-getpro.php';
+
+			$settings = apply_filters( 'rsfa_get_settings_pages', $settings );
+
 			self::$settings = $settings;
 		}
 
@@ -132,10 +139,13 @@ class Admin_Settings {
 		wp_localize_script(
 			'rsfa_settings',
 			'rsfa_settings_data',
-			array(
-				'i18n_nav_warning'  => __( 'The changes you made will be lost if you navigate away from this page.', 'really-simple-featured-audio' ),
-				'uploader_title'    => __( 'Select Thumbnail Image', 'really-simple-featured-audio' ),
-				'uploader_btn_text' => __( 'Use this image', 'really-simple-featured-audio' ),
+			apply_filters(
+				'rsfa_settings_localized_data',
+				array(
+					'i18n_nav_warning'  => __( 'The changes you made will be lost if you navigate away from this page.', 'really-simple-featured-audio' ),
+					'uploader_title'    => __( 'Select Thumbnail Image', 'really-simple-featured-audio' ),
+					'uploader_btn_text' => __( 'Use this image', 'really-simple-featured-audio' ),
+				)
 			)
 		);
 
@@ -544,7 +554,7 @@ class Admin_Settings {
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
 							<img class="<?php echo esc_attr( $value['type'] ); ?>" id="<?php echo esc_attr( $value['type'] ) . '-' . esc_attr( $value['id'] ); ?>" src="<?php echo esc_url( $image_url ); ?>" />
-							<a href="#" class="disabled"><?php esc_html_e( 'Change Image', 'rsfv' ); ?></a>
+							<a href="#" class="disabled"><?php esc_html_e( 'Change Image', 'really-simple-featured-audio' ); ?></a>
 							<?php echo esc_html( $value['suffix'] ); ?>
 							<?php echo $description; // phpcs:ignore. ?>
 							<?php echo wp_kses( $pro_link_html, $allowed_html_tags ); ?>

@@ -87,7 +87,7 @@ class Settings extends Settings_Page {
 						'id'   => 'rsfa_pro_woocommerce',
 					),
 					array(
-						'title'   => __( 'Featured Audio Order', 'rsfv' ),
+						'title'   => __( 'Featured Audio Order', 'really-simple-featured-audio' ),
 						'desc'    => __( 'Set audio order on single product page/gallery, available in the Pro version.', 'really-simple-featured-audio' ),
 						'id'      => 'promo-global-woo-audio-order',
 						'default' => 'first',

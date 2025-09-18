@@ -1,47 +1,112 @@
-=== Really Simple Featured Audio - Featured audio support for Posts, Pages & WooCommerce Products ===
+=== Really Simple Featured Audio - Sell Music, Samples & Audio Products with WooCommerce ===
 Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
-Tested up to: 6.7.2
-Stable tag: 1.1.0
-Tags: audio, podcast, woocommerce, featured, music
+Tested up to: 6.8.2
+Stable tag: 1.2.0
+Tags: audio commerce, podcast player, woocommerce audio, music store, audio samples
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Really Simple Featured Audio enables featured audio support for WordPress posts, pages, CPTs (with featured images) & WooCommerce Products.
+Turn your WooCommerce store into a professional audio marketplace. Perfect for selling beats, music samples, audiobooks, and podcasts with seamless audio previews.
 
 == Description ==
 
-[🚀 [PRO] Grab the premium version at a Lifetime Deal](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme)
+**Sell Audio Products Like a Pro** - Transform your WooCommerce store into a thriving audio marketplace with professional preview players, mobile-optimized playback, and seamless customer experience.
+
+[🚀 **Get the PRO version - Limited Lifetime Deal**](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme)
 
 https://www.youtube.com/watch?v=OSwL58J5rvA
 
-Really Simple Featured Audio plugin provides a really straightforward way of adding featured audio support to your Posts, Pages & WooCommerce Products. Host audio podcasts, blogs and Featured audio for WooCommerce products easily. Adding your own audios to the site is a breeze and you get an easy to use settings panel with the options you really need.
+## **Why Audio Sellers Choose Really Simple Featured Audio**
 
-With Really Simple Featured Audio you get a metabox at posts, pages, CPTs & Woo products edit screen at the very bottom and a very similar interface as you're used to with featured image.
+❌ **Problem**: Standard WooCommerce has NO native audio preview functionality
+❌ **Problem**: Customers can't preview your beats, samples, or tracks before buying
+❌ **Problem**: Mobile audio playback breaks on iOS devices
+❌ **Problem**: Complex audio plugins that slow down your store
 
-You get a really simple settings page which has all the controls you need for managing featured audios throughout your site. Explore it yourself for a better look or take a look at screenshots below.
+✅ **Solution**: Professional audio previews that work everywhere
+✅ **Solution**: Mobile-optimized player that works on ALL devices
+✅ **Solution**: Lightning-fast performance with zero bloat
+✅ **Solution**: Works with most WooCommerce themes out of the box (if not we're always an email away to fix!)
 
+## **Perfect For Audio Entrepreneurs**
 
-== 👉️ Features ==
+🎵 **Beat Makers & Producers** - Sell hip-hop beats, trap samples, and production loops
+🎧 **Sample Pack Creators** - Showcase drum kits, melodic loops, and sound effects  
+📚 **Audiobook Publishers** - Let customers preview chapters before purchase
+🎙️ **Podcasters** - Monetize premium episodes and exclusive content
+🎸 **Musicians** - Sell tracks, backing tracks, and instrumental versions
+🔊 **Sound Designers** - Market sound effects and audio assets
 
-* **Self host audios** - Upload and feature audios on posts/pages and WooCommerce products directly from your site.
-* **Embed support for Audio from external sources** – Embed audio files from anywhere (link should end in .mp3/wav or supported audio files) directly at each post/page/product or any custom type that supports featured images.
-* **WooCommerce Single and Shop Archives Support** - A straightforward implementation for WooCommerce Product Featured Audio.
-* **Elementor Pro Support** - Support for Posts/archive widgets with Elementor Pro builder.
-* **Support for Core themes** - We support all the newer core themes such as TwentyTwenty Four to Classic themes.
-* **Audio Controls such as Autoplay, Mute and more** - Manage everything for the featured audios, by setting them accordingly, options for these are available at settings page.
-* **Shortcodes** - Shortcodes to embed featured audio at any post, page or product you want.
+## **How It Transforms Your Audio Store**
 
+**Before**: Customers buy audio blindly → High refund rates → Lost sales
+**After**: Customers preview first → Confident purchases → Higher conversions
 
-== 👉️ WooCommerce Support ==
+Just like how clothing stores let you "try before you buy", Really Simple Featured Audio lets your customers "listen before they buy."
 
-This plugin came out of a real need with many plugins available out there yet none provides a good integration with WooCommerce.
-Really Simple Featured Audio plugin provides a straightforward implementation for WooCommerce Product Featured Audio, with which your set featured audio loads directly into product thumbnails along with any other product images.
+== 🚀 **Core Features** ==
 
-== 👉️ Elementor Pro Builder Support ==
+### **Seamless WooCommerce Integration**
+* Audio previews appear directly in product galleries
+* Works on shop pages, category pages, and single products
+* Comes with support for Astra, Divi, GeneratePress, and more themes out of the box
+* Mobile-responsive player with touch controls
 
-RSFA supports Elementor Pro builder with its Posts/archive widgets, you can use them to display Featured Audios for posts, pages and CPTs (with Featured Images). You can also display Featured Audio on single pages via the shortcode - [rsfa]
+### **Professional Audio Player**
+* Custom-built JWP Audio Player (not browser default)
+* Waveform visualization for professional appearance (coming soon)
+* Play/pause, scrubbing, volume controls
+* Autoplay options and mute controls
+* Loading indicators and smooth animations
+
+### **Easy Audio Management**
+* Upload audio files directly to WordPress Media Library
+* Support for external audio URLs (SoundCloud, Dropbox, etc.)
+* Drag-and-drop audio file management
+* Automatic file format detection (.mp3, .wav, .ogg, .m4a)
+
+### **Developer & Builder Friendly**
+* **Elementor Pro Support** - Works with Posts and Archive widgets
+* **Shortcodes Available** - [rsfa] and [rsfa_by_postid]
+* **Theme Compatibility** - Supports TwentyTwenty themes and modern themes, [we take requests for compatibility]
+* **Custom Post Type Support** - Works beyond just WooCommerce
+
+== 🛠️ **Easy Setup Process** ==
+
+1. **Install & Activate** - One-click installation from WordPress admin
+2. **Edit Any Product** - Scroll to "Featured Audio" metabox  
+3. **Upload Audio File** - Just like adding a featured image
+4. **Publish Product** - Audio player appears automatically
+5. **Start Selling** - Customers can now preview before buying!
+
+**Setup Time**: Under 5 minutes for your first audio product
+
+== 📱 **Mobile-First Design** ==
+
+Unlike other audio plugins that break on mobile, Really Simple Featured Audio is built mobile-first:
+
+* **iOS Compatible** - Fixes the common iOS "live broadcast" bug
+* **Android Optimized** - Smooth playback on all Android devices  
+* **Touch Controls** - Large, finger-friendly buttons
+* **Fast Loading** - Optimized for mobile networks
+* **Responsive Design** - Looks perfect on any screen size
+
+== 🎯 **Use Cases That Drive Sales** ==
+
+### **Beat Store Example**
+Upload a 30-second preview of your beat → Customer plays it in the gallery → They love it → Instant purchase of the full track
+
+### **Sample Pack Example**  
+Create a playlist of your best samples → Customer hears the quality → They buy the complete pack for production
+
+### **Audiobook Example**
+Upload first chapter as preview → Customer gets hooked → They purchase the full audiobook
+
+### **Podcast Monetization**
+Preview first 10 minutes of premium episodes → Subscribers unlock full content → Recurring revenue
+
 
 == 👉️ How to use Shortcodes ==
 
@@ -54,15 +119,36 @@ There are also shortcodes to embed featured audio at any post, page or product y
 You can send a feedback or a feature request at [github.com/JetixWP/really-simple-featured-audio](https://github.com/JetixWP/really-simple-featured-audio) Or create a thread at forums here, in any case.
 
 == Screenshots ==
-1. Blog page with Featured audio on Twenty Twenty-Four theme.
-2. WooCommerce Shop page with Featured audio.
-3. Product page with Featured Audio gallery.
-4. Settings page view.
+1. **Blog and Archives Pages** - Audio player on Twenty Twenty-Four theme.
+2. **WooCommerce Shop Page** - Audio players integrated seamlessly with product thumbnails
+3. **WooCommerce Single Product Page** - Professional audio player in product gallery
+4. **Settings Panel** - Easy-to-use controls for autoplay, mute, and display options
 
 == Frequently Asked Questions ==
 
 = Will this plugin work with any theme? =
-Well Yes and No, So Yes as long as the theme you use follows standard WordPress/WooCommerce way of handling post thumbnails, this plugin should work without any problems and No if the theme goes beyond the standard ways of Featured post thumbnails in such cases we need to add custom support for it.
+**Yes!** Really Simple Featured Audio is designed to work with any properly coded WooCommerce theme. We've tested with the default WordPress themes and many third-party themes, and we continue to add support for more themes as we find.
+
+= Does this work on mobile devices? =
+
+**Absolutely!** Unlike many audio plugins, we've specifically fixed the iOS "live broadcast" bug that affects audio downloads. Our player works flawlessly on:
+- iPhone & iPad (iOS 12+)
+- Android phones & tablets  
+- Mobile Chrome, Safari, Firefox
+- Progressive Web Apps
+
+= How do I create audio previews? =
+
+**Option 1**: Upload a shortened version (30-60 seconds) of your full track
+**Option 2**: Use the full track - customers hear complete audio before purchase
+**Option 3** (PRO): Automatic preview generation with fade-in/out effects
+
+= Will this slow down my website? =
+
+**No!** Really Simple Featured Audio is built for performance:
+- Optimized code - minimal JavaScript and CSS
+- CDN compatible - works with caching plugins
+- Mobile optimized - fast loading on slow connections
 
 = Is there a Pro version for this? =
 Yes, and is available for purchase from our site. If you wish to get a lifetime deal for our plugin please visit [our website here](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme).
@@ -71,6 +157,13 @@ Yes, and is available for purchase from our site. If you wish to get a lifetime 
 You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 1.2.0 =
+- New: Plugin Version Rollback feature
+- New: Settings menu and structure
+- Improvement: Upgrade Freemius SDK
+- Improvement: Other minor improvements
+- Improvement: Update translations
 
 = 1.1.0 =
 - New: Support for Ollie, Neve and GeneratePress themes and respective compat engines
