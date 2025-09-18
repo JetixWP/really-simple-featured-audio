@@ -554,7 +554,7 @@ class Admin_Settings {
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
 							<img class="<?php echo esc_attr( $value['type'] ); ?>" id="<?php echo esc_attr( $value['type'] ) . '-' . esc_attr( $value['id'] ); ?>" src="<?php echo esc_url( $image_url ); ?>" />
-							<a href="#" class="disabled"><?php esc_html_e( 'Change Image', 'rsfv' ); ?></a>
+							<a href="#" class="disabled"><?php esc_html_e( 'Change Image', 'really-simple-featured-audio' ); ?></a>
 							<?php echo esc_html( $value['suffix'] ); ?>
 							<?php echo $description; // phpcs:ignore. ?>
 							<?php echo wp_kses( $pro_link_html, $allowed_html_tags ); ?>
