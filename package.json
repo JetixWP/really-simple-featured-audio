@@ -1,7 +1,7 @@
 {
   "name": "really-simple-featured-audio",
   "version": "1.1.0",
-  "description": "Really Simple Featured Audio plugin provides a really straightforward way of adding featured audio support to your custom post types. Adding your own audios to the site is a breeze and you get an easy to use settings panel with the options you really need.",
+  "description": "Turn your WooCommerce store into a professional audio marketplace. Perfect for selling beats, music samples, audiobooks, and podcasts with seamless audio previews.",
   "main": "index.js",
   "scripts": {
     "plugin-zip": "wp-scripts plugin-zip",

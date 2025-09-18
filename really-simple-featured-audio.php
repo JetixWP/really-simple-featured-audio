@@ -2,8 +2,8 @@
 /**
  * Plugin Name: Really Simple Featured Audio
  * Plugin URI:  https://jetixwp.com/plugins/really-simple-featured-audio
- * Description: Adds support for Featured Audio to WordPress posts, pages & WooCommerce products.
  * Version:     1.1.0
+ * Description: Sell beats, music samples, audiobooks, and podcasts with seamless audio previews all inside WooCommerce and WordPress.
  * Author:      JetixWP Plugins
  * Author URI:  https://jetixwp.com
  * License:     GPL2
