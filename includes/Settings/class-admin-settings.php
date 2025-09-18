@@ -503,7 +503,7 @@ class Admin_Settings {
 
 				case 'media-image':
 					$option_value = $value['value'];
-					// Get the meta value of video attachment.
+					// Get the meta value of audio attachment.
 					$image_id      = $option_value;
 					$image_url     = wp_get_attachment_url( $image_id );
 					$display       = 'none';
@@ -544,7 +544,7 @@ class Admin_Settings {
 					<?php
 					break;
 				case 'promo-media-image':
-					// Get the meta value of video attachment.
+					// Get the meta value of audio attachment.
 					$default_image = $value['default'];
 					$image_url     = $default_image;
 					?>

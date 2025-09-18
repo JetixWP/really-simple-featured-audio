@@ -12,7 +12,7 @@ namespace RSFA\Settings\views;
 
 <div class="getpro-content">
 	<h1 class="tab-heading"><?php esc_html_e( 'Get Premium Featured Audio support with Really Simple Featured Audio Pro', 'really-simple-featured-audio' ); ?></h1>
-	<p>Loving the free version of RSFA? We have our PRO Plugin available now for early supporters with a suite of features you will love even more, give it a try and optimise your Featured Video workflow with these useful features:</p>
+	<p>Loving the free version of RSFA? We have our PRO Plugin available now for early supporters with a suite of features you will love even more, give it a try and optimise your Featured Audio workflow with these useful features:</p>
 	<ul>
 		<li><?php esc_html_e( 'Priority Support', 'really-simple-featured-audio' ); ?></li>
 		<li><?php esc_html_e( 'Customize Appearance [Coming Soon]', 'really-simple-featured-audio' ); ?></li>

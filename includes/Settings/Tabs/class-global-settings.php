@@ -55,8 +55,8 @@ class Global_Settings extends Settings_Page {
 				'type'    => 'checkbox',
 			),
 			array(
-				'title'   => __( 'Show videos at Blog single posts', 'really-simple-featured-audio' ),
-				'desc'    => __( 'When toggled on, it shows set videos at blog single posts.', 'really-simple-featured-audio' ),
+				'title'   => __( 'Show audios at Blog single posts', 'really-simple-featured-audio' ),
+				'desc'    => __( 'When toggled on, it shows set audios at blog single posts.', 'really-simple-featured-audio' ),
 				'id'      => 'blog_single_visibility',
 				'default' => true,
 				'type'    => 'checkbox',
