@@ -10,6 +10,7 @@ namespace RSFA;
 use RSFA\Compatibility\Plugin_Provider;
 use RSFA\Settings\Register;
 use RSFA\Compatibility\Theme_Provider;
+use RSFA\Featuresets\Register_Featuresets as Featuresets;
 
 /**
  * Class RSFA_featured_audio
@@ -49,6 +50,13 @@ final class Plugin {
 	 * @var $shortcode_provider
 	 */
 	public $shortcode_provider;
+
+	/**
+	 * Featuresets instance.
+	 *
+	 * @var $featuresets_provider
+	 */
+	public $featuresets_provider;
 
 	/**
 	 * Frontend instance.
@@ -125,6 +133,7 @@ final class Plugin {
 		// Let's call these providers.
 		$this->registration_provider = Register::get_instance();
 		$this->metabox_provider      = Metabox::get_instance();
+		$this->featuresets_provider  = Featuresets::get_instance();
 		$this->shortcode_provider    = Shortcode::get_instance();
 		$this->frontend_provider     = FrontEnd::get_instance();
 
@@ -165,6 +174,7 @@ final class Plugin {
 		require_once RSFA_PLUGIN_DIR . 'includes/class-metabox.php';
 
 		// Frontend loaders.
+		require_once RSFA_PLUGIN_DIR . 'includes/Featuresets/class-register-featuresets.php';
 		require_once RSFA_PLUGIN_DIR . 'includes/class-shortcode.php';
 		require_once RSFA_PLUGIN_DIR . 'includes/class-frontend.php';
 
