@@ -161,6 +161,7 @@ You can get support at the forums here or via support@jetixwp.com.
 = 1.2.0 =
 - New: Plugin Version Rollback feature
 - New: Settings menu and structure
+- Fix: Missing translation strings
 - Improvement: Upgrade Freemius SDK
 - Improvement: Other minor improvements
 - Improvement: Update translations
