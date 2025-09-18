@@ -1,22 +1,22 @@
-# Copyright (C) 2024 JetixWP Plugins
+# Copyright (C) 2025 JetixWP Plugins
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Really Simple Featured Audio 1.0.1\n"
+"Project-Id-Version: Really Simple Featured Audio 1.2.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/really-simple-featured-audio\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-12-05T14:27:57+00:00\n"
+"POT-Creation-Date: 2025-09-18T19:29:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: really-simple-featured-audio\n"
 
 #. Plugin Name of the plugin
 #: really-simple-featured-audio.php
-#: includes/Settings/class-register.php:59
+#: includes/Settings/class-register.php:94
 #: includes/Settings/Views/html-admin-settings.php:26
 msgid "Really Simple Featured Audio"
 msgstr ""
@@ -28,7 +28,7 @@ msgstr ""
 
 #. Description of the plugin
 #: really-simple-featured-audio.php
-msgid "Adds support for Featured Audio to WordPress posts, pages & WooCommerce products."
+msgid "Sell beats, music samples, audiobooks, and podcasts with seamless audio previews all inside WooCommerce and WordPress."
 msgstr ""
 
 #. Author of the plugin
@@ -42,6 +42,7 @@ msgid "https://jetixwp.com"
 msgstr ""
 
 #: includes/class-metabox.php:68
+#: includes/Settings/class-register.php:80
 msgid "Featured Audio"
 msgstr ""
 
@@ -81,12 +82,12 @@ msgstr ""
 msgid "Please select a audio source"
 msgstr ""
 
-#: includes/class-plugin.php:195
+#: includes/class-plugin.php:205
 msgid "Settings"
 msgstr ""
 
 #. translators: %1$s is a link to RSFA's plugin page, %2$s is a link to JetixWP's website, and %3$s is the existing html,.
-#: includes/class-plugin.php:231
+#: includes/class-plugin.php:241
 msgid "%1$s is developed and maintained by %2$s. %3$s"
 msgstr ""
 
@@ -132,20 +133,36 @@ msgstr ""
 msgid "Twenty Twenty-Five"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:127
+#: includes/Compatibility/class-theme-provider.php:91
+msgid "Ollie"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:96
+msgid "Neve"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:101
+msgid "GeneratePress"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:143
 msgid "Failed at registration"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:128
+#: includes/Compatibility/class-theme-provider.php:144
 msgid "Unregistered"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:164
+#: includes/Compatibility/class-theme-provider.php:180
 msgid "Disabled (Legacy)"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:165
+#: includes/Compatibility/class-theme-provider.php:181
 msgid "Auto (Do it for me)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:210
+msgid "Divi Builder (PRO)"
 msgstr ""
 
 #: includes/Compatibility/Plugins/Elementor/class-settings.php:58
@@ -168,28 +185,99 @@ msgstr ""
 msgid "When toggled on, it shows set audios at product archives such as Shop and Product category etc."
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:74
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:90
+msgid "Featured Audio Order"
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:91
+msgid "Set audio order on single product page/gallery, available in the Pro version."
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:96
+msgid "First (Default)"
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:97
+msgid "Second"
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:98
+msgid "Last"
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:110
+msgid "Default Gallery Thumb"
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:111
+msgid "Set default product gallery thumb on single product page."
+msgstr ""
+
+#: includes/Featuresets/rollback/class-init.php:67
+msgid "Sorry, you are not allowed to rollback Really Simple Featured Audio plugin for this site."
+msgstr ""
+
+#: includes/Featuresets/rollback/class-init.php:75
+msgid "Error occurred, the version selected is invalid. Try selecting different version."
+msgstr ""
+
+#: includes/Featuresets/rollback/class-init.php:94
+#: includes/Featuresets/rollback/class-rollbacker.php:175
+msgid "Rollback to Previous Version"
+msgstr ""
+
+#: includes/Settings/class-admin-settings.php:81
 msgid "Your settings have been saved."
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:132
+#: includes/Settings/class-admin-settings.php:145
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:322
+#: includes/Settings/class-admin-settings.php:146
+msgid "Select Thumbnail Image"
+msgstr ""
+
+#: includes/Settings/class-admin-settings.php:147
+msgid "Use this image"
+msgstr ""
+
+#: includes/Settings/class-admin-settings.php:275
+#: includes/Settings/class-admin-settings.php:342
 msgid "Pro"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:478
+#: includes/Settings/class-admin-settings.php:276
+#: includes/Settings/class-admin-settings.php:498
 msgid "Checkout Pro now"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:539
-#: includes/Settings/class-admin-settings.php:604
+#: includes/Settings/class-admin-settings.php:529
+#: includes/Settings/class-admin-settings.php:557
+msgid "Change Image"
+msgstr ""
+
+#: includes/Settings/class-admin-settings.php:530
+msgid "Revert to Default"
+msgstr ""
+
+#: includes/Settings/class-admin-settings.php:621
+#: includes/Settings/class-admin-settings.php:686
 msgid "Toggle"
 msgstr ""
 
-#: includes/Settings/class-register.php:58
+#: includes/Settings/class-register.php:65
+msgctxt "Page title"
+msgid "JetixWP Plugins"
+msgstr ""
+
+#: includes/Settings/class-register.php:66
+msgctxt "Menu title"
+msgid "JetixWP"
+msgstr ""
+
+#: includes/Settings/class-register.php:79
+#: includes/Settings/class-register.php:93
 msgid "Really Simple Featured Audio Settings"
 msgstr ""
 
@@ -236,34 +324,46 @@ msgstr ""
 msgid "General"
 msgstr ""
 
-#: includes/Settings/Tabs/class-general.php:81
+#: includes/Settings/Tabs/class-general.php:79
+msgid "If you set a PRO compatibility engine in the Free version of the plugin, the compatibility will fall back to the Default engine."
+msgstr ""
+
+#: includes/Settings/Tabs/class-general.php:79
+msgid "If you don't see your theme in this list, feel free to send us an email to add support for it at support@jetixwp.com"
+msgstr ""
+
+#: includes/Settings/Tabs/class-general.php:91
 msgctxt "settings title"
 msgid "Theme Compatibility Engine"
 msgstr ""
 
-#: includes/Settings/Tabs/class-general.php:82
+#: includes/Settings/Tabs/class-general.php:92
 msgid "If featured audios aren't working as expected in your theme, you may need to set this from the list of supported theme engines. (Default engine follows standard WordPress rules, and may not work for all themes)"
 msgstr ""
 
-#: includes/Settings/Tabs/class-general.php:92
+#: includes/Settings/Tabs/class-general.php:102
 msgid "Status"
 msgstr ""
 
-#: includes/Settings/Tabs/class-general.php:95
+#: includes/Settings/Tabs/class-general.php:105
 msgid "Auto"
 msgstr ""
 
-#: includes/Settings/Tabs/class-general.php:101
+#: includes/Settings/Tabs/class-general.php:111
 msgid "Set engine"
 msgstr ""
 
-#: includes/Settings/Tabs/class-general.php:113
+#: includes/Settings/Tabs/class-general.php:123
 msgctxt "settings title"
 msgid "Enable Post Types Support"
 msgstr ""
 
-#: includes/Settings/Tabs/class-general.php:114
+#: includes/Settings/Tabs/class-general.php:124
 msgid "Please select the post types you wish to enable featured audio support at."
+msgstr ""
+
+#: includes/Settings/Tabs/class-getpro.php:26
+msgid "Get PRO"
 msgstr ""
 
 #: includes/Settings/Tabs/class-global-settings.php:24
@@ -281,6 +381,74 @@ msgstr ""
 
 #: includes/Settings/Tabs/class-global-settings.php:52
 msgid "When toggled on, it shows set audios at blog home and archives such as category, tag archives etc."
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:58
+msgid "Show videos at Blog single posts"
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:59
+msgid "When toggled on, it shows set videos at blog single posts."
+msgstr ""
+
+#: includes/Settings/Tabs/class-version-control.php:24
+msgid "Version Control"
+msgstr ""
+
+#: includes/Settings/Tabs/class-version-control.php:44
+msgid "Rollback Versions"
+msgstr ""
+
+#: includes/Settings/Tabs/class-version-control.php:45
+msgid "If you are having issues with current version of Really Simple Featured Audio, you can rollback to a previous stable version."
+msgstr ""
+
+#: includes/Settings/Tabs/class-version-control.php:50
+msgid "Rollback RSFA"
+msgstr ""
+
+#: includes/Settings/Tabs/class-version-control.php:62
+msgid "Reinstall this version"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-getpro.php:14
+msgid "Get Premium Featured Audio support with Really Simple Featured Audio Pro"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-getpro.php:17
+msgid "Priority Support"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-getpro.php:18
+msgid "Customize Appearance [Coming Soon]"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-getpro.php:19
+msgid "Branding/White label [Coming Soon]"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-getpro.php:20
+msgid "Change Audio Order at WooCommerce Product page/gallery"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-getpro.php:21
+msgid "Change Default Gallery Audio Thumbnail at Woo Single Product page"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-getpro.php:22
+msgid "Support for more Premium/Custom themes"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-getpro.php:23
+msgid "Requests for Theme Compatibility"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-getpro.php:25
+msgid ".. and more coming soon."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-getpro.php:27
+msgid "Explore RSFA and PRO"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings.php:66
