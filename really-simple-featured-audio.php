@@ -53,10 +53,12 @@ if ( ! function_exists( 'rsfa_fs' ) ) {
 					'has_paid_plans' => false,
 					'menu'           => array(
 						'slug'       => 'rsfa-settings',
-						'first-path' => 'options-general.php?page=rsfa-settings',
+						'first-path' => 'admin.php?page=rsfa-settings',
 						'support'    => false,
+						'account'    => false,
+						'contact'    => false,
 						'parent'     => array(
-							'slug' => 'options-general.php',
+							'slug' => 'jetixwp',
 						),
 					),
 				)
