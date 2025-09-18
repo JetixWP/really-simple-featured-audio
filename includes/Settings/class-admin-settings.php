@@ -52,6 +52,11 @@ class Admin_Settings {
 
 			$settings = apply_filters( 'rsfa_get_settings_pages', $settings );
 
+			$settings[] = include 'Tabs/class-version-control.php';
+
+
+			$settings = apply_filters( 'rsfa_get_settings_pages', $settings );
+
 			self::$settings = $settings;
 		}
 
@@ -132,10 +137,13 @@ class Admin_Settings {
 		wp_localize_script(
 			'rsfa_settings',
 			'rsfa_settings_data',
-			array(
-				'i18n_nav_warning'  => __( 'The changes you made will be lost if you navigate away from this page.', 'really-simple-featured-audio' ),
-				'uploader_title'    => __( 'Select Thumbnail Image', 'really-simple-featured-audio' ),
-				'uploader_btn_text' => __( 'Use this image', 'really-simple-featured-audio' ),
+			apply_filters(
+				'rsfa_settings_localized_data',
+				array(
+					'i18n_nav_warning'  => __( 'The changes you made will be lost if you navigate away from this page.', 'really-simple-featured-audio' ),
+					'uploader_title'    => __( 'Select Thumbnail Image', 'really-simple-featured-audio' ),
+					'uploader_btn_text' => __( 'Use this image', 'really-simple-featured-audio' ),
+				)
 			)
 		);
 
