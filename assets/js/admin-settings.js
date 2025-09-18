@@ -140,6 +140,20 @@
 					return false;
 				}
 			);
+
+			// Process Plugin Rollback.
+			function processPluginRollback( e ) {
+				if ( e.preventDefault ) {
+					e.preventDefault();
+				}
+
+				const version = $( '#rsfa_rollback_version_select_option' ).val();
+				const rollbackUrl = addQueryArgs( data.rollback_url, { version: version } );
+
+				window.location.href = rollbackUrl;
+				return false;
+			}
+			$( '#rsfa_rollback_version_button' ).on( 'click', processPluginRollback );
 		}
 	);
 }( jQuery, rsfa_settings_data ) );

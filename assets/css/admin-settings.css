@@ -74,6 +74,15 @@ body.settings_page_rsfa-settings #wpcontent {
 		grid-template-columns: 8fr 4fr;
 		column-gap: 40px;
 	}
+
+	#rsfa_plugin_rollback_version-description + .form-table tbody {
+		display: grid;
+		grid-template-columns: auto 1fr;
+	}
+
+	#rsfa_plugin_rollback_version-description + .form-table .forminp-button {
+		padding: 15px 0;
+	}
 }
 
 .rsfa-wrapper .rsfa-nav-tab-wrapper {
@@ -422,7 +431,8 @@ body.settings_page_rsfa-settings #wpcontent {
 	display: inline-block;
 	margin-top: 10px;
 }
-.rsfa.getpro .submit {
+.rsfa.getpro .submit,
+.rsfa.version_control .submit {
 	display: none;
 }
 
@@ -524,6 +534,15 @@ body.settings_page_rsfa-settings #wpcontent {
 	color: var(--jwp-wtc__color-brand) !important;
 	box-shadow: none;
 	outline: none;
+}
+
+.rsfa .button-secondary,
+.rsfa .rsfa-button.button-secondary {
+	border-color: var(--jwp-wtc__color-brand);
+	color: var(--jwp-wtc__color-brand);;
+	box-shadow: none;
+	outline: none;
+	transition: all .1s ease-in-out;
 }
 
 .rsfa .tab-content a {
