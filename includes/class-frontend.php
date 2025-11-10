@@ -7,8 +7,8 @@
 
 namespace RSFA;
 
-use function RSFA\Settings\get_post_types;
 use RSFA\Options;
+use function RSFA\Settings\get_post_types;
 
 /**
  * Class FrontEnd
