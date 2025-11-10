@@ -2,8 +2,8 @@
 Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
-Tested up to: 6.8.2
-Stable tag: 1.2.1
+Tested up to: 6.8.3
+Stable tag: 1.3.0
 Tags: audio commerce, podcast player, woocommerce audio, music store, audio samples
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -157,6 +157,11 @@ Yes, and is available for purchase from our site. If you wish to get a lifetime 
 You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 1.3.0 =
+- Fix: Duplicate settings filter call
+- Improvement: Other minor improvements
+- Improvement: Update translations
 
 = 1.2.1 =
 - Improvement: Minor changes
