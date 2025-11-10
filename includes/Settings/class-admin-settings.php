@@ -57,8 +57,6 @@ class Admin_Settings {
 			// To make sure Promotional tabs shows up at the very last.
 			$settings[] = include 'Tabs/class-getpro.php';
 
-			$settings = apply_filters( 'rsfa_get_settings_pages', $settings );
-
 			self::$settings = $settings;
 		}
 
