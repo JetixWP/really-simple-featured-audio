@@ -3,7 +3,7 @@
         'name' => 'jetixwp/really-simple-featured-audio',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '4929491f3769b0c3977d866c64434ddee76cba3b',
+        'reference' => '10dcb5ab98afba507e572c451bf46f32ed14b3f0',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'jetixwp/really-simple-featured-audio' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '4929491f3769b0c3977d866c64434ddee76cba3b',
+            'reference' => '10dcb5ab98afba507e572c451bf46f32ed14b3f0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
