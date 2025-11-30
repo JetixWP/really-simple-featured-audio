@@ -31,7 +31,7 @@ if ( ! $tab_exists ) {
 			</div>
 
 			<div class="brand-info">
-				<a href="https://jetixwp.com?utm_campaign=settings-header&utm_source=rsfa-plugin" target="_blank"><img class="brand-logo" src="<?php echo esc_url( RSFA_PLUGIN_URL . 'assets/images/icon-dark.svg' ); ?>" alt="RSFA"></a>
+				<a href="https://jetixwp.com?utm_campaign=settings-header&utm_source=rsfa-plugin" target="_blank"><img class="brand-logo" src="<?php echo esc_url( RSFA_PLUGIN_URL . 'assets/images/jwp-icon-dark.svg' ); ?>" alt="RSFA"></a>
 			</div>
 		</div>
 	</div>
