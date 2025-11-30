@@ -158,6 +158,10 @@ You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
 
+= 1.3.1 =
+- New: Brand update
+- Improvement: Other minor improvements
+
 = 1.3.0 =
 - Fix: Duplicate settings filter call
 - Improvement: Other minor improvements
