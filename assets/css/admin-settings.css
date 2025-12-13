@@ -20,6 +20,11 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 	box-shadow: 0px 2px 6px rgba(35, 40, 45, .07);
 }
 
+body.jetixwp_page_rsfa-settings #wpbody-content > *:not(.wrap.rsfa):not(#screen-meta),
+.wrap.rsfa .plugin-header [class*="notice"] {
+	display: none !important;
+}
+
 .plugin-header .plugin-header-wrap {
 	display: flex;
 	gap: 2rem;
