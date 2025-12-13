@@ -42,13 +42,13 @@ class Plugin_Provider {
 			'rsfa_plugin_compatibility_engines',
 			array(
 				'woocommerce' => array(
-					'title'            => __( 'WooCommerce', 'really-simple-featured-audio' ),
+					'title'            => 'WooCommerce',
 					'file_source'      => self::COMPAT_DIR . 'WooCommerce/class-compatibility.php',
 					'class'            => 'RSFA\Compatibility\Plugins\WooCommerce\Compatibility',
 					'has_class_loaded' => 'WooCommerce',
 				),
 				'elementor'   => array(
-					'title'            => __( 'Elementor', 'really-simple-featured-audio' ),
+					'title'            => 'Elementor',
 					'file_source'      => RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/Elementor/class-compatibility.php',
 					'class'            => 'RSFA\Compatibility\Plugins\Elementor\Compatibility',
 					'has_class_loaded' => 'Elementor\Plugin',
