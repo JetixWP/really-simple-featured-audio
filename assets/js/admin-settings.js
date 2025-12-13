@@ -9,6 +9,8 @@
 ( function( $, data ) {
 	$(
 		function() {
+			const { addQueryArgs } = wp.url;
+
 			// Edit prompt.
 			$(
 				function() {
