@@ -9,7 +9,7 @@ Really Simple Featured Audio
 
 **Sell Audio Products Like a Pro** - Transform your WooCommerce store into a thriving audio marketplace with professional preview players, mobile-optimized playback, and seamless customer experience.
 
-[🚀 **Get the PRO version - Limited Lifetime Deal**](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme)
+[🚀 **Take a look at Really Simple Featured Audio**](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme)
 
 https://www.youtube.com/watch?v=OSwL58J5rvA
 
