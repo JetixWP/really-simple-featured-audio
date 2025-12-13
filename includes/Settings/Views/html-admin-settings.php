@@ -38,8 +38,6 @@ if ( ! $tab_exists ) {
 		</div>
 	</div>
 	<div class="rsfa-wrapper">
-		<form method="<?php echo esc_attr( apply_filters( 'rsfa_settings_form_method_tab_' . $current_tab, 'post' ) ); ?>" id="mainform" action="" enctype="multipart/form-data">
-
 			<div class="nav-content">
 				<nav class="nav-tab-wrapper rsfa-nav-tab-wrapper">
 					<?php
@@ -54,22 +52,24 @@ if ( ! $tab_exists ) {
 				</nav>
 			</div>
 			<div class="tab-content">
-				<div class="content">
-					<h1 class="screen-reader-text"><?php echo esc_html( $current_tab_label ); ?></h1>
-					<?php
-					do_action( 'rsfa_sections_' . $current_tab );
+				<form method="<?php echo esc_attr( apply_filters( 'rsfa_settings_form_method_tab_' . $current_tab, 'post' ) ); ?>" id="mainform" action="" enctype="multipart/form-data">
+					<div class="content">
+						<h1 class="screen-reader-text"><?php echo esc_html( $current_tab_label ); ?></h1>
+						<?php
+						do_action( 'rsfa_sections_' . $current_tab );
 
-					self::show_messages();
+						self::show_messages();
 
-					do_action( 'rsfa_settings_' . $current_tab );
-					?>
-					<p class="submit">
-						<?php if ( empty( $GLOBALS['hide_save_button'] ) ) : ?>
-							<button name="save" class="button-primary rsfa-save-button" type="submit" value="<?php esc_attr_e( 'Save changes', 'really-simple-featured-audio' ); ?>"><?php esc_html_e( 'Save changes', 'really-simple-featured-audio' ); ?></button>
-						<?php endif; ?>
-						<?php wp_nonce_field( 'rsfa-settings' ); ?>
-					</p>
-				</div>
+						do_action( 'rsfa_settings_' . $current_tab );
+						?>
+						<p class="submit">
+							<?php if ( empty( $GLOBALS['hide_save_button'] ) ) : ?>
+								<button name="save" class="button-primary rsfa-save-button" type="submit" value="<?php esc_attr_e( 'Save changes', 'really-simple-featured-audio' ); ?>"><?php esc_html_e( 'Save changes', 'really-simple-featured-audio' ); ?></button>
+							<?php endif; ?>
+							<?php wp_nonce_field( 'rsfa-settings' ); ?>
+						</p>
+					</div>
+				</form>
 
 				<div class="sidebar">
 					<?php if ( ! class_exists( '\RSFA_Pro\Plugin' ) ) : ?>
@@ -89,9 +89,9 @@ if ( ! $tab_exists ) {
 								</ul>
 							</div>
 							<form id="js-rsfa-pro-request-discount" method="post">
-								<input required type="email" class="regular-text" name="email" value="<?php echo esc_attr( $current_user->user_email ); ?>" placeholder="<?php esc_attr_e( 'Your Email', 'rsfa' ); ?>">
-								<input required type="text" class="regular-text" name="first_name" value="<?php echo esc_attr( $current_user->first_name ); ?>" placeholder="<?php esc_attr_e( 'First Name', 'rsfa' ); ?>">
-								<input type="submit" class="button button-primary" style="width:100%" value="<?php esc_attr_e( '🚀 Send me the coupon', 'rsfa' ); ?>" data-default-label="<?php esc_attr_e( '🚀 Send me the coupon', 'rsfa' ); ?>">
+								<input required type="email" class="regular-text" name="email" value="<?php echo esc_attr( $current_user->user_email ); ?>" placeholder="<?php esc_attr_e( 'Your Email', 'really-simple-featured-audio' ); ?>">
+								<input required type="text" class="regular-text" name="first_name" value="<?php echo esc_attr( $current_user->first_name ); ?>" placeholder="<?php esc_attr_e( 'First Name', 'really-simple-featured-audio' ); ?>">
+								<input type="submit" class="button button-primary" style="width:100%" value="<?php esc_attr_e( '🚀 Send me the coupon', 'really-simple-featured-audio' ); ?>" data-default-label="<?php esc_attr_e( '🚀 Send me the coupon', 'really-simple-featured-audio' ); ?>">
 								<p class="rsfa-pro-discount-response"><span></span></p>
 							</form>
 							<span class="separator">-- OR --</span>
@@ -111,6 +111,5 @@ if ( ! $tab_exists ) {
 					<?php do_action( 'rsfa_extend_settings_sidebar' ); ?>
 				</div>
 			</div>
-		</form>
 	</div>
 </div>

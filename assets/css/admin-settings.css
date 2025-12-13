@@ -66,7 +66,7 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 
 .rsfa .plugin-header .plugin-header-wrap,
 .rsfa-wrapper .rsfa-nav-tab-wrapper,
-.rsfa-wrapper form#mainform > .tab-content {
+.rsfa-wrapper > .tab-content {
 	margin-left: 30px;
 	max-width: 1360px;
 	min-width: 920px;
@@ -74,7 +74,7 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 }
 
 @media screen and (min-width: 768px) {
-	.rsfa-wrapper form#mainform > .tab-content {
+	.rsfa-wrapper > .tab-content {
 		display: grid;
 		grid-template-columns: 8fr 4fr;
 		column-gap: 40px;
