@@ -140,6 +140,8 @@ class Admin_Settings {
 					'i18n_nav_warning'  => __( 'The changes you made will be lost if you navigate away from this page.', 'really-simple-featured-audio' ),
 					'uploader_title'    => __( 'Select Thumbnail Image', 'really-simple-featured-audio' ),
 					'uploader_btn_text' => __( 'Use this image', 'really-simple-featured-audio' ),
+					'ajax_url'          => admin_url( 'admin-ajax.php' ),
+					'nonce'             => wp_create_nonce( 'rsfa_admin_nonce' ),
 				)
 			)
 		);

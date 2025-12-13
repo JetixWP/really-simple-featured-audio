@@ -347,6 +347,27 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 	padding: 6px 14px;
 }
 
+.rsfa .forminp-status #theme-engine-status.loading::before {
+	content: ' ';
+	display: inline-block;
+	border: 2px solid var(--jwp-settings__color-brand);
+	border-top: 2px solid transparent;
+	border-radius: 100%;
+	width: 8px;
+	height: 8px;
+	margin-right: 4px;
+	animation: rsfa-spin 1s linear infinite;
+}
+
+@keyframes rsfa-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 .rsfa .forminp-status .engine-active::before {
 	content: ' ';
 	display: inline-block;
