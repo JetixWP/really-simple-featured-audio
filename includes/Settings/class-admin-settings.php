@@ -54,9 +54,6 @@ class Admin_Settings {
 
 			$settings[] = include 'Tabs/class-version-control.php';
 
-			// To make sure Promotional tabs shows up at the very last.
-			$settings[] = include 'Tabs/class-getpro.php';
-
 			self::$settings = $settings;
 		}
 
