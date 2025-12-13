@@ -7,8 +7,6 @@
 
 namespace RSFA\Compatibility;
 
-use RSFA\Options;
-
 /**
  * Class Plugin_Provider
  *
@@ -78,17 +76,13 @@ class Plugin_Provider {
 	 * @return void
 	 */
 	public function load_plugin_compat() {
-		$options = Options::get_instance();
-
-		$plugin_compat = null;
-
 		foreach ( $this->plugin_engines as $plugin_engine => $plugin_data ) {
 			if ( ! class_exists( $plugin_data['has_class_loaded'] ) ) {
 				continue;
 			}
 
 			require_once $plugin_data['file_source'];
-			$plugin_compat = $plugin_data['class']::get_instance();
+			$plugin_data['class']::get_instance();
 		}
 	}
 
