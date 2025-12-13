@@ -2,8 +2,8 @@
 Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
-Tested up to: 6.8
-Stable tag: 1.3.1
+Tested up to: 6.9
+Stable tag: 1.4.0
 Tags: audio commerce, podcast player, woocommerce audio, music store, audio samples
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -14,7 +14,7 @@ Turn your WooCommerce store into a professional audio marketplace. Perfect for s
 
 **Sell Audio Products Like a Pro** - Transform your WooCommerce store into a thriving audio marketplace with professional preview players, mobile-optimized playback, and seamless customer experience.
 
-[🚀 **Grab the PRO version - Limited Lifetime Deal**](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme)
+[🚀 **Take a better look at Really Simple Featured Audio**](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme)
 
 https://www.youtube.com/watch?v=OSwL58J5rvA
 
@@ -150,13 +150,23 @@ You can send a feedback or a feature request at [github.com/JetixWP/really-simpl
 - CDN compatible - works with caching plugins
 - Mobile optimized - fast loading on slow connections
 
-= Is there a Pro version for this? =
-Yes, and is available for purchase from our site. If you wish to get a lifetime deal for our plugin please visit [our website here](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme).
-
 = Where can I get help? =
 You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 1.4.0 =
+- New: Re-written Rollback feature
+- Fix: Early translation calls throwing warnings
+- Improvement: Removed old plugin settings menu for good
+- Improvement: Hide all notices and other things at plugin settings page
+- Improvement: Theme compatibility engine status auto-refresh at settings
+- Improvement: Rename option labels for better discovery at settings
+- Improvement: Updated promo form at settings sidebar
+- Improvement: Removed Get Pro tab from settings
+- Improvement: Remove dormant/unused code
+- Improvement: Update translation files
+- Improvement: Other minor changes
 
 = 1.3.1 =
 - New: Brand update

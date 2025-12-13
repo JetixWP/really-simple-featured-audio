@@ -7,8 +7,6 @@
 
 namespace RSFA\Compatibility;
 
-use RSFA\Options;
-
 /**
  * Class Plugin_Provider
  *
@@ -42,13 +40,13 @@ class Plugin_Provider {
 			'rsfa_plugin_compatibility_engines',
 			array(
 				'woocommerce' => array(
-					'title'            => __( 'WooCommerce', 'really-simple-featured-audio' ),
+					'title'            => 'WooCommerce',
 					'file_source'      => self::COMPAT_DIR . 'WooCommerce/class-compatibility.php',
 					'class'            => 'RSFA\Compatibility\Plugins\WooCommerce\Compatibility',
 					'has_class_loaded' => 'WooCommerce',
 				),
 				'elementor'   => array(
-					'title'            => __( 'Elementor', 'really-simple-featured-audio' ),
+					'title'            => 'Elementor',
 					'file_source'      => RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/Elementor/class-compatibility.php',
 					'class'            => 'RSFA\Compatibility\Plugins\Elementor\Compatibility',
 					'has_class_loaded' => 'Elementor\Plugin',
@@ -78,17 +76,13 @@ class Plugin_Provider {
 	 * @return void
 	 */
 	public function load_plugin_compat() {
-		$options = Options::get_instance();
-
-		$plugin_compat = null;
-
 		foreach ( $this->plugin_engines as $plugin_engine => $plugin_data ) {
 			if ( ! class_exists( $plugin_data['has_class_loaded'] ) ) {
 				continue;
 			}
 
 			require_once $plugin_data['file_source'];
-			$plugin_compat = $plugin_data['class']::get_instance();
+			$plugin_data['class']::get_instance();
 		}
 	}
 

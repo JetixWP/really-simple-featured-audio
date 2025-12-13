@@ -7,8 +7,6 @@
 
 namespace RSFA\Settings;
 
-use RSFA\Plugin;
-
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -48,15 +46,15 @@ class Global_Settings extends Settings_Page {
 				'id'   => 'rsfa_archives_visibilitiy',
 			),
 			array(
-				'title'   => __( 'Show audios at Blog archives', 'really-simple-featured-audio' ),
-				'desc'    => __( 'When toggled on, it shows set audios at blog home and archives such as category, tag archives etc.', 'really-simple-featured-audio' ),
+				'title'   => __( 'Show audio at Blog, Category and Tag archives', 'really-simple-featured-audio' ),
+				'desc'    => __( 'When toggled on, it shows set audio at blog home and archives such as category, tag archives etc.', 'really-simple-featured-audio' ),
 				'id'      => 'blog_archives_visibility',
 				'default' => true,
 				'type'    => 'checkbox',
 			),
 			array(
-				'title'   => __( 'Show audios at Blog single posts', 'really-simple-featured-audio' ),
-				'desc'    => __( 'When toggled on, it shows set audios at blog single posts.', 'really-simple-featured-audio' ),
+				'title'   => __( 'Show audio at Blog Single Post', 'really-simple-featured-audio' ),
+				'desc'    => __( 'When toggled on, it shows set audio at Blog Single Post.', 'really-simple-featured-audio' ),
 				'id'      => 'blog_single_visibility',
 				'default' => true,
 				'type'    => 'checkbox',

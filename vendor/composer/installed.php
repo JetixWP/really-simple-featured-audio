@@ -3,11 +3,11 @@
         'name' => 'jetixwp/really-simple-featured-audio',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '10dcb5ab98afba507e572c451bf46f32ed14b3f0',
+        'reference' => 'd94de1227b84fed3448393720350e307338e4253',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'dev' => true,
+        'dev' => false,
     ),
     'versions' => array(
         'freemius/wordpress-sdk' => array(
@@ -22,7 +22,7 @@
         'jetixwp/really-simple-featured-audio' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '10dcb5ab98afba507e572c451bf46f32ed14b3f0',
+            'reference' => 'd94de1227b84fed3448393720350e307338e4253',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

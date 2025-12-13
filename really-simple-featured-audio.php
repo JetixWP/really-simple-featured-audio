@@ -3,20 +3,22 @@
  * Plugin Name: Really Simple Featured Audio
  * Plugin URI:  https://jetixwp.com/plugins/really-simple-featured-audio
  * Description: Sell beats, music samples, audiobooks, and podcasts with seamless audio previews all inside WooCommerce and WordPress.
- * Version:     1.3.1
+ * Version:     1.4.0
  * Author:      JetixWP Plugins
  * Author URI:  https://jetixwp.com
  * License:     GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: really-simple-featured-audio
  * Domain Path: /languages/
+ * Requires at least: 6.0
+ * Requires PHP: 8.0
  *
  * @package RSFA
  */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'RSFA_VERSION', '1.3.1' );
+define( 'RSFA_VERSION', '1.4.0' );
 define( 'RSFA_PLUGIN_FILE', __FILE__ );
 define( 'RSFA_PLUGIN_URL', plugin_dir_url( RSFA_PLUGIN_FILE ) );
 define( 'RSFA_PLUGIN_DIR', plugin_dir_path( RSFA_PLUGIN_FILE ) );

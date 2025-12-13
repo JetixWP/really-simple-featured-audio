@@ -54,9 +54,6 @@ class Admin_Settings {
 
 			$settings[] = include 'Tabs/class-version-control.php';
 
-			// To make sure Promotional tabs shows up at the very last.
-			$settings[] = include 'Tabs/class-getpro.php';
-
 			self::$settings = $settings;
 		}
 
@@ -143,6 +140,8 @@ class Admin_Settings {
 					'i18n_nav_warning'  => __( 'The changes you made will be lost if you navigate away from this page.', 'really-simple-featured-audio' ),
 					'uploader_title'    => __( 'Select Thumbnail Image', 'really-simple-featured-audio' ),
 					'uploader_btn_text' => __( 'Use this image', 'really-simple-featured-audio' ),
+					'ajax_url'          => admin_url( 'admin-ajax.php' ),
+					'nonce'             => wp_create_nonce( 'rsfa_admin_nonce' ),
 				)
 			)
 		);
@@ -390,7 +389,7 @@ class Admin_Settings {
 								style="<?php echo esc_attr( $value['css'] ); ?>"
 								class="<?php echo esc_attr( $value['class'] ); ?>"
 								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
-								><?php echo esc_html( $option_value ); ?></a><?php echo esc_html( $value['suffix'] ); ?> <?php echo esc_html( $description ); ?>
+								><?php echo esc_html( $option_value ); ?></a><?php echo esc_html( $value['suffix'] ); ?> <?php echo wp_kses( $description, $allowed_html_tags ); ?>
 						</td>
 					</tr>
 					<?php
