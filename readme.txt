@@ -14,7 +14,7 @@ Turn your WooCommerce store into a professional audio marketplace. Perfect for s
 
 **Sell Audio Products Like a Pro** - Transform your WooCommerce store into a thriving audio marketplace with professional preview players, mobile-optimized playback, and seamless customer experience.
 
-[🚀 **Grab the PRO version - Limited Lifetime Deal**](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme)
+[🚀 **Take a better look at Really Simple Featured Audio**](https://jetixwp.com/plugins/really-simple-featured-audio/?utm_source=wporg&utm_medium=referral&utm_campaign=readme)
 
 https://www.youtube.com/watch?v=OSwL58J5rvA
 
@@ -156,7 +156,17 @@ You can get support at the forums here or via support@jetixwp.com.
 == Changelog ==
 
 = 1.4.0 =
-- 
+- New: Re-written Rollback feature
+- Fix: Early translation calls throwing warnings
+- Improvement: Removed old plugin settings menu for good
+- Improvement: Hide all notices and other things at plugin settings page
+- Improvement: Theme compatibility engine status auto-refresh at settings
+- Improvement: Rename option labels for better discovery at settings
+- Improvement: Updated promo form at settings sidebar
+- Improvement: Removed Get Pro tab from settings
+- Improvement: Remove dormant/unused code
+- Improvement: Update translation files
+- Improvement: Other minor changes
 
 = 1.3.1 =
 - New: Brand update
