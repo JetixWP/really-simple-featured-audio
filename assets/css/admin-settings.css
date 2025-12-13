@@ -1,7 +1,7 @@
 :root {
-	--jwp-wtc__color-background: #c6eaca;
-	--jwp-wtc__color-brand: #008710;
-	--jwp-wtc__color-brand-light: #f1faee;
+	--jwp-settings__color-background: #f0f2eb;
+	--jwp-settings__color-brand: #008710;
+	--jwp-settings__color-brand-light: #f1faee;
 }
 
 body.jetixwp_page_rsfa-settings #wpcontent {
@@ -61,7 +61,7 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 
 .rsfa-wrapper .nav-tab:hover, 
 .rsfa-wrapper .nav-tab:focus {
-	color: var(--jwp-wtc__color-brand);
+	color: var(--jwp-settings__color-brand);
 }
 
 .rsfa .plugin-header .plugin-header-wrap,
@@ -110,8 +110,8 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 }
 
 .rsfa-wrapper .nav-tab-active {
-	color: var(--jwp-wtc__color-brand);
-	border-color: var(--jwp-wtc__color-brand);
+	color: var(--jwp-settings__color-brand);
+	border-color: var(--jwp-settings__color-brand);
 }
 
 
@@ -261,8 +261,8 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 }
 
 .rsfa .form-table td.forminp-multi-checkbox input:checked + span > span {
-	background: var(--jwp-wtc__color-brand);
-	border-color: var(--jwp-wtc__color-brand);
+	background: var(--jwp-settings__color-brand);
+	border-color: var(--jwp-settings__color-brand);
 }
 
 .rfsv .form-table td.forminp-multi-checkbox input:checked + span > span:before {
@@ -350,7 +350,7 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 .rsfa .forminp-status .engine-active::before {
 	content: ' ';
 	display: inline-block;
-	background: var(--jwp-wtc__color-brand);
+	background: var(--jwp-settings__color-brand);
 	width: 8px;
 	height: 8px;
 	border-radius: 100%;
@@ -381,7 +381,7 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 .rsfa div[class*="promo-"] .pro-tag {
 	padding: 3px 6px;
 	display: inline-block;
-	background: var(--jwp-wtc__color-brand);
+	background: var(--jwp-settings__color-brand);
 	color: #fff;
 	font-size: 14px;
 	border-radius: 4px;
@@ -396,8 +396,8 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 .rsfa div[class*="promo-"] .pro-tag:focus,
 .rsfa div[class*="promo-"] .pro-tag:active {
 	background: transparent;
-	border-color: var(--jwp-wtc__color-brand);
-	color: var(--jwp-wtc__color-brand) !important;
+	border-color: var(--jwp-settings__color-brand);
+	color: var(--jwp-settings__color-brand) !important;
 	box-shadow: none;
 	outline: none;
 }
@@ -432,60 +432,11 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 	margin-left: 10px;
 }
 
-.rsfa.getpro .tab-content .rsfa-button {
-	display: inline-block;
-	margin-top: 10px;
-}
-.rsfa.getpro .submit,
 .rsfa.version_control .submit {
 	display: none;
 }
 
-.rsfa.getpro .rsfa-button.rsfa-getpro-button {
-	display: inline-block;
-	margin-top: 30px;
-}
-
-.rsfa.getpro h1:not(.menu-title) {
-	margin-top: 15px;
-	font-weight: 600;
-	font-size: 20px;
-	line-height: 30px;
-}
-
-.rsfa.getpro .getpro-content ul {
-	list-style: disc;
-	list-style-position: inside;
-}
-
-.rsfa.getpro .getpro-content li {
-	line-height: 1.5;
-}
-
-.rsfa.getpro .getpro-content p, li {
-	font-size: 15px;
-}
-
-.rsfa.getpro form {
-	position: relative;
-}
-
-.rsfa.getpro form {
-	height: calc(100% - 10%);
-}
-
-.rsfa.getpro .getpro-content .offer-highlight {
-	font-size: 18px;
-}
-
-.rsfa.getpro .tab-content .rsfa-button {
-	display: inline-block;
-	margin-top: 10px;
-	font-size: 16px;
-	padding: 4px 20px;
-}
-
-.rsfa .sidebar .help-box,
+.rsfa .sidebar .upgrade-box,
 .rsfa .notice-box {
 	background: #fff;
 	border: 1px solid #dcdcdc;
@@ -493,17 +444,16 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 }
 
 
-.rsfa .sidebar .help-box > *,
+.rsfv .sidebar .upgrade-box > *,
 .rsfa .notice-box > * {
 	margin-bottom: 15px;
 }
 
-.rsfa .sidebar .help-box .desc,
+.rsfa .sidebar .upgrade-box .desc,
 .rsfa .notice-box .desc {
 	font-size: 15px;
 }
 
-.rsfa .sidebar .help-box .button.button-primary,
 .rsfa .notice-box .button.button-primary {
 	font-size: 16px;
 	width: 100%;
@@ -523,7 +473,7 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 
 .rsfa .button-primary,
 .rsfa .rsfa-button.button-primary {
-	background: var(--jwp-wtc__color-brand);
+	background: var(--jwp-settings__color-brand);
 	color: #fff;
 	box-shadow: none;
 	outline: none;
@@ -535,23 +485,23 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 .rsfa .button-primary:focus,
 .rsfa .button-primary:hover {
 	background: transparent;
-	border-color: var(--jwp-wtc__color-brand);
-	color: var(--jwp-wtc__color-brand) !important;
+	border-color: var(--jwp-settings__color-brand);
+	color: var(--jwp-settings__color-brand) !important;
 	box-shadow: none;
 	outline: none;
 }
 
 .rsfa .button-secondary,
 .rsfa .rsfa-button.button-secondary {
-	border-color: var(--jwp-wtc__color-brand);
-	color: var(--jwp-wtc__color-brand);;
+	border-color: var(--jwp-settings__color-brand);
+	color: var(--jwp-settings__color-brand);;
 	box-shadow: none;
 	outline: none;
 	transition: all .1s ease-in-out;
 }
 
 .rsfa .tab-content a {
-	color: var(--jwp-wtc__color-brand);
+	color: var(--jwp-settings__color-brand);
 }
 
 .rsfa a:hover,
@@ -560,14 +510,68 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 	text-decoration: none;
 }
 
-@media screen and ( min-width: 1920px ) {
-	.rsfa.getpro form {
-		height: auto;
-	}
-}
+/**
+ * PROMO form.
+ */
+.rsfa .sidebar .upgrade-box {
+	border-color: var(--jwp-settings__color-brand);
+	background-color: var(--jwp-settings__color-background);
+	padding-top: 15px;
+  border-radius: 4px;
+	font-size: 14px;
 
-@media screen and (max-width: 768px) {
-	.rsfa.getpro form {
-		padding-bottom: 250px;
+	form {
+		margin-top: 20px;
 	}
+
+	.regular-text {
+		width: 100%;
+		margin-bottom: 8px;
+	}
+
+	input[type="email"]:focus,
+	input[type="text"]:focus {
+		border-color: var(--jwp-settings__color-brand);
+		box-shadow: 0 0 0 1px var(--jwp-settings__color-brand);
+	}
+
+	.separator {
+		display: block;
+		text-align: center;
+		margin: 10px 0;
+		position: relative;
+	}
+
+	.peekaboo-section {
+		text-align: center;
+	}
+
+	.button-primary {
+		color: #fff;
+		font-size: 14px;
+	}
+
+	.button-secondary {
+		background: transparent;
+		color: var(--jwp-settings__color-brand);
+		box-shadow: none;
+		outline: none;
+		border: 2px solid var(--jwp-settings__color-brand);
+		transition: all .1s ease-in-out;
+		width: 100%;
+		text-align: center;
+		font-size: 14px;
+
+		&:active,
+		&:focus,
+		&:hover {
+			background: var(--jwp-settings__color-brand);
+			border-color: var(--jwp-settings__color-brand);
+			color: #fff !important;
+			box-shadow: none;
+			outline: none;
+		}
+	}
+
+	
 }
