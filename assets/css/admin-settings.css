@@ -14,7 +14,7 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 
 .wrap.rsfa .plugin-header {
 	padding: 20px 0;
-	background-color: #f0f2eb;
+	background-color: var(--jwp-settings__color-background);
 	border-bottom: 1px solid rgba(0,0,0, 0.1);
 	-webkit-box-shadow: 0px 2px 6px rgba(35, 40, 45, .07);
 	box-shadow: 0px 2px 6px rgba(35, 40, 45, .07);
@@ -444,7 +444,7 @@ body.jetixwp_page_rsfa-settings #wpcontent {
 }
 
 
-.rsfv .sidebar .upgrade-box > *,
+.rsfa .sidebar .upgrade-box > *,
 .rsfa .notice-box > * {
 	margin-bottom: 15px;
 }
