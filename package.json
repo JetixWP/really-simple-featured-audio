@@ -6,7 +6,7 @@
   "scripts": {
     "package": "composer install --no-dev && wp-scripts plugin-zip",
     "packages-update": "wp-scripts packages-update",
-    "plugin-translate": "wp i18n make-pot . ./languages/rsfa.pot"
+    "translate": "wp i18n make-pot . ./languages/rsfa.pot"
   },
   "repository": {
     "type": "git",
