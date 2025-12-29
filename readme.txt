@@ -155,6 +155,14 @@ You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
 
+= 1.5.0 =
+- New: Updated PROMO settings page
+- Improvement: Update settings labels
+- Improvement: Remove manual languages file loader
+- Improvement: Update incorrect translation text domain
+- Improvement: Update translation files
+- Improvement: Other minor changes
+
 = 1.4.0 =
 - New: Re-written Rollback feature
 - Fix: Early translation calls throwing warnings
