@@ -3,7 +3,7 @@ Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
 Tested up to: 6.9
-Stable tag: 1.4.0
+Stable tag: 1.5.0
 Tags: audio commerce, podcast player, woocommerce audio, music store, audio samples
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,7 +18,7 @@ Turn your WooCommerce store into a professional audio marketplace. Perfect for s
 
 https://www.youtube.com/watch?v=OSwL58J5rvA
 
-## **Why Audio Sellers Choose Really Simple Featured Audio**
+## Why Audio Sellers Choose Really Simple Featured Audio
 
 ❌ **Problem**: Standard WooCommerce has NO native audio preview functionality
 ❌ **Problem**: Customers can't preview your beats, samples, or tracks before buying
@@ -30,7 +30,7 @@ https://www.youtube.com/watch?v=OSwL58J5rvA
 ✅ **Solution**: Lightning-fast performance with zero bloat
 ✅ **Solution**: Works with most WooCommerce themes out of the box (if not we're always an email away to fix!)
 
-## **Perfect For Audio Entrepreneurs**
+## Perfect For Audio Entrepreneurs
 
 🎵 **Beat Makers & Producers** - Sell hip-hop beats, trap samples, and production loops
 🎧 **Sample Pack Creators** - Showcase drum kits, melodic loops, and sound effects  
@@ -39,14 +39,14 @@ https://www.youtube.com/watch?v=OSwL58J5rvA
 🎸 **Musicians** - Sell tracks, backing tracks, and instrumental versions
 🔊 **Sound Designers** - Market sound effects and audio assets
 
-## **How It Transforms Your Audio Store**
+## How It Transforms Your Audio Store
 
 **Before**: Customers buy audio blindly → High refund rates → Lost sales
 **After**: Customers preview first → Confident purchases → Higher conversions
 
 Just like how clothing stores let you "try before you buy", Really Simple Featured Audio lets your customers "listen before they buy."
 
-== 🚀 **Core Features** ==
+== 🚀 Core Features ==
 
 ### **Seamless WooCommerce Integration**
 * Audio previews appear directly in product galleries
@@ -73,7 +73,7 @@ Just like how clothing stores let you "try before you buy", Really Simple Featur
 * **Theme Compatibility** - Supports TwentyTwenty themes and modern themes, [we take requests for compatibility]
 * **Custom Post Type Support** - Works beyond just WooCommerce
 
-== 🛠️ **Easy Setup Process** ==
+== 🛠️ Easy Setup Process ==
 
 1. **Install & Activate** - One-click installation from WordPress admin
 2. **Edit Any Product** - Scroll to "Featured Audio" metabox  
@@ -83,7 +83,7 @@ Just like how clothing stores let you "try before you buy", Really Simple Featur
 
 **Setup Time**: Under 5 minutes for your first audio product
 
-== 📱 **Mobile-First Design** ==
+== 📱 Mobile-First Design ==
 
 Unlike other audio plugins that break on mobile, Really Simple Featured Audio is built mobile-first:
 
@@ -93,7 +93,7 @@ Unlike other audio plugins that break on mobile, Really Simple Featured Audio is
 * **Fast Loading** - Optimized for mobile networks
 * **Responsive Design** - Looks perfect on any screen size
 
-== 🎯 **Use Cases That Drive Sales** ==
+== 🎯 Use Cases That Drive Sales ==
 
 ### **Beat Store Example**
 Upload a 30-second preview of your beat → Customer plays it in the gallery → They love it → Instant purchase of the full track
