@@ -3,7 +3,7 @@ Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
 Tested up to: 6.9
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 Tags: audio commerce, podcast player, woocommerce audio, music store, audio samples
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -154,6 +154,9 @@ You can send a feedback or a feature request at [github.com/JetixWP/really-simpl
 You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 1.5.1 =
+* Fix: Patch for wp.org svn release
 
 = 1.5.0 =
 - New: Updated PROMO settings page
