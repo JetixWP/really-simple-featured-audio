@@ -43,7 +43,7 @@ if ( ! $tab_exists ) {
 					<?php
 
 					foreach ( $tabs as $slug => $label ) {
-						echo '<a href="' . esc_html( admin_url( 'admin.php?page=rsfa-settings&tab=' . esc_attr( $slug ) ) ) . '" class="nav-tab ' . ( $current_tab === $slug ? 'nav-tab-active' : '' ) . '">' . esc_html( $label ) . '</a>';
+						echo '<a href="' . esc_html( admin_url( 'admin.php?page=rsfa-settings&tab=' . esc_attr( $slug ) ) ) . '" class="nav-tab nav-tab-' . esc_attr( $slug ) . ' ' . ( $current_tab === $slug ? 'nav-tab-active' : '' ) . '">' . esc_html( $label ) . '</a>';
 					}
 
 					do_action( 'rsfa_settings_tabs' );
@@ -75,7 +75,7 @@ if ( ! $tab_exists ) {
 					<?php if ( ! class_exists( '\RSFA_Pro\Plugin' ) ) : ?>
 						<div class="upgrade-box">
 							<div>
-								<h3>🔥 &nbsp;Grab the PRO version with a Special discount</h3>
+								<h3>🔥 &nbsp;Ready to do more? Get PRO with a Special discount</h3>
 								<p class="desc">RSFA PRO is available to support additional features while we continue to keep them maintained and updated. Add your email address and we will send you a special discount code for your PRO purchase.</p>
 							</div>
 							<div>
@@ -91,7 +91,7 @@ if ( ! $tab_exists ) {
 							<form id="js-rsfa-pro-request-discount" method="post">
 								<input required type="email" class="regular-text" name="email" value="<?php echo esc_attr( $current_user->user_email ); ?>" placeholder="<?php esc_attr_e( 'Your Email', 'really-simple-featured-audio' ); ?>">
 								<input required type="text" class="regular-text" name="first_name" value="<?php echo esc_attr( $current_user->first_name ); ?>" placeholder="<?php esc_attr_e( 'First Name', 'really-simple-featured-audio' ); ?>">
-								<input type="submit" class="button button-primary" style="width:100%" value="<?php esc_attr_e( '🚀 Send me the coupon', 'really-simple-featured-audio' ); ?>" data-default-label="<?php esc_attr_e( '🚀 Send me the coupon', 'really-simple-featured-audio' ); ?>">
+								<input type="submit" class="button button-primary" style="width:100%" value="<?php esc_attr_e( '🚀 Send me the discount', 'really-simple-featured-audio' ); ?>" data-default-label="<?php esc_attr_e( '🚀 Send me the discount', 'really-simple-featured-audio' ); ?>">
 								<p class="rsfa-pro-discount-response"><span></span></p>
 							</form>
 							<span class="separator">-- OR --</span>

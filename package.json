@@ -1,12 +1,12 @@
 {
   "name": "really-simple-featured-audio",
-  "version": "1.4.0",
-  "description": "Turn your WooCommerce store into a professional audio marketplace. Perfect for selling beats, music samples, audiobooks, and podcasts with seamless audio previews.",
+  "version": "1.5.0",
+  "description": "Sell beats, music samples, audiobooks, and podcasts with seamless audio previews all inside WooCommerce and WordPress",
   "main": "index.js",
   "scripts": {
     "package": "composer install --no-dev && wp-scripts plugin-zip",
     "packages-update": "wp-scripts packages-update",
-    "translate": "wp i18n make-pot . ./languages/rsfa.pot"
+    "translate": "wp i18n make-pot . ./languages/really-simple-featured-audio.pot"
   },
   "repository": {
     "type": "git",
