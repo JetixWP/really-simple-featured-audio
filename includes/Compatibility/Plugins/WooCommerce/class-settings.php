@@ -60,8 +60,8 @@ class Settings extends Settings_Page {
 					'id'   => 'rsfa_woocommerce_title',
 				),
 				array(
-					'title'   => __( 'Show audios at Product archives', 'really-simple-featured-audio' ),
-					'desc'    => __( 'When toggled on, it shows set audios at product archives such as Shop and Product category etc.', 'really-simple-featured-audio' ),
+					'title'   => __( 'Show audio at Shop/Category pages', 'really-simple-featured-audio' ),
+					'desc'    => __( 'When toggled on, it shows set audio at product archives such as Shop and Product category etc.', 'really-simple-featured-audio' ),
 					'id'      => 'product_archives_visibility',
 					'default' => true,
 					'type'    => 'checkbox',
