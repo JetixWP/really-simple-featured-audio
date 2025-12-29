@@ -150,7 +150,7 @@ class Rollbacker {
 			'url'    => 'update.php?action=upgrade-plugin&plugin=' . rawurlencode( $this->plugin_name ),
 			'plugin' => $this->plugin_name,
 			'nonce'  => 'upgrade-plugin_' . $this->plugin_name,
-			'title'  => esc_html__( 'Rollback to Previous Version', 'rsfv' ),
+			'title'  => esc_html__( 'Rollback to Previous Version', 'really-simple-featured-audio' ),
 		);
 
 		$this->print_inline_style();
