@@ -2,14 +2,14 @@
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Really Simple Featured Audio 1.4.0\n"
+"Project-Id-Version: Really Simple Featured Audio 1.5.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/really-simple-featured-audio\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-12-13T19:23:21+00:00\n"
+"POT-Creation-Date: 2025-12-29T09:34:28+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: really-simple-featured-audio\n"
@@ -175,11 +175,11 @@ msgid "WooCommerce"
 msgstr ""
 
 #: includes/Compatibility/Plugins/WooCommerce/class-settings.php:63
-msgid "Show audios at Product archives"
+msgid "Show audio at Shop/Category pages"
 msgstr ""
 
 #: includes/Compatibility/Plugins/WooCommerce/class-settings.php:64
-msgid "When toggled on, it shows set audios at product archives such as Shop and Product category etc."
+msgid "When toggled on, it shows set audio at product archives such as Shop and Product category etc."
 msgstr ""
 
 #: includes/Compatibility/Plugins/WooCommerce/class-settings.php:90
@@ -219,6 +219,7 @@ msgid "Error occurred, the version selected is invalid. Try selecting different 
 msgstr ""
 
 #: includes/Featuresets/rollback/class-init.php:93
+#: includes/Featuresets/rollback/class-rollbacker.php:153
 msgid "Rollback to Previous Version"
 msgstr ""
 
@@ -238,43 +239,43 @@ msgstr ""
 msgid "Go to Plugins page"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:76
+#: includes/Settings/class-admin-settings.php:79
 msgid "Your settings have been saved."
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:140
+#: includes/Settings/class-admin-settings.php:143
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:141
+#: includes/Settings/class-admin-settings.php:144
 msgid "Select Thumbnail Image"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:142
+#: includes/Settings/class-admin-settings.php:145
 msgid "Use this image"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:272
-#: includes/Settings/class-admin-settings.php:339
+#: includes/Settings/class-admin-settings.php:275
+#: includes/Settings/class-admin-settings.php:342
 msgid "Pro"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:273
-#: includes/Settings/class-admin-settings.php:495
+#: includes/Settings/class-admin-settings.php:276
+#: includes/Settings/class-admin-settings.php:498
 msgid "Checkout Pro now"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:526
-#: includes/Settings/class-admin-settings.php:554
+#: includes/Settings/class-admin-settings.php:529
+#: includes/Settings/class-admin-settings.php:557
 msgid "Change Image"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:527
+#: includes/Settings/class-admin-settings.php:530
 msgid "Revert to Default"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:618
-#: includes/Settings/class-admin-settings.php:683
+#: includes/Settings/class-admin-settings.php:621
+#: includes/Settings/class-admin-settings.php:686
 msgid "Toggle"
 msgstr ""
 
@@ -407,6 +408,10 @@ msgstr ""
 msgid "When toggled on, it shows set audio at Blog Single Post."
 msgstr ""
 
+#: includes/Settings/Tabs/class-upgrade.php:26
+msgid "Upgrade"
+msgstr ""
+
 #: includes/Settings/Tabs/class-version-control.php:24
 msgid "Version Control"
 msgstr ""
@@ -427,6 +432,46 @@ msgstr ""
 msgid "Reinstall this version"
 msgstr ""
 
+#: includes/Settings/Views/html-admin-settings-upgrade.php:14
+msgid "Get Premium Featured Audio support with RSFA Pro"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:17
+msgid "Priority Support"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:18
+msgid "Customize Appearance"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:19
+msgid "Change Audio Order at WooCommerce Product page/gallery"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:20
+msgid "Change Default Gallery Audio Thumbnail at Woo Single Product page"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:21
+msgid "Support for more Premium/Custom themes"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:22
+msgid "Requests for Feature Enhancements"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:23
+msgid "Requests for Theme Compatibility"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:25
+msgid ".. and more coming soon."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:27
+msgid "Explore RSFA and PRO"
+msgstr ""
+
 #: includes/Settings/Views/html-admin-settings.php:67
 msgid "Save changes"
 msgstr ""
@@ -440,5 +485,5 @@ msgid "First Name"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings.php:94
-msgid "🚀 Send me the coupon"
+msgid "🚀 Send me the discount"
 msgstr ""
