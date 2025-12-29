@@ -126,9 +126,6 @@ final class Plugin {
 	 * @return void
 	 */
 	public function register() {
-		// Load translation.
-		add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
-
 		// Load classes.
 		// Let's call these providers.
 		$this->registration_provider = Register::get_instance();
@@ -151,16 +148,6 @@ final class Plugin {
 		add_filter( 'plugin_action_links_really-simple-featured-audio/really-simple-featured-audio.php', array( $this, 'filter_plugin_action_links' ) );
 
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
-	}
-
-	/**
-	 *
-	 * Load translation domain & files.
-	 *
-	 * @return void
-	 */
-	public function load_plugin_textdomain() {
-		load_plugin_textdomain( 'really-simple-featured-audio', false, dirname( RSFA_PLUGIN_BASE ) . '/languages/' );
 	}
 
 	/**
