@@ -1,22 +1,24 @@
-# Copyright (C) 2025 JetixWP Plugins
+# Copyright (C) 2026 JetixWP Plugins
 # This file is distributed under the GPL2.
 msgid ""
 msgstr ""
-"Project-Id-Version: Really Simple Featured Audio 1.5.0\n"
+"Project-Id-Version: Really Simple Featured Audio 1.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/really-simple-featured-audio\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-12-29T09:34:28+00:00\n"
+"POT-Creation-Date: 2026-09-27T19:10:02+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: really-simple-featured-audio\n"
 
 #. Plugin Name of the plugin
 #: really-simple-featured-audio.php
-#: includes/Settings/Views/html-admin-settings.php:28
+#: includes/Compatibility/Plugins/Bricks/elements/really-simple-featured-audio.php:57
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:48
+#: includes/Settings/Views/html-admin-settings.php:29
 msgid "Really Simple Featured Audio"
 msgstr ""
 
@@ -41,7 +43,7 @@ msgid "https://jetixwp.com"
 msgstr ""
 
 #: includes/class-metabox.php:68
-#: includes/Settings/class-register.php:80
+#: includes/Settings/class-register.php:86
 msgid "Featured Audio"
 msgstr ""
 
@@ -53,105 +55,234 @@ msgstr ""
 msgid "Use this audio"
 msgstr ""
 
-#: includes/class-metabox.php:122
+#: includes/class-metabox.php:95
+#: includes/class-metabox.php:126
 msgid "Upload Audio"
 msgstr ""
 
-#: includes/class-metabox.php:155
+#: includes/class-metabox.php:96
+msgid "Select Cover Image"
+msgstr ""
+
+#: includes/class-metabox.php:97
+#: includes/Settings/class-admin-settings.php:156
+msgid "Use this image"
+msgstr ""
+
+#: includes/class-metabox.php:159
 msgid "Remove Audio"
 msgstr ""
 
-#: includes/class-metabox.php:162
+#: includes/class-metabox.php:166
 msgid "Audio url goes here"
 msgstr ""
 
-#: includes/class-metabox.php:163
+#: includes/class-metabox.php:167
 msgid "Directly copy &amp; paste audio urls from anywhere. Should be the absolute audio file ending with .mp3/.wav etc e.g. example.com/file/audio.mp3."
 msgstr ""
 
-#: includes/class-metabox.php:170
+#: includes/class-metabox.php:176
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:186
+msgid "Cover Image"
+msgstr ""
+
+#: includes/class-metabox.php:181
+msgid "Set Cover Image"
+msgstr ""
+
+#: includes/class-metabox.php:183
+msgid "Remove Cover"
+msgstr ""
+
+#: includes/class-metabox.php:190
 msgid "Self"
 msgstr ""
 
-#: includes/class-metabox.php:178
+#: includes/class-metabox.php:198
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:140
+#: includes/Settings/Tabs/class-controls.php:180
 msgid "Embed"
 msgstr ""
 
-#: includes/class-metabox.php:184
+#: includes/class-metabox.php:204
 msgid "Please select a audio source"
 msgstr ""
 
-#: includes/class-plugin.php:205
+#: includes/class-plugin.php:193
 msgid "Settings"
 msgstr ""
 
 #. translators: %1$s is a link to RSFA's plugin page, %2$s is a link to JetixWP's website, and %3$s is the existing html,.
-#: includes/class-plugin.php:241
+#: includes/class-plugin.php:229
 msgid "%1$s is developed and maintained by %2$s. %3$s"
 msgstr ""
 
-#: includes/class-shortcode.php:67
+#: includes/class-shortcode.php:70
 msgid "Please add a post id!"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:55
+#: includes/Compatibility/class-theme-provider.php:56
 msgid "Default"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:60
+#: includes/Compatibility/class-theme-provider.php:63
 msgid "Twenty Twenty"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:65
+#: includes/Compatibility/class-theme-provider.php:68
 msgid "Twenty Twenty-One"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:70
+#: includes/Compatibility/class-theme-provider.php:73
 msgid "Twenty Twenty-Two"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:75
+#: includes/Compatibility/class-theme-provider.php:78
 msgid "Twenty Twenty-Three"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:80
+#: includes/Compatibility/class-theme-provider.php:83
 msgid "Twenty Twenty-Four"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:85
+#: includes/Compatibility/class-theme-provider.php:88
 msgid "Twenty Twenty-Five"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:91
-msgid "Ollie"
+#: includes/Compatibility/class-theme-provider.php:93
+msgid "Storefront"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:96
+#: includes/Compatibility/class-theme-provider.php:100
+msgid "Divi (Free)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:105
 msgid "Neve"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:101
+#: includes/Compatibility/class-theme-provider.php:110
 msgid "GeneratePress"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:143
+#: includes/Compatibility/class-theme-provider.php:115
+msgid "Astra"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:120
+msgid "Go"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:125
+msgid "Kadence"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:130
+msgid "Hestia"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:135
+msgid "Flatsome"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:140
+msgid "The7"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:145
+msgid "Savoy"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:150
+msgid "Ollie"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:155
+msgid "Electro"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:160
+msgid "Woostify"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:207
 msgid "Failed at registration"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:144
+#: includes/Compatibility/class-theme-provider.php:208
 msgid "Unregistered"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:180
+#: includes/Compatibility/class-theme-provider.php:244
 msgid "Disabled (Legacy)"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:181
+#: includes/Compatibility/class-theme-provider.php:245
 msgid "Auto (Do it for me)"
 msgstr ""
 
-#: includes/Compatibility/class-theme-provider.php:210
+#: includes/Compatibility/class-theme-provider.php:277
+msgid "OceanWP (PRO)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:278
+msgid "Jupiter X (PRO)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:279
+msgid "Flatsome (PRO)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:280
+msgid "Wellco (PRO)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:281
+msgid "Avanam (PRO)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:282
 msgid "Divi Builder (PRO)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:283
+msgid "Avada (PRO)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:284
+msgid "Konte (PRO)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:285
+msgid "Lay (PRO)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:286
+msgid "Uncode (PRO)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:287
+msgid "Bravada (PRO)"
+msgstr ""
+
+#: includes/Compatibility/class-theme-provider.php:288
+msgid "Lodestar (PRO)"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Bricks/elements/really-simple-featured-audio.php:78
+msgid "Make sure Really Simple Featured Audio element is inside a Query Loop. In case you have done that, you can safely ignore this."
+msgstr ""
+
+#: includes/Compatibility/Plugins/Divi/class-settings.php:30
+msgid "Divi"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Divi/class-settings.php:68
+msgid "Featured Audio for Divi Woo Product Images"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Divi/class-settings.php:69
+msgid "When toggled on, it shows Featured Product Audios in Divi Woo Product Images Module/Widget. Turn it off if you're having problem with WooCommerce templates."
 msgstr ""
 
 #: includes/Compatibility/Plugins/Elementor/class-settings.php:25
@@ -166,7 +297,71 @@ msgstr ""
 msgid "Toggle this on if in Elementor you see the site logo, footer logo or any other part of the site images getting replaced with featured audio."
 msgstr ""
 
-#: includes/Compatibility/Plugins/WooCommerce/class-compatibility.php:113
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:96
+msgid "RSFA Audio"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:105
+msgid "Audio Source"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:109
+msgid "Current Post"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:110
+msgid "By Post ID"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:119
+msgid "Post ID"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:122
+msgid "Enter the post ID"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:123
+msgid "Enter the Post ID whose featured audio you want to display."
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:135
+msgid "Audio Type"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:139
+msgid "Self-Hosted"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:152
+msgid "Choose Audio"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:169
+msgid "Audio URL"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:171
+msgid "https://example.com/audio.mp3"
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:172
+msgid "Paste the full link to an audio file, such as .mp3 or .wav."
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:303
+msgid "Please enter a Post ID."
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:311
+msgid "No featured audio found for this Post ID."
+msgstr ""
+
+#: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:325
+msgid "No featured audio configured for this post."
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-compatibility.php:189
 msgid "Products"
 msgstr ""
 
@@ -182,31 +377,39 @@ msgstr ""
 msgid "When toggled on, it shows set audio at product archives such as Shop and Product category etc."
 msgstr ""
 
-#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:90
-msgid "Featured Audio Order"
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:70
+msgid "Use audio links from External Products"
 msgstr ""
 
-#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:91
-msgid "Set audio order on single product page/gallery, available in the Pro version."
-msgstr ""
-
-#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:96
-msgid "First (Default)"
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:71
+msgid "When toggled on, External/Affiliate products without a featured audio use their product URL as the audio, if that URL is an audio file such as .mp3 or .wav."
 msgstr ""
 
 #: includes/Compatibility/Plugins/WooCommerce/class-settings.php:97
-msgid "Second"
+msgid "Featured Audio Order"
 msgstr ""
 
 #: includes/Compatibility/Plugins/WooCommerce/class-settings.php:98
+msgid "Set audio order on single product page/gallery, available in the Pro version."
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:103
+msgid "First (Default)"
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:104
+msgid "Second"
+msgstr ""
+
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:105
 msgid "Last"
 msgstr ""
 
-#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:110
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:117
 msgid "Default Gallery Thumb"
 msgstr ""
 
-#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:111
+#: includes/Compatibility/Plugins/WooCommerce/class-settings.php:118
 msgid "Set default product gallery thumb on single product page."
 msgstr ""
 
@@ -239,102 +442,188 @@ msgstr ""
 msgid "Go to Plugins page"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:79
+#: includes/Settings/class-admin-settings.php:80
 msgid "Your settings have been saved."
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:143
+#: includes/Settings/class-admin-settings.php:154
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:144
+#: includes/Settings/class-admin-settings.php:155
 msgid "Select Thumbnail Image"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:145
-msgid "Use this image"
-msgstr ""
-
-#: includes/Settings/class-admin-settings.php:275
-#: includes/Settings/class-admin-settings.php:342
+#: includes/Settings/class-admin-settings.php:334
 msgid "Pro"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:276
-#: includes/Settings/class-admin-settings.php:498
+#: includes/Settings/class-admin-settings.php:335
 msgid "Checkout Pro now"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:529
-#: includes/Settings/class-admin-settings.php:557
+#: includes/Settings/class-admin-settings.php:507
+#: includes/Settings/class-admin-settings.php:535
 msgid "Change Image"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:530
+#: includes/Settings/class-admin-settings.php:508
 msgid "Revert to Default"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:621
-#: includes/Settings/class-admin-settings.php:686
+#: includes/Settings/class-admin-settings.php:716
+#: includes/Settings/class-admin-settings.php:749
+#: includes/Settings/class-admin-settings.php:815
+#: includes/Settings/class-admin-settings.php:887
 msgid "Toggle"
 msgstr ""
 
-#: includes/Settings/class-register.php:65
+#: includes/Settings/class-register.php:71
 msgctxt "Page title"
 msgid "JetixWP Plugins"
 msgstr ""
 
-#: includes/Settings/class-register.php:66
+#: includes/Settings/class-register.php:72
 msgctxt "Menu title"
 msgid "JetixWP"
 msgstr ""
 
-#: includes/Settings/class-register.php:79
-#: includes/Settings/class-register.php:93
+#: includes/Settings/class-register.php:85
 msgid "Really Simple Featured Audio Settings"
 msgstr ""
 
-#: includes/Settings/class-register.php:94
-msgid "Really Simple Featured Audio (Old)"
+#: includes/Settings/class-register.php:154
+msgid "You do not have permission to perform this action."
 msgstr ""
 
-#: includes/Settings/Tabs/class-controls.php:22
-#: includes/Settings/Tabs/class-controls.php:38
+#: includes/Settings/Tabs/class-controls.php:24
+#: includes/Settings/Tabs/class-controls.php:63
 msgid "Controls"
 msgstr ""
 
-#: includes/Settings/Tabs/class-controls.php:35
+#: includes/Settings/Tabs/class-controls.php:36
+msgid "Standard"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:37
+#: includes/Settings/Tabs/class-controls.php:140
+msgid "Play on Hover"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:60
 msgid "Note: Autoplay will only work if mute sound is enabled as per browser policy."
 msgstr ""
 
-#: includes/Settings/Tabs/class-controls.php:39
+#: includes/Settings/Tabs/class-controls.php:64
 msgid "Autoplay"
 msgstr ""
 
-#: includes/Settings/Tabs/class-controls.php:40
+#: includes/Settings/Tabs/class-controls.php:65
 msgid "Loop"
 msgstr ""
 
-#: includes/Settings/Tabs/class-controls.php:41
+#: includes/Settings/Tabs/class-controls.php:66
 msgid "Mute sound"
 msgstr ""
 
-#: includes/Settings/Tabs/class-controls.php:50
+#: includes/Settings/Tabs/class-controls.php:71
+msgid "Download"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:79
 msgctxt "settings title"
 msgid "Self-hosted audios"
 msgstr ""
 
-#: includes/Settings/Tabs/class-controls.php:51
+#: includes/Settings/Tabs/class-controls.php:80
 msgid "Please select the controls you wish to enable for your self hosted audios."
 msgstr ""
 
-#: includes/Settings/Tabs/class-controls.php:73
+#: includes/Settings/Tabs/class-controls.php:102
 msgctxt "settings title"
 msgid "Embed audios"
 msgstr ""
 
-#: includes/Settings/Tabs/class-controls.php:74
+#: includes/Settings/Tabs/class-controls.php:103
 msgid "Please select the controls you wish to enable for your embedded audios."
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:141
+msgid "Plays a featured audio while the pointer is over its player, and pauses it when the pointer leaves. Browsers may block sound until the visitor has clicked somewhere on the page."
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:150
+msgid "Enable Feature"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:160
+msgctxt "settings title"
+msgid "Audio Types"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:161
+msgid "Choose which audios play on hover."
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:179
+msgid "Self Hosted"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:194
+msgctxt "settings title"
+msgid "Screen Sizes"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:195
+msgid "Toggle the screen sizes you wish to enable/disable play on hover support. Available in Pro."
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:213
+msgid "Desktop"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:214
+msgid "Mobile"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:227
+msgid "Set Mobile Breakpoint (px)"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:228
+msgid "Screen width below which device is considered mobile. Default: 768px"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:235
+msgid "Set Hover Delay (ms)"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:236
+msgid "Delay before audio starts playing on hover. Default: 100ms"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:247
+msgid "Accessibility"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:248
+msgid "Toggle the accessibility features at play on hover. Available in Pro."
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:258
+msgid "User Preferences"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:259
+msgid "Respect \"reduced motion\" preference."
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:266
+msgid "Focus Events"
+msgstr ""
+
+#: includes/Settings/Tabs/class-controls.php:267
+msgid "Enable focus events for keyboard navigation."
 msgstr ""
 
 #: includes/Settings/Tabs/class-general.php:25
@@ -370,16 +659,20 @@ msgstr ""
 msgid "Set engine"
 msgstr ""
 
-#: includes/Settings/Tabs/class-general.php:143
+#: includes/Settings/Tabs/class-general.php:144
 msgctxt "settings title"
 msgid "Enable Post Types Support"
 msgstr ""
 
-#: includes/Settings/Tabs/class-general.php:144
+#: includes/Settings/Tabs/class-general.php:145
 msgid "Please select the post types you wish to enable featured audio support at."
 msgstr ""
 
-#: includes/Settings/Tabs/class-general.php:185
+#: includes/Settings/Tabs/class-general.php:184
+msgid "You are not allowed to do this."
+msgstr ""
+
+#: includes/Settings/Tabs/class-general.php:195
 msgid "Could not get current compatibility engine."
 msgstr ""
 
@@ -408,6 +701,39 @@ msgstr ""
 msgid "When toggled on, it shows set audio at Blog Single Post."
 msgstr ""
 
+#: includes/Settings/Tabs/class-global-settings.php:73
+msgctxt "settings title"
+msgid "Player Appearance"
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:74
+msgid "Match the audio player to your site with an accent color and a light, dark or automatic theme. Available in Pro."
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:83
+msgid "Player Theme"
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:87
+msgid "Automatic (follows device)"
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:88
+msgid "Light"
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:89
+msgid "Dark"
+msgstr ""
+
+#: includes/Settings/Tabs/class-global-settings.php:95
+msgid "Accent Color"
+msgstr ""
+
+#: includes/Settings/Tabs/class-help.php:26
+msgid "Help"
+msgstr ""
+
 #: includes/Settings/Tabs/class-upgrade.php:26
 msgid "Upgrade"
 msgstr ""
@@ -432,58 +758,236 @@ msgstr ""
 msgid "Reinstall this version"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:14
-msgid "Get Premium Featured Audio support with RSFA Pro"
+#: includes/Settings/Views/html-admin-settings-help.php:14
+msgid "Help and Support"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:17
-msgid "Priority Support"
+#: includes/Settings/Views/html-admin-settings-help.php:20
+msgid "We try our best to help with every support request for the free plugin. You can ask questions and get assistance by posting to the %1$sWordPress.org support forum%2$s. Because we are a small team, replies there can sometimes be delayed when many people need help at once."
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:18
-msgid "Customize Appearance"
+#: includes/Settings/Views/html-admin-settings-help.php:39
+msgid "If you need or want urgent support directly from the creator of this plugin, please consider upgrading to a JetixWP license. One-time payment options are available at %1$sJetixWP &gt; Really Simple Featured Audio%2$s."
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:19
-msgid "Change Audio Order at WooCommerce Product page/gallery"
+#: includes/Settings/Views/html-admin-settings-help.php:59
+msgid "If you've found a bug, please submit an issue at %1$sGitHub%2$s."
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:20
-msgid "Change Default Gallery Audio Thumbnail at Woo Single Product page"
+msgid "WooCommerce gallery control"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:21
-msgid "Support for more Premium/Custom themes"
-msgstr ""
-
-#: includes/Settings/Views/html-admin-settings-upgrade.php:22
-msgid "Requests for Feature Enhancements"
-msgstr ""
-
-#: includes/Settings/Views/html-admin-settings-upgrade.php:23
-msgid "Requests for Theme Compatibility"
+msgid "Pick where the audio sits in the product gallery and use your own gallery thumbnail for it."
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:25
-msgid ".. and more coming soon."
+#: includes/Settings/Views/html-admin-settings.php:126
+msgid "Player appearance"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:27
-msgid "Explore RSFA and PRO"
+#: includes/Settings/Views/html-admin-settings-upgrade.php:26
+msgid "Match the audio player to your brand with your own accent color and a light, dark or automatic player."
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings.php:67
+#: includes/Settings/Views/html-admin-settings-upgrade.php:30
+msgid "Extended play on hover"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:31
+msgid "Preview audio on hover in shop, archive and listing pages, with finer control over when it plays."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:35
+msgid "Premium and custom theme support"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:36
+msgid "Works with more premium themes out of the box. Using something unusual? Ask and we will add support."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:40
+msgid "Priority support from the developer"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:41
+msgid "Skip the forum queue. Your questions go straight to the person who builds the plugin."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:45
+msgid "Shape the roadmap"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:46
+msgid "Feature and compatibility requests from PRO users go to the front of the line."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:52
+msgid "Is this a subscription?"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:53
+msgid "No. You pay once and receive updates for life. There are no renewals and nothing to cancel."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:56
+msgid "Will my current settings and audio carry over?"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:57
+msgid "Yes. PRO runs alongside the free plugin and adds to it. Nothing is reset or removed when you upgrade."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:60
+msgid "What if PRO does not work for me?"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:61
+msgid "Ask for a refund within 14 days of purchase and you get your money back, no questions asked."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:69
+msgid "Anniversary deal · up to 50% off for a limited time"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:70
+msgid "Get more out of every featured audio with RSFA PRO"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:71
+msgid "Control exactly how audio shows up in your WooCommerce store, make the player match your brand, and get help directly from the developer when you need it."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:73
+msgid "Get PRO from $59"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:74
+msgid "Compare free vs PRO"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:77
+msgid "One-time payment"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:78
+msgid "Lifetime updates"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:79
+msgid "14-day money-back guarantee"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:84
+msgid "What you unlock"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:99
+msgid "Common questions"
+msgstr ""
+
+#. translators: 1: opening anchor tag, 2: closing anchor tag
+#: includes/Settings/Views/html-admin-settings-upgrade.php:111
+msgid "Still unsure? Email %1$skrishna@jetixwp.com%2$s and I will personally get back to you."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:68
 msgid "Save changes"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings.php:92
-msgid "Your Email"
+#: includes/Settings/Views/html-admin-settings.php:86
+msgid "Dismiss this notice."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:89
+msgid "Help keep this plugin free & updated"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:90
+msgid "Your review means a lot. It helps others discover that Really Simple Featured Audio is free and actively maintained. If the plugin has helped you, please consider leaving your honest review/feedback on WordPress.org. Thank you!"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings.php:93
-msgid "First Name"
+msgid "Leave a Review"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings.php:94
-msgid "🚀 Send me the discount"
+#: includes/Settings/Views/html-admin-settings.php:102
+msgid "Anniversary deal: RSFA PRO from $59"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:103
+msgid "Get more control over product audio in WooCommerce, wider theme support, and direct help from the developer. One payment, lifetime updates."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:106
+msgid "Special Anniversary Deal"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:106
+msgid "Save up to 50%"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:109
+msgid "Single site"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:109
+msgid "Save 34%"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:113
+msgid "Unlimited sites"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:113
+msgid "Save 50%"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:117
+msgid "One-time payment · lifetime updates · no renewals"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:118
+msgid "Get PRO for $59"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:119
+msgid "Secure checkout · 14-day money-back guarantee"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:122
+msgid "What PRO adds"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:124
+msgid "Priority support"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:124
+msgid "direct help from the developer"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:125
+msgid "WooCommerce controls"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:125
+msgid "audio position in the product gallery and its thumbnail"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:126
+msgid "accent color and light or dark player"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:127
+msgid "Premium and custom themes"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:127
+msgid "more supported, compatibility on request"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:129
+msgid "Compare free vs PRO →"
 msgstr ""

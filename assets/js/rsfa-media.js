@@ -31,7 +31,8 @@
 						'select',
 						function () { // it also has "open" and "close" events.
 							var attachment = customUploader.state().get( 'selection' ).first().toJSON();
-							$( button ).removeClass( 'button' ).html( '<audio controls="" src="' + attachment.url + '"></audio>' ).next().val( attachment.id ).next().show();
+							var preview    = $( '<audio controls></audio>' ).attr( 'src', attachment.url );
+							$( button ).removeClass( 'button' ).empty().append( preview ).next().val( attachment.id ).next().show();
 						}
 					)
 					.open();
@@ -43,14 +44,64 @@
 				'click',
 				'.remove-audio',
 				function () {
-					$( this ).hide().prev().val( '' ).prev().addClass( 'button' ).html( 'Upload Audio' );
+					$( this ).hide().prev().val( '' ).prev().addClass( 'button' ).text( RSFA.upload_btn_text );
 					return false;
+				}
+			);
+
+			// Selecting a cover image.
+			var coverFrame;
+
+			$( document ).on(
+				'click',
+				'.rsfa-set-cover',
+				function ( e ) {
+					e.preventDefault();
+
+					if ( coverFrame ) {
+						coverFrame.open();
+						return;
+					}
+
+					coverFrame = wp.media(
+						{
+							title: RSFA.cover_uploader_title,
+							button: { text: RSFA.cover_uploader_btn_text },
+							library: { type: 'image' },
+							multiple: false
+						}
+					);
+
+					coverFrame.on(
+						'select',
+						function () {
+							var attachment = coverFrame.state().get( 'selection' ).first().toJSON();
+							var size       = attachment.sizes && attachment.sizes.medium ? attachment.sizes.medium : attachment;
+
+							$( '#' + RSFA.meta_cover_key ).val( attachment.id );
+							$( '#rsfa-cover-preview' ).attr( 'src', size.url ).show();
+							$( '.rsfa-remove-cover' ).show();
+						}
+					);
+
+					coverFrame.open();
+				}
+			);
+
+			// Removing the cover image.
+			$( document ).on(
+				'click',
+				'.rsfa-remove-cover',
+				function ( e ) {
+					e.preventDefault();
+					$( '#' + RSFA.meta_cover_key ).val( '' );
+					$( '#rsfa-cover-preview' ).attr( 'src', '' ).hide();
+					$( this ).hide();
 				}
 			);
 
 			// Toggles audio input source.
 			function toggleAudioInput( val ) {
-				console.log( val, typeof val );
 				if ( 'self' === val ) {
 					$( '.rsfa-self' ).show();
 					$( '.rsfa-embed' ).hide();

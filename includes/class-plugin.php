@@ -118,6 +118,7 @@ final class Plugin {
 		define( 'RSFA_SOURCE_META_KEY', 'rsfa_source' );
 		define( 'RSFA_META_KEY', 'rsfa_featured_audio' );
 		define( 'RSFA_EMBED_META_KEY', 'rsfa_featured_embed_audio' );
+		define( 'RSFA_COVER_META_KEY', 'rsfa_featured_cover' );
 	}
 
 	/**

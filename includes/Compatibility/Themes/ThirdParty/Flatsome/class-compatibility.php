@@ -1,0 +1,126 @@
+<?php
+/**
+ * Flatsome theme compatibility handler.
+ *
+ * @package RSFA
+ */
+
+namespace RSFA\Compatibility\Themes\ThirdParty\Flatsome;
+
+use RSFA\Compatibility\Themes\Base_Compatibility;
+use RSFA\Options;
+use RSFA\Compatibility\Plugins\WooCommerce\Compatibility as BaseWooCompatibility;
+use RSFA\Plugin;
+
+/**
+ * Class Compatibility
+ *
+ * @package RSFA
+ */
+class Compatibility extends Base_Compatibility {
+	/**
+	 * Class instance.
+	 *
+	 * @var $instance
+	 */
+	protected static $instance;
+
+	/**
+	 * Constructor.
+	 */
+	public function __construct() {
+		parent::__construct();
+
+		$this->id = 'flatsome';
+
+		$this->override_woo_templates();
+
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+	}
+
+	/**
+	 * Enqueue scripts.
+	 *
+	 * @return void
+	 */
+	public function enqueue_scripts() {
+		// Register dummy styles.
+		wp_register_style( 'rsfa-flatsome', false ); // phpcs:ignore.
+
+		// Enqueue styles.
+		wp_enqueue_style( 'rsfa-flatsome' );
+
+		// Add generated CSS.
+		wp_add_inline_style( 'rsfa-flatsome', Plugin::get_instance()->frontend_provider->generate_dynamic_css() );
+	}
+
+	/**
+	 * Overrides theme Woo templates.
+	 *
+	 * @return void
+	 */
+	public function override_woo_templates() {
+		if ( ! class_exists( 'WooCommerce' ) ) {
+			return;
+		}
+
+		$options                     = Options::get_instance();
+		$product_archives_visibility = $options->get( 'product_archives_visibility' );
+
+		$base_woo_compat_instance = BaseWooCompatibility::get_instance();
+
+		if ( ( ! $options->has( 'product_archives_visibility' ) && ! $product_archives_visibility ) || $product_archives_visibility ) {
+			remove_action( 'woocommerce_before_shop_loop_item_title', array( $base_woo_compat_instance, 'get_woo_archives_audio' ), 10 );
+
+			add_action( 'flatsome_woocommerce_shop_loop_images', array( $base_woo_compat_instance, 'get_woo_archives_audio' ), 10 );
+
+			remove_action( 'flatsome_woocommerce_shop_loop_images', 'woocommerce_template_loop_product_thumbnail' );
+			remove_action( 'flatsome_woocommerce_shop_loop_images', 'flatsome_woocommerce_get_alt_product_thumbnail', 11 );
+
+			add_action(
+				'rsfa_woo_archives_product_thumbnails',
+				function () {
+					flatsome_woocommerce_get_alt_product_thumbnail();
+				}
+			);
+		}
+
+		add_filter( 'wc_get_template', array( $this, 'override_woocommerce_template' ), 10, 2 );
+		add_filter( 'wc_get_template_part', array( $this, 'override_woocommerce_template_part' ), 10, 3 );
+	}
+
+	/**
+	 * Overrides Woo templates with available ones.
+	 *
+	 * @param string $template Template path absolute url.
+	 * @param string $template_name Template name.
+	 * @return string
+	 */
+	public function override_woocommerce_template( $template, $template_name ) {
+		$template_directory = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/templates/';
+		$path               = $template_directory . $template_name;
+
+		return file_exists( $path ) ? $path : $template;
+	}
+
+	/**
+	 * Overrides Woo template parts with available ones.
+	 *
+	 * @param string $template Template path absolute url.
+	 * @param string $slug Template slug.
+	 * @param string $name Template name.
+	 * @return string
+	 */
+	public function override_woocommerce_template_part( $template, $slug, $name ) {
+		$template_directory = untrailingslashit( plugin_dir_path( __FILE__ ) ) . '/templates/woocommerce/';
+		$path               = $template_directory . $slug;
+
+		if ( $name ) {
+			$path = $path . '-' . $name;
+		}
+
+		$path = $path . '.php';
+
+		return file_exists( $path ) ? $path : $template;
+	}
+}

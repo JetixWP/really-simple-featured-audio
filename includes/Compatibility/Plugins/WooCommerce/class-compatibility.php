@@ -14,7 +14,6 @@ use RSFA\Options;
 use RSFA\Plugin;
 use RSFA\Compatibility\Plugins\Base_Compatibility;
 use function RSFA\Settings\get_post_types;
-use function RSFA\Settings\get_audio_controls;
 
 /**
  * Class Compatibility
@@ -100,6 +99,83 @@ class Compatibility extends Base_Compatibility {
 		}
 
 		add_action( 'rsfa_woo_archives_product_thumbnails', 'woocommerce_template_loop_product_thumbnail', 10 );
+
+		if ( $options->get( 'product_audio_external_url', false ) ) {
+			add_filter( 'rsfa_has_featured_audio', array( $this, 'maybe_has_external_audio' ), 10, 2 );
+			add_filter( 'rsfa_audio_source_url', array( $this, 'maybe_use_external_audio' ), 10, 2 );
+		}
+	}
+
+	/**
+	 * Get an External product's URL when it points to an audio file.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @param int $product_id Product ID.
+	 *
+	 * @return string Empty when the product is not external or the URL is not an audio file.
+	 */
+	public function get_external_audio_url( $product_id ) {
+		if ( 'product' !== get_post_type( $product_id ) ) {
+			return '';
+		}
+
+		$product = wc_get_product( $product_id );
+
+		if ( ! $product || ! $product->is_type( 'external' ) ) {
+			return '';
+		}
+
+		$url       = (string) get_post_meta( $product_id, '_product_url', true );
+		$path      = (string) wp_parse_url( $url, PHP_URL_PATH );
+		$extension = strtolower( pathinfo( $path, PATHINFO_EXTENSION ) );
+
+		if ( ! $extension || ! in_array( $extension, wp_get_audio_extensions(), true ) ) {
+			return '';
+		}
+
+		return esc_url_raw( $url );
+	}
+
+	/**
+	 * Count an External product's audio link as its featured audio.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @param bool $has_audio Whether the post has a featured audio.
+	 * @param int  $post_id   Post ID.
+	 *
+	 * @return bool
+	 */
+	public function maybe_has_external_audio( $has_audio, $post_id ) {
+		return $has_audio || '' !== $this->get_external_audio_url( $post_id );
+	}
+
+	/**
+	 * Use an External product's audio link when no featured audio is set.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @param array $audio   Array with `url` and `source` keys.
+	 * @param int   $post_id Post ID.
+	 *
+	 * @return array
+	 */
+	public function maybe_use_external_audio( $audio, $post_id ) {
+		if ( ! empty( $audio['url'] ) ) {
+			return $audio;
+		}
+
+		$url = $this->get_external_audio_url( $post_id );
+
+		if ( $url ) {
+			$audio = array(
+				'url'    => $url,
+				'source' => 'embed',
+			);
+		}
+
+		return $audio;
 	}
 
 	/**
@@ -152,6 +228,8 @@ class Compatibility extends Base_Compatibility {
 	 * @return void
 	 */
 	public function enqueue_scripts() {
+		$post = get_post();
+
 		// Dummy style for inline styles.
 		wp_register_style( 'rsfa-woocommerce', false, array(), time() );
 
@@ -200,68 +278,51 @@ class Compatibility extends Base_Compatibility {
 		// Get enabled post types.
 		$post_types = get_post_types();
 
-		// Get the meta value of audio embed url.
-		$audio_source = get_post_meta( $id, RSFA_SOURCE_META_KEY, true );
-		$audio_source = $audio_source ? $audio_source : 'self';
-
-		$audio_controls = 'self' !== $audio_source ? get_audio_controls( 'embed' ) : get_audio_controls();
-
-		// Get autoplay option.
-		$is_autoplay = is_array( $audio_controls ) && isset( $audio_controls['autoplay'] );
-
-		// Get loop option.
-		$is_loop = is_array( $audio_controls ) && isset( $audio_controls['loop'] );
-
-		// Get mute option.
-		$is_muted = is_array( $audio_controls ) && isset( $audio_controls['mute'] );
-
-		$audio_html = '';
-
-		if ( ! empty( $post_types ) ) {
-			if ( in_array( $post_type, $post_types, true ) ) {
-				$img_url           = RSFA_PLUGIN_URL . 'assets/images/audio_frame.png';
-				$thumbnail         = apply_filters( 'rsfa_featured_audio_thumbnail', $img_url );
-				$gallery_thumbnail = wc_get_image_size( 'gallery_thumbnail' );
-
-				// Return early if thumbnail is only required.
-				if ( $thumbnail_only ) {
-					return '<div class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . esc_url( $thumbnail ) . '"' . esc_attr( $wrapper_attributes ) . '><img width="' . $gallery_thumbnail['width'] . '" height="' . $gallery_thumbnail['height'] . '" src="' . esc_url( $thumbnail ) . '" alt /></div>';
-				}
-
-				// Prepare mark up attributes.
-				$is_autoplay = $is_autoplay ? 'autoplay playsinline' : '';
-				$is_loop     = $is_loop ? 'loop' : '';
-				$is_muted    = $is_muted ? 'muted' : '';
-
-				$post        = get_post( $id );
-				$post_title  = $post instanceof \WP_Post ? esc_html( $post->post_title ) : '';
-				$post_author = $post instanceof \WP_Post ? esc_html( get_the_author_meta( 'display_name', $post->post_author ) ) : '';
-
-				if ( 'self' === $audio_source ) {
-					$media_id  = get_post_meta( $id, RSFA_META_KEY, true );
-					$audio_url = esc_url( wp_get_attachment_url( $media_id ) );
-
-					if ( $audio_url ) {
-						$jwp_player_html = FrontEnd::render_jwp_player( $id, $audio_url, $post_title, $post_author );
-						$audio_html      = $jwp_player_html;
-						$audio_html     .= '<div id="rsfa-id-' . esc_attr( $id ) . '" class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '"' . esc_attr( $wrapper_attributes ) . '><div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa_audio_' . $id . '" src="' . $audio_url . '" style="max-width:100%;display:block;" ' . "{$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div></div>';
-					}
-				} else {
-					// Get the meta value of audio embed url.
-					$input_url = esc_url( get_post_meta( $id, RSFA_EMBED_META_KEY, true ) );
-
-					// Generate audio embed url.
-					$embed_url = Plugin::get_instance()->frontend_provider->generate_embed_url( $input_url );
-
-					if ( $embed_url ) {
-						$jwp_player_html = FrontEnd::render_jwp_player( $id, $embed_url, $post_title, $post_author );
-						$audio_html      = $jwp_player_html;
-						$audio_html     .= '<div id="rsfa-id-' . esc_attr( $id ) . '" class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . $thumbnail . '" ' . esc_attr( $wrapper_attributes ) . '><div class="rsfa-audio-wrapper"><audio class="rsfa-audio" id="rsfa_audio_' . $id . '" src="' . $embed_url . '" ' . "{$is_autoplay} {$is_loop} {$is_muted}" . '></audio></div></div>';
-					}
-				}
-			}
+		if ( empty( $post_types ) || ! in_array( $post_type, $post_types, true ) ) {
+			return '';
 		}
-		return $audio_html;
+
+		$img_url           = RSFA_PLUGIN_URL . 'assets/images/audio_frame.png';
+		$thumbnail         = apply_filters( 'rsfa_featured_audio_thumbnail', $img_url );
+		$thumbnail         = apply_filters( 'rsfa_default_woo_gallery_audio_thumb', $thumbnail );
+		$gallery_thumbnail = wc_get_image_size( 'gallery_thumbnail' );
+
+		// Return early if thumbnail is only required.
+		if ( $thumbnail_only ) {
+			return '<div class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . esc_url( $thumbnail ) . '"' . esc_attr( $wrapper_attributes ) . '><img width="' . esc_attr( $gallery_thumbnail['width'] ) . '" height="' . esc_attr( $gallery_thumbnail['height'] ) . '" src="' . esc_url( $thumbnail ) . '" alt /></div>';
+		}
+
+		// A self source without a file shows nothing here, unlike posts.
+		$audio = FrontEnd::get_audio_source_url( $id, false );
+
+		if ( ! $audio['url'] ) {
+			return '';
+		}
+
+		$controls = FrontEnd::get_player_controls( $audio['source'] );
+		$config   = FrontEnd::get_player_config( $id, $audio['url'], $audio['source'] );
+
+		// Fallback player for when JavaScript is off; the JWP player replaces it.
+		$fallback = sprintf(
+			'<audio class="rsfa-audio" id="rsfa_audio_%1$s" src="%2$s" style="max-width:100%%;display:block;" controls preload="none"%3$s%4$s></audio>',
+			esc_attr( $id ),
+			esc_url( $audio['url'] ),
+			$controls['loop'] ? ' loop' : '',
+			$controls['muted'] ? ' muted' : ''
+		);
+
+		$audio_html = '<div id="rsfa-id-' . esc_attr( $id ) . '" class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . esc_url( $thumbnail ) . '"' . esc_attr( $wrapper_attributes ) . FrontEnd::get_player_attribute( $config ) . '><div class="rsfa-audio-wrapper">' . $fallback . '</div></div>';
+
+		/**
+		 * Filters the WooCommerce product audio markup.
+		 *
+		 * @since 1.6.0
+		 *
+		 * @param string $audio_html Player markup.
+		 * @param int    $id Product ID.
+		 * @param array  $config Player config.
+		 */
+		return apply_filters( 'rsfa_woo_audio_html', $audio_html, $id, $config );
 	}
 
 	/**

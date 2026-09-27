@@ -67,6 +67,13 @@ class Settings extends Settings_Page {
 					'type'    => 'checkbox',
 				),
 				array(
+					'title'   => __( 'Use audio links from External Products', 'really-simple-featured-audio' ),
+					'desc'    => __( 'When toggled on, External/Affiliate products without a featured audio use their product URL as the audio, if that URL is an audio file such as .mp3 or .wav.', 'really-simple-featured-audio' ),
+					'id'      => 'product_audio_external_url',
+					'default' => false,
+					'type'    => 'checkbox',
+				),
+				array(
 					'type' => 'sectionend',
 					'id'   => 'rsfa_woocommerce_title',
 				),

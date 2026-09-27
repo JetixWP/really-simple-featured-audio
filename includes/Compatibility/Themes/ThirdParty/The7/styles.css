@@ -1,0 +1,3 @@
+.rsfa-has-audio .woocommerce-product-gallery__image + .show-on-hover {
+	display: none !important;
+}

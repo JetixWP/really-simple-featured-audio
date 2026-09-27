@@ -90,8 +90,12 @@ class Metabox {
 				'rsfa_custom_script',
 				'RSFA',
 				array(
-					'uploader_title'    => __( 'Insert Audio', 'really-simple-featured-audio' ),
-					'uploader_btn_text' => __( 'Use this audio', 'really-simple-featured-audio' ),
+					'uploader_title'          => __( 'Insert Audio', 'really-simple-featured-audio' ),
+					'uploader_btn_text'       => __( 'Use this audio', 'really-simple-featured-audio' ),
+					'upload_btn_text'         => __( 'Upload Audio', 'really-simple-featured-audio' ),
+					'cover_uploader_title'    => __( 'Select Cover Image', 'really-simple-featured-audio' ),
+					'cover_uploader_btn_text' => __( 'Use this image', 'really-simple-featured-audio' ),
+					'meta_cover_key'          => RSFA_COVER_META_KEY,
 				)
 			);
 		}
@@ -150,17 +154,33 @@ class Metabox {
 			'<div class="rsfa-self"><a href="#" class="rsfa-upload-audio-btn%1$s</a><input type="hidden" name="%2$s" id="%2$s" value="%3$s" /><a href="#" class="remove-audio" style="display:%4$s;">%5$s</a></div>',
 			$image,
 			RSFA_META_KEY,
-			$audio_id,
-			$display,
+			esc_attr( $audio_id ),
+			esc_attr( $display ),
 			__( 'Remove Audio', 'really-simple-featured-audio' )
 		);
 
 		$embed_markup = sprintf(
 			'<div class="rsfa-embed"><input type="url" name="%1$s" id="%1$s" value="%2$s" placeholder="%3$s" /><span><br><br>%4$s</span></div>',
 			RSFA_EMBED_META_KEY,
-			$embed_url,
+			esc_attr( $embed_url ),
 			__( 'Audio url goes here', 'really-simple-featured-audio' ),
 			__( 'Directly copy &amp; paste audio urls from anywhere. Should be the absolute audio file ending with .mp3/.wav etc e.g. example.com/file/audio.mp3.', 'really-simple-featured-audio' )
+		);
+
+		// Cover art, shown in the player for either source.
+		$cover_id  = get_post_meta( $post->ID, RSFA_COVER_META_KEY, true );
+		$cover_url = $cover_id ? wp_get_attachment_image_url( $cover_id, 'medium' ) : '';
+
+		$cover_markup = sprintf(
+			'<div class="rsfa-cover"><p><strong>%1$s</strong></p><img id="rsfa-cover-preview" src="%2$s" alt="" style="max-width:95%%;%3$s" /><input type="hidden" name="%4$s" id="%4$s" value="%5$s" /><a href="#" class="button rsfa-set-cover">%6$s</a> <a href="#" class="button rsfa-remove-cover" style="%7$s">%8$s</a></div>',
+			__( 'Cover Image', 'really-simple-featured-audio' ),
+			esc_url( $cover_url ),
+			$cover_url ? 'display:block;' : 'display:none;',
+			RSFA_COVER_META_KEY,
+			esc_attr( $cover_id ),
+			__( 'Set Cover Image', 'really-simple-featured-audio' ),
+			$cover_url ? 'display:inline-block;' : 'display:none;',
+			__( 'Remove Cover', 'really-simple-featured-audio' )
 		);
 
 		$self_input = sprintf(
@@ -180,10 +200,11 @@ class Metabox {
 		);
 
 		$select_source = sprintf(
-			'<div><p>%1$s</p>%2$s%3$s</div>',
+			'<div><p>%1$s</p>%2$s%3$s%4$s</div>',
 			__( 'Please select a audio source', 'really-simple-featured-audio' ),
 			$self_input,
-			$embed_input
+			$embed_input,
+			$cover_markup
 		);
 
 		printf(
@@ -199,8 +220,8 @@ class Metabox {
 	 * @return string
 	 */
 	public function save_audio( $post_id ) {
-		if ( ! current_user_can( 'edit_posts' ) ) {
-			return;
+		if ( ! current_user_can( 'edit_post', $post_id ) ) {
+			return $post_id;
 		}
 
 		$nonce = isset( $_POST['rsfa_inner_custom_box_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['rsfa_inner_custom_box_nonce'] ) ) : '';
@@ -219,18 +240,25 @@ class Metabox {
 			return $post_id;
 		}
 
-		$keys = array(
-			RSFA_SOURCE_META_KEY,
-			RSFA_META_KEY,
-			RSFA_EMBED_META_KEY,
-		);
+		// Only update fields that were posted, so other editors saving the post keep them.
+		if ( isset( $_POST[ RSFA_SOURCE_META_KEY ] ) ) {
+			$source = sanitize_key( wp_unslash( $_POST[ RSFA_SOURCE_META_KEY ] ) );
+			$source = in_array( $source, array( 'self', 'embed' ), true ) ? $source : 'self';
+			update_post_meta( $post_id, RSFA_SOURCE_META_KEY, $source );
+		}
 
-		foreach ( $keys as $key ) {
-			// Get updated value.
-			$key_value = isset( $_POST[ $key ] ) ? sanitize_text_field( wp_unslash( $_POST[ $key ] ) ) : '';
+		if ( isset( $_POST[ RSFA_META_KEY ] ) ) {
+			$audio_id = absint( wp_unslash( $_POST[ RSFA_META_KEY ] ) );
+			update_post_meta( $post_id, RSFA_META_KEY, $audio_id ? $audio_id : '' );
+		}
 
-			// Save key value in meta key.
-			update_post_meta( $post_id, $key, $key_value );
+		if ( isset( $_POST[ RSFA_EMBED_META_KEY ] ) ) {
+			update_post_meta( $post_id, RSFA_EMBED_META_KEY, esc_url_raw( wp_unslash( $_POST[ RSFA_EMBED_META_KEY ] ) ) );
+		}
+
+		if ( isset( $_POST[ RSFA_COVER_META_KEY ] ) ) {
+			$cover_id = absint( wp_unslash( $_POST[ RSFA_COVER_META_KEY ] ) );
+			update_post_meta( $post_id, RSFA_COVER_META_KEY, $cover_id ? $cover_id : '' );
 		}
 
 		return $post_id;
@@ -243,7 +271,7 @@ class Metabox {
 	 */
 	public function get_allowed_html() {
 		return array(
-			'audio' => array(
+			'audio'  => array(
 				'src'      => array(),
 				'style'    => array(),
 				'loop'     => array(),
@@ -251,7 +279,7 @@ class Metabox {
 				'autoplay' => array(),
 				'controls' => array(),
 			),
-			'input' => array(
+			'input'  => array(
 				'type'        => array(),
 				'id'          => array(),
 				'name'        => array(),
@@ -259,22 +287,29 @@ class Metabox {
 				'placeholder' => array(),
 				'checked'     => array(),
 			),
-			'label' => array(
+			'label'  => array(
 				'for' => array(),
 			),
-			'div'   => array(
+			'div'    => array(
 				'class' => array(),
 			),
-			'a'     => array(
+			'img'    => array(
+				'id'    => array(),
+				'src'   => array(),
+				'alt'   => array(),
+				'style' => array(),
+			),
+			'a'      => array(
 				'href'  => array(),
 				'class' => array(),
 				'style' => array(),
 			),
-			'p'     => array(),
-			'span'  => array(),
-			'br'    => array(),
-			'i'     => array(),
-			'style' => array(),
+			'p'      => array(),
+			'span'   => array(),
+			'br'     => array(),
+			'i'      => array(),
+			'strong' => array(),
+			'style'  => array(),
 		);
 	}
 }

@@ -54,7 +54,8 @@ class Admin_Settings {
 
 			$settings[] = include 'Tabs/class-version-control.php';
 
-			// To make sure Promotional tabs shows up at the very last.
+			// To make sure Promotional and Help tabs shows up at the very last.
+			$settings[] = include 'Tabs/class-help.php';
 			$settings[] = include 'Tabs/class-upgrade.php';
 
 			self::$settings = $settings;
@@ -127,11 +128,21 @@ class Admin_Settings {
 
 		do_action( 'rsfa_settings_start' );
 
+		$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+		// Enqueue RSFA settings styles.
+		wp_enqueue_style( 'rsfa_settings_select2', RSFA_PLUGIN_URL . 'assets/css/select2/select2' . $suffix . '.css', array(), filemtime( RSFA_PLUGIN_DIR . 'assets/css/select2/select2.css' ) );
+
+		wp_enqueue_style( 'rsfa_settings', RSFA_PLUGIN_URL . 'assets/css/admin-settings.css', array(), filemtime( RSFA_PLUGIN_DIR . 'assets/css/admin-settings.css' ) );
+
 		// Enqueue all necessary WP Media APIs.
 		wp_enqueue_media();
 
-		wp_enqueue_style( 'rsfa_settings', RSFA_PLUGIN_URL . 'assets/css/admin-settings.css', array(), filemtime( RSFA_PLUGIN_DIR . 'assets/css/admin-settings.css' ) );
-		wp_enqueue_script( 'rsfa_settings', RSFA_PLUGIN_URL . 'assets/js/admin-settings.js', array( 'jquery', 'wp-util', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'iris' ), filemtime( RSFA_PLUGIN_DIR . 'assets/js/admin-settings.js' ), true );
+		// Enqueue RSFA settings scripts.
+		wp_enqueue_script( 'rsfa_settings_select2', RSFA_PLUGIN_URL . 'assets/js/select2/select2' . $suffix . '.js', array( 'jquery' ), filemtime( RSFA_PLUGIN_DIR . 'assets/js/select2/select2.js' ), true );
+
+		wp_enqueue_script( 'rsfa_settings', RSFA_PLUGIN_URL . 'assets/js/admin-settings.js', array( 'jquery', 'wp-util', 'jquery-ui-datepicker', 'jquery-ui-sortable', 'iris', 'rsfa_settings_select2', 'wp-api-fetch' ), filemtime( RSFA_PLUGIN_DIR . 'assets/js/admin-settings.js' ), true );
+
 		do_action( 'rsfa_settings_after_scripts' );
 
 		wp_localize_script(
@@ -153,6 +164,54 @@ class Admin_Settings {
 		$tabs = apply_filters( 'rsfa_settings_tabs_array', array() );
 
 		include RSFA_PLUGIN_DIR . 'includes/Settings/Views/html-admin-settings.php';
+	}
+
+	/**
+	 * Get allowed html tags for settings.
+	 *
+	 * @return array
+	 */
+	public static function get_settings_allowed_html() {
+		return array(
+			'abbr'       => array(
+				'title' => true,
+			),
+			'acronym'    => array(
+				'title' => true,
+			),
+			'b'          => array(),
+			'blockquote' => array(
+				'cite' => true,
+			),
+			'cite'       => array(),
+			'code'       => array(),
+			'del'        => array(
+				'datetime' => true,
+			),
+			'em'         => array(),
+			'i'          => array(),
+			'q'          => array(
+				'cite' => true,
+			),
+			's'          => array(),
+			'strike'     => array(),
+			'strong'     => array(),
+			'a'          => array(
+				'href'   => array(),
+				'title'  => array(),
+				'class'  => array(),
+				'id'     => array(),
+				'target' => array(),
+			),
+			'span'       => array(
+				'title' => array(),
+				'src'   => array(),
+				'alt'   => array(),
+				'class' => array(),
+				'id'    => array(),
+			),
+			'br'         => array(),
+		);
 	}
 
 	/**
@@ -339,10 +398,10 @@ class Admin_Settings {
 					}
 					if ( ! empty( $value['title'] ) ) {
 						echo '<a href="' . esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ) . '" target="_blank">';
-						echo '<h2 id="' . esc_attr( sanitize_title( $value['id'] ) ) . '-content-title"><span class="pro-tag">' . esc_html__( 'Pro', 'really-simple-featured-audio' ) . '</span>' . esc_html( $value['title'] ) . '</h2></a>';
+						echo '<h2 id="' . esc_attr( sanitize_title( $value['id'] ) ) . '-content-title">' . wp_kses( $pro_tag_html, $allowed_html_tags ) . esc_html( $value['title'] ) . '</h2></a>';
 					}
 					if ( ! empty( $value['desc'] ) ) {
-						echo '<p id="' . esc_attr( sanitize_title( $value['id'] ) ) . '-content-desc">' . wp_kses_post( $value['desc'] ) . '</p>';
+						echo '<p id="' . esc_attr( sanitize_title( $value['id'] ) ) . '-content-desc">' . wp_kses( $value['desc'], $allowed_html_tags ) . '</p>';
 					}
 					if ( ! empty( $value['class'] ) ) {
 						echo '</div>';
@@ -365,7 +424,7 @@ class Admin_Settings {
 
 					?><tr valign="top">
 						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, wp_kses_allowed_html() ); ?></label>
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?></label>
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
 							<input
@@ -377,133 +436,52 @@ class Admin_Settings {
 								class="<?php echo esc_attr( $value['class'] ); ?>"
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
 								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
-								/><?php echo esc_html( $value['suffix'] ); ?> <?php echo wp_kses_post( $description ); ?>
-						</td>
-					</tr>
-					<?php
-					break;
-				case 'button':
-					$option_value = $value['value'];
-					?>
-					<tr valign="top">
-						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
-							<a  href="<?php echo esc_attr( $value['to'] ); ?>"
-								id="<?php echo esc_attr( $value['id'] ); ?>"
-								style="<?php echo esc_attr( $value['css'] ); ?>"
-								class="<?php echo esc_attr( $value['class'] ); ?>"
-								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
-								><?php echo esc_html( $option_value ); ?></a><?php echo esc_html( $value['suffix'] ); ?> <?php echo wp_kses( $description, $allowed_html_tags ); ?>
+								/><?php echo esc_html( $value['suffix'] ); ?> <?php echo $description; // phpcs:ignore. ?>
 						</td>
 					</tr>
 					<?php
 					break;
 
-				// Textarea.
-				case 'textarea':
+				case 'promo-text':
+				case 'promo-password':
+				case 'promo-datetime':
+				case 'promo-datetime-local':
+				case 'promo-date':
+				case 'promo-month':
+				case 'promo-time':
+				case 'promo-week':
+				case 'promo-number':
+				case 'promo-email':
+				case 'promo-url':
+				case 'promo-tel':
 					$option_value = $value['value'];
+					$input_type   = str_replace( 'promo-', '', $value['type'] );
+
 					?>
 					<tr valign="top">
 						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, wp_kses_allowed_html() ); ?></label>
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?></label>
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
-							<?php echo esc_html( $description ); ?>
-
-							<textarea
+							<input
 								name="<?php echo esc_attr( $value['id'] ); ?>"
 								id="<?php echo esc_attr( $value['id'] ); ?>"
+								type="<?php echo esc_attr( $input_type ); ?>"
 								style="<?php echo esc_attr( $value['css'] ); ?>"
+								value="<?php echo esc_attr( $option_value ); ?>"
 								class="<?php echo esc_attr( $value['class'] ); ?>"
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
 								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
-								><?php echo esc_textarea( $option_value ); ?></textarea>
+								/><?php echo esc_html( $value['suffix'] ); ?> <?php echo $description; // phpcs:ignore. ?>
+								<?php echo wp_kses( $pro_link_html, $allowed_html_tags ); ?>
 						</td>
 					</tr>
 					<?php
-					break;
-
-				// Select boxes.
-				case 'select':
-				case 'multiselect':
-					$option_value = $value['value'];
-
-					?>
-					<tr valign="top">
-						<?php if ( ! empty( $value['title'] ) ) { ?>
-						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, wp_kses_allowed_html() ); ?></label>
-						</th>
-						<?php } ?>
-						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
-							<select
-								name="<?php echo esc_attr( $value['id'] ); ?><?php echo ( 'multiselect' === $value['type'] ) ? '[]' : ''; ?>"
-								id="<?php echo esc_attr( $value['id'] ); ?>"
-								style="<?php echo esc_attr( $value['css'] ); ?>"
-								class="<?php echo esc_attr( $value['class'] ); ?>"
-								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
-								<?php echo 'multiselect' === $value['type'] ? 'multiple="multiple"' : ''; ?>
-								>
-								<?php
-								foreach ( $value['options'] as $key => $val ) {
-									?>
-									<option value="<?php echo esc_attr( $key ); ?>"
-										<?php
-
-										if ( is_array( $option_value ) ) {
-											selected( in_array( (string) $key, $option_value, true ), true );
-										} else {
-											selected( $option_value, (string) $key );
-										}
-
-										?>
-									><?php echo esc_html( $val ); ?></option>
-									<?php
-								}
-								?>
-							</select> <?php echo wp_kses_post( $description ); ?>
-						</td>
-					</tr>
-					<?php
-					break;
-
-				// Pro Select boxes.
-				case 'promo-select':
-				case 'promo-multiselect':
-					$option_value = $value['value'];
-
-					?>
-				<tr valign="top" class="<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
-					<?php if ( ! empty( $value['title'] ) ) { ?>
-					<th scope="row" class="titledesc">
-						<label for="<?php echo esc_attr( $value['id'] ); ?>"><a href="<?php echo esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ); ?>" target="_blank"><span class="pro-tag">Pro</span><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, wp_kses_allowed_html() ); ?></a></label>
-					</th>
-					<?php } ?>
-					<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
-						<select
-							name="<?php echo esc_attr( $value['id'] ); ?><?php echo ( 'multiselect' === $value['type'] ) ? '[]' : ''; ?>"
-							id="<?php echo esc_attr( $value['id'] ); ?>"
-							style="<?php echo esc_attr( $value['css'] ); ?>"
-							class="<?php echo esc_attr( $value['class'] ); ?>"
-							<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
-							<?php echo 'multiselect' === $value['type'] ? 'multiple="multiple"' : ''; ?>
-							>
-							<?php
-							foreach ( $value['options'] as $key => $val ) {
-								?>
-								<option value="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $val ); ?></option>
-											<?php
-							}
-							?>
-									</select> <?php echo wp_kses_post( $description ); ?>
-									<a href="<?php echo esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ); ?>" target="_blank"><?php echo esc_html__( 'Checkout Pro now', 'really-simple-featured-audio' ); ?></a>
-								</td>
-							</tr>
-								<?php
 					break;
 
 				case 'media-image':
 					$option_value = $value['value'];
-					// Get the meta value of audio attachment.
+					// Get the meta value of image attachment.
 					$image_id      = $option_value;
 					$image_url     = wp_get_attachment_url( $image_id );
 					$display       = 'none';
@@ -544,7 +522,7 @@ class Admin_Settings {
 					<?php
 					break;
 				case 'promo-media-image':
-					// Get the meta value of audio attachment.
+					// Get the meta value of image attachment.
 					$default_image = $value['default'];
 					$image_url     = $default_image;
 					?>
@@ -561,6 +539,123 @@ class Admin_Settings {
 						</td>
 					</tr>
 					<?php
+					break;
+				case 'button':
+					$option_value = $value['value'];
+					?>
+					<tr valign="top">
+						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
+							<a  href="<?php echo esc_url( $value['to'] ); ?>"
+								id="<?php echo esc_attr( $value['id'] ); ?>"
+								style="<?php echo esc_attr( $value['css'] ); ?>"
+								class="<?php echo esc_attr( $value['class'] ); ?>"
+								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
+								><?php echo esc_html( $option_value ); ?></a><?php echo esc_html( $value['suffix'] ); ?> <?php echo wp_kses( $description, $allowed_html_tags ); ?>
+						</td>
+					</tr>
+					<?php
+					break;
+
+				// Textarea.
+				case 'textarea':
+					$option_value = $value['value'];
+					?>
+					<tr valign="top">
+						<th scope="row" class="titledesc">
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?></label>
+						</th>
+						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
+
+							<textarea
+								name="<?php echo esc_attr( $value['id'] ); ?>"
+								id="<?php echo esc_attr( $value['id'] ); ?>"
+								style="<?php echo esc_attr( $value['css'] ); ?>"
+								class="<?php echo esc_attr( $value['class'] ); ?>"
+								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
+								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
+								><?php echo esc_textarea( $option_value ); ?></textarea>
+								<p><?php echo wp_kses( $description, $allowed_html_tags ); ?></p>
+						</td>
+					</tr>
+					<?php
+					break;
+
+				// Select boxes.
+				case 'select':
+				case 'multiselect':
+					$option_value = $value['value'];
+
+					?>
+					<tr valign="top">
+						<?php if ( ! empty( $value['title'] ) ) { ?>
+						<th scope="row" class="titledesc">
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?></label>
+						</th>
+						<?php } ?>
+						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
+							<select
+								name="<?php echo esc_attr( $value['id'] ); ?><?php echo ( 'multiselect' === $value['type'] ) ? '[]' : ''; ?>"
+								id="<?php echo esc_attr( $value['id'] ); ?>"
+								style="<?php echo esc_attr( $value['css'] ); ?>"
+								class="<?php echo esc_attr( $value['class'] ); ?>"
+								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
+								<?php echo 'multiselect' === $value['type'] ? 'multiple="multiple"' : ''; ?>
+								>
+								<?php
+								foreach ( $value['options'] as $key => $val ) {
+									?>
+									<option value="<?php echo esc_attr( $key ); ?>"
+										<?php
+
+										if ( is_array( $option_value ) ) {
+											selected( in_array( (string) $key, $option_value, true ), true );
+										} else {
+											selected( $option_value, (string) $key );
+										}
+
+										?>
+									><?php echo esc_html( $val ); ?></option>
+									<?php
+								}
+								?>
+							</select> <?php echo $description; // phpcs:ignore   ?>
+						</td>
+					</tr>
+					<?php
+					break;
+
+				// Pro Select boxes.
+				case 'promo-select':
+				case 'promo-multiselect':
+					?>
+				<tr valign="top" class="<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
+					<?php if ( ! empty( $value['title'] ) ) { ?>
+					<th scope="row" class="titledesc">
+						<label for="<?php echo esc_attr( $value['id'] ); ?>"><a href="<?php echo esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ); ?>" target="_blank"><?php echo wp_kses( $pro_tag_html, $allowed_html_tags ) . esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?></a></label>
+					</th>
+					<?php } ?>
+					<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
+						<select
+							name="<?php echo esc_attr( $value['id'] ); ?><?php echo ( 'multiselect' === $value['type'] ) ? '[]' : ''; ?>"
+							id="<?php echo esc_attr( $value['id'] ); ?>"
+							style="<?php echo esc_attr( $value['css'] ); ?>"
+							class="<?php echo esc_attr( $value['class'] ); ?>"
+							<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
+							<?php echo ! empty( $value['disabled'] ) ? 'disabled="disabled"' : ''; ?>
+							<?php echo 'multiselect' === $value['type'] ? 'multiple="multiple"' : ''; ?>
+							>
+							<?php
+							foreach ( $value['options'] as $key => $val ) {
+								?>
+								<option value="<?php echo esc_attr( $key ); ?>"><?php echo esc_html( $val ); ?></option>
+											<?php
+							}
+							?>
+                                    </select> <?php echo $description; // phpcs:ignore   ?>
+									<?php echo wp_kses( $pro_link_html, $allowed_html_tags ); ?>
+								</td>
+							</tr>
+								<?php
 					break;
 
 				// Radio inputs.
@@ -604,7 +699,7 @@ class Admin_Settings {
 					?>
 					<tr valign="top">
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
-							<?php echo wp_kses_post( $description ); ?>
+							<?php echo $description; // phpcs:ignore	?>
 							<fieldset>
 								<ul>
 									<?php foreach ( $value['options'] as $key => $val ) : ?>
@@ -626,6 +721,40 @@ class Admin_Settings {
 									<?php endforeach; ?>
 								</ul>
 							</fieldset>
+						</td>
+					</tr>
+					<?php
+					break;
+
+					// Pro multi-checkbox.
+				case 'promo-multi-checkbox':
+					$option_value = $value['value'];
+					?>
+					<tr valign="top">
+						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
+							<?php echo $description; // phpcs:ignore	?>
+							<fieldset>
+								<ul>
+									<?php foreach ( $value['options'] as $key => $val ) : ?>
+									<li>
+										<label>
+											<input
+												type="checkbox"
+												name="<?php echo esc_attr( $value['id'] ); ?>[<?php echo esc_attr( $key ); ?>]"
+												id="<?php echo esc_attr( $value['id'] ); ?>[<?php echo esc_attr( $key ); ?>]"
+												value="1"
+												<?php checked( isset( $option_value[ $key ] ) ? $option_value[ $key ] : 0, true ); ?>
+											/>
+											<span>
+												<span><?php esc_html_e( 'Toggle', 'really-simple-featured-audio' ); ?></span>
+											</span>
+											<p><?php echo esc_html( $val ); ?></p>
+										</label>
+									</li>
+									<?php endforeach; ?>
+								</ul>
+							</fieldset>
+							<p><?php echo wp_kses( $pro_link_html, $allowed_html_tags ); ?></p>
 						</td>
 					</tr>
 					<?php
@@ -681,11 +810,84 @@ class Admin_Settings {
 								value="1"
 								<?php checked( $option_value, true ); ?>
 								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
-							/> <?php echo esc_html( $description ); ?>
+							/> <?php echo $description; // phpcs:ignore. ?>
 							<?php if ( $value['switch'] ) { ?>
 								<span><?php esc_html_e( 'Toggle', 'really-simple-featured-audio' ); ?></span>
 							<?php } ?>
-						</label> <?php echo wp_kses( $tooltip_html, wp_kses_allowed_html() ); ?>
+						</label> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?>
+					<?php
+
+					if ( ! isset( $value['checkboxgroup'] ) || 'end' === $value['checkboxgroup'] ) {
+						?>
+									</fieldset>
+								</td>
+							</tr>
+						<?php
+					} else {
+						?>
+							</fieldset>
+						<?php
+					}
+					break;
+				// Pro checkbox.
+				case 'promo-checkbox':
+					$visibility_class = array();
+
+					if ( ! isset( $value['hide_if_checked'] ) ) {
+						$value['hide_if_checked'] = false;
+					}
+					if ( ! isset( $value['show_if_checked'] ) ) {
+						$value['show_if_checked'] = false;
+					}
+					if ( 'yes' === $value['hide_if_checked'] || 'yes' === $value['show_if_checked'] ) {
+						$visibility_class[] = 'hidden_option';
+					}
+					if ( 'option' === $value['hide_if_checked'] ) {
+						$visibility_class[] = 'hide_options_if_checked';
+					}
+					if ( 'option' === $value['show_if_checked'] ) {
+						$visibility_class[] = 'show_options_if_checked';
+					}
+
+					if ( ! isset( $value['checkboxgroup'] ) || 'start' === $value['checkboxgroup'] ) {
+						?>
+							<tr valign="top" class="
+							<?php
+							echo esc_attr( implode( ' ', $visibility_class ) ) . ' ' . esc_attr( sanitize_title( $value['type'] ) );
+							?>
+">
+								<th scope="row" class="titledesc"><a href="<?php echo esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ); ?>" target="_blank"><?php echo wp_kses( $pro_tag_html, $allowed_html_tags ) . esc_html( $value['title'] ); ?></a></th>
+								<td class="forminp forminp-<?php echo esc_attr( $value['type'] ); ?>">
+									<fieldset>
+						<?php
+					} else {
+						?>
+							<fieldset class="<?php echo esc_attr( implode( ' ', $visibility_class ) ); ?>">
+						<?php
+					}
+
+					if ( ! empty( $value['title'] ) ) {
+						?>
+							<legend class="screen-reader-text"><span><?php echo esc_html( $value['title'] ); ?></span></legend>
+						<?php
+					}
+
+					?>
+						<label for="<?php echo esc_attr( $value['id'] ); ?>">
+							<input
+								name="<?php echo esc_attr( $value['id'] ); ?>"
+								id="<?php echo esc_attr( $value['id'] ); ?>"
+								type="checkbox"
+								class="<?php echo esc_attr( isset( $value['class'] ) ? $value['class'] : '' ); ?>"
+								value="1"
+								<?php echo ! empty( $value['disabled'] ) ? 'disabled="disabled"' : ''; ?>
+								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
+							/> <?php echo $description; // phpcs:ignore. ?>
+							<?php if ( $value['switch'] ) { ?>
+								<span><?php esc_html_e( 'Toggle', 'really-simple-featured-audio' ); ?></span>
+							<?php } ?>
+						</label> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?>
+						<?php echo wp_kses( $pro_link_html, $allowed_html_tags ); ?>
 					<?php
 
 					if ( ! isset( $value['checkboxgroup'] ) || 'end' === $value['checkboxgroup'] ) {
@@ -706,7 +908,7 @@ class Admin_Settings {
 					?>
 					<tr valign="top">
 						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, wp_kses_allowed_html() ); ?></label>
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?></label>
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
 							<p
@@ -731,54 +933,6 @@ class Admin_Settings {
 	}
 
 	/**
-	 * Get allowed html tags for settings.
-	 *
-	 * @return array
-	 */
-	public static function get_settings_allowed_html() {
-		return array(
-			'abbr'       => array(
-				'title' => true,
-			),
-			'acronym'    => array(
-				'title' => true,
-			),
-			'b'          => array(),
-			'blockquote' => array(
-				'cite' => true,
-			),
-			'cite'       => array(),
-			'code'       => array(),
-			'del'        => array(
-				'datetime' => true,
-			),
-			'em'         => array(),
-			'i'          => array(),
-			'q'          => array(
-				'cite' => true,
-			),
-			's'          => array(),
-			'strike'     => array(),
-			'strong'     => array(),
-			'a'          => array(
-				'href'   => array(),
-				'title'  => array(),
-				'class'  => array(),
-				'id'     => array(),
-				'target' => array(),
-			),
-			'span'       => array(
-				'title' => array(),
-				'src'   => array(),
-				'alt'   => array(),
-				'class' => array(),
-				'id'    => array(),
-			),
-			'br'         => array(),
-		);
-	}
-
-	/**
 	 * Helper function to get the formatted description and tip HTML for a
 	 * given form field. Plugins can call this when implementing their own custom
 	 * settings types.
@@ -787,8 +941,9 @@ class Admin_Settings {
 	 * @return array The description and tip as a 2 element array.
 	 */
 	public static function get_field_description( $value ) {
-		$description  = '';
-		$tooltip_html = '';
+		$description       = '';
+		$tooltip_html      = '';
+		$allowed_html_tags = self::get_settings_allowed_html();
 
 		if ( true === $value['desc_tip'] ) {
 			$tooltip_html = $value['desc'];
@@ -801,16 +956,16 @@ class Admin_Settings {
 
 		if ( $description && in_array( $value['type'], array( 'textarea', 'radio' ), true ) ) {
 			$description = '<p style="margin-top:0">' . wp_kses_post( $description ) . '</p>';
-		} elseif ( $description && in_array( $value['type'], array( 'checkbox' ), true ) ) {
-			$description = wp_kses_post( $description );
+		} elseif ( $description && in_array( $value['type'], array( 'checkbox', 'promo-checkbox' ), true ) ) {
+			$description = wp_kses( $description, $allowed_html_tags );
 		} elseif ( $description ) {
-			$description = '<p class="description">' . wp_kses_post( $description ) . '</p>';
+			$description = '<p class="description">' . wp_kses( $description, $allowed_html_tags ) . '</p>';
 		}
 
 		if ( $tooltip_html && in_array( $value['type'], array( 'checkbox' ), true ) ) {
 			$tooltip_html = '<p class="description">' . $tooltip_html . '</p>';
 		} elseif ( $tooltip_html ) {
-			$tooltip_html = wp_kses_post( $tooltip_html );
+			$tooltip_html = wp_kses( $tooltip_html, $allowed_html_tags );
 		}
 
 		return array(
@@ -839,11 +994,15 @@ class Admin_Settings {
 	 * Loops though the RSFA options array and outputs each field.
 	 *
 	 * @param array $options Options array to output.
+	 * @param array $data    Optional. Data to use for saving. Defaults to $_POST.
 	 * @return bool
 	 */
-	public static function save_fields( $options ) {
+	public static function save_fields( $options, $data = null ) {
 		$nonce = isset( $_POST['_wpnonce'] ) ? sanitize_text_field( wp_unslash( $_POST['_wpnonce'] ) ) : '';
-		if ( empty( $nonce ) || ! wp_verify_nonce( $nonce, 'rsfa-settings' ) ) {
+		if ( is_null( $data ) && wp_verify_nonce( $nonce, 'rsfa-settings' ) ) {
+			$data = $_POST;
+		}
+		if ( empty( $data ) ) {
 			return false;
 		}
 
@@ -862,13 +1021,13 @@ class Admin_Settings {
 				parse_str( $option['id'], $option_name_array );
 				$option_name  = current( array_keys( $option_name_array ) );
 				$setting_name = key( $option_name_array[ $option_name ] );
-				// Review note: Using a custom method to sanitize data in case of arrays (for multi-selects) which under the hood uses sanitize_text_field efficiently for sanitizing data conditionally, please check the method 'sanitize_post_data' above.
-				$raw_value    = isset( $_POST[ $option_name ][ $setting_name ] ) ? self::sanitize_post_data( wp_unslash( $_POST[ $option_name ][ $setting_name ] ) ) : null; // phpcs:ignore.
+				// Review note: values are sanitized recursively with sanitize_text_field, see sanitize_post_data().
+				$raw_value    = isset( $data[ $option_name ][ $setting_name ] ) ? self::sanitize_post_data( wp_unslash( $data[ $option_name ][ $setting_name ] ) ) : null;
 			} else {
 				$option_name  = $option['id'];
 				$setting_name = '';
-				// Review note: Using a custom method to sanitize data in case of arrays (for multi-select fields) which under the hood uses sanitize_text_field efficiently for sanitizing data conditionally, please check the method 'sanitize_post_data' above.
-				$raw_value    = isset( $_POST[ $option['id'] ] ) ? self::sanitize_post_data( wp_unslash( $_POST[ $option['id'] ] ) ) : null; // phpcs:ignore.
+				// Review note: values are sanitized recursively with sanitize_text_field, see sanitize_post_data().
+				$raw_value    = isset( $data[ $option['id'] ] ) ? self::sanitize_post_data( wp_unslash( $data[ $option['id'] ] ) ) : null;
 			}
 
 			// Format the value based on option type.
