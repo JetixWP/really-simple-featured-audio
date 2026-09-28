@@ -11,6 +11,7 @@ use RSFA\Compatibility\Plugin_Provider;
 use RSFA\Settings\Register;
 use RSFA\Compatibility\Theme_Provider;
 use RSFA\Featuresets\Register_Featuresets as Featuresets;
+use RSFA\Tools\Register as Tools;
 
 /**
  * Class RSFA_featured_audio
@@ -118,6 +119,7 @@ final class Plugin {
 		define( 'RSFA_SOURCE_META_KEY', 'rsfa_source' );
 		define( 'RSFA_META_KEY', 'rsfa_featured_audio' );
 		define( 'RSFA_EMBED_META_KEY', 'rsfa_featured_embed_audio' );
+		define( 'RSFA_COVER_META_KEY', 'rsfa_featured_cover' );
 	}
 
 	/**
@@ -128,11 +130,17 @@ final class Plugin {
 	public function register() {
 		// Load classes.
 		// Let's call these providers.
+		// Audio analytics.
+		\RSFA\Analytics\Load::get_instance();
+
 		$this->registration_provider = Register::get_instance();
 		$this->metabox_provider      = Metabox::get_instance();
 		$this->featuresets_provider  = Featuresets::get_instance();
 		$this->shortcode_provider    = Shortcode::get_instance();
 		$this->frontend_provider     = FrontEnd::get_instance();
+
+		// Audio Tools page and its REST routes.
+		Tools::get_instance();
 
 		// Load compatibility.
 		$this->plugin_provider = Plugin_Provider::get_instance();
@@ -165,6 +173,9 @@ final class Plugin {
 		require_once RSFA_PLUGIN_DIR . 'includes/class-shortcode.php';
 		require_once RSFA_PLUGIN_DIR . 'includes/class-frontend.php';
 
+		// Tools.
+		require_once RSFA_PLUGIN_DIR . 'includes/Tools/class-register.php';
+
 		// Plugin compatibility.
 		require_once RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/class-base-compatibility.php';
 		require_once RSFA_PLUGIN_DIR . 'includes/Compatibility/class-plugin-provider.php';
@@ -174,6 +185,16 @@ final class Plugin {
 		require_once RSFA_PLUGIN_DIR . 'includes/Compatibility/class-theme-provider.php';
 
 		// Database upgraders.
+		// Analytics. Loaded before the updater so 1.6.0 can create its tables.
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-install.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-registry.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-stats.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-sync.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-stamp.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-rest-api.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-tracker.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-load.php';
+
 		require_once RSFA_PLUGIN_DIR . 'includes/class-updater.php';
 	}
 

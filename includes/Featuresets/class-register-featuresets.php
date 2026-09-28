@@ -47,6 +47,9 @@ class Register_Featuresets {
 		require_once __DIR__ . '/rollback/class-rollbacker.php';
 		require_once __DIR__ . '/rollback/class-init.php';
 
+		// Play on Hover.
+		require_once __DIR__ . '/hover-play/class-init.php';
+
 		do_action( 'rsfa_after_featuresets_initialize' );
 	}
 }

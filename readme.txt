@@ -2,8 +2,8 @@
 Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
-Tested up to: 6.9
-Stable tag: 1.5.1
+Tested up to: 7.1
+Stable tag: 1.6.0
 Tags: audio commerce, podcast player, woocommerce audio, music store, audio samples
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -51,24 +51,34 @@ Just like how clothing stores let you "try before you buy", Really Simple Featur
 ### **Seamless WooCommerce Integration**
 * Audio previews appear directly in product galleries
 * Works on shop pages, category pages, and single products
-* Comes with support for Astra, Divi, GeneratePress, and more themes out of the box
+* Play on hover: preview audio by hovering over the player in your shop
+* Use audio links from External/Affiliate products
+* Comes with support for Astra, Divi, Flatsome, GeneratePress, Kadence, Storefront, Woostify and more themes out of the box
 * Mobile-responsive player with touch controls
 
 ### **Professional Audio Player**
 * Custom-built JWP Audio Player (not browser default)
-* Waveform visualization for professional appearance (coming soon)
-* Play/pause, scrubbing, volume controls
-* Autoplay options and mute controls
+* Cover art for every audio, shown in the player
+* Play/pause, scrubbing, volume and playback speed controls
+* Autoplay, loop and mute options, plus an optional download button
 * Loading indicators and smooth animations
 
 ### **Easy Audio Management**
 * Upload audio files directly to WordPress Media Library
-* Support for external audio URLs (SoundCloud, Dropbox, etc.)
-* Drag-and-drop audio file management
+* Link to audio files hosted anywhere (direct .mp3, .wav, .ogg or .m4a links)
 * Automatic file format detection (.mp3, .wav, .ogg, .m4a)
+* **Audio Tools** - Manage the audio, cover and featured image of every post and product from one screen
+* **Bulk upload** - Add audio files, audio links or a CSV sheet and assign them to many posts or products at once
+
+### **Audio Analytics**
+* See views and plays for every featured audio over the last 14 days
+* Counts are anonymous and stay on your site, no cookies
+* Your own visits as an editor are left out
 
 ### **Developer & Builder Friendly**
-* **Elementor Pro Support** - Works with Posts and Archive widgets
+* **Elementor Widget** - Add a Really Simple Featured Audio widget anywhere, plus Elementor Pro Posts and Archive widgets support
+* **Bricks Element** - Show featured audio inside Bricks query loops
+* **More builders and plugins** - Salient, Astra Pro, Codeixer Product Gallery Slider and TP Product Image Flipper
 * **Shortcodes Available** - [rsfa] and [rsfa_by_postid]
 * **Theme Compatibility** - Supports TwentyTwenty themes and modern themes, [we take requests for compatibility]
 * **Custom Post Type Support** - Works beyond just WooCommerce
@@ -141,7 +151,6 @@ You can send a feedback or a feature request at [github.com/JetixWP/really-simpl
 
 **Option 1**: Upload a shortened version (30-60 seconds) of your full track
 **Option 2**: Use the full track - customers hear complete audio before purchase
-**Option 3** (PRO): Automatic preview generation with fade-in/out effects
 
 = Will this slow down my website? =
 
@@ -154,6 +163,32 @@ You can send a feedback or a feature request at [github.com/JetixWP/really-simpl
 You can get support at the forums here or via support@jetixwp.com.
 
 == Changelog ==
+
+= 1.6.0 =
+* New: Audio Tools page to manage audio, covers and featured images for every post and product
+* New: Bulk upload audio files, audio links or a CSV/TXT sheet
+* New: Audio analytics with views and plays per audio. Existing sites start with it turned off, turn it on at Featured Audio > Analytics
+* New: Cover image for each featured audio, shown in the player
+* New: Play on Hover option in Controls
+* New: Download button option for self-hosted audios
+* New: Elementor widget and Bricks element for featured audio
+* New: Salient, Astra Pro, Codeixer Product Gallery Slider and TP Product Image Flipper support
+* New: Theme engines for Storefront, Divi, Astra, Go, Kadence, Savoy, Hestia, Flatsome, The7, Electro and Woostify
+* New: Use audio links from WooCommerce External/Affiliate products
+* New: Help tab and a reworked Upgrade tab in settings
+* Improvement: Freemius SDK updated to 2.13.4
+* Improvement: Version Control settings tab renamed to Rollbacks
+* Improvement: Updated translation file
+* Improvement: Auto theme engine now detects child themes and themes with capitalised folder names
+* Improvement: Autoplay, loop and mute settings now apply to WooCommerce product audio
+* Improvement: Player assets only load on pages that show audio, and players work in AJAX-loaded content
+* Improvement: Links with query strings (such as signed URLs) now play correctly
+* Improvement: Theme thumbnails of other posts (next/previous, related) now show their own audio
+* Fix: Security hardening for saving audio, settings and the theme engine status check
+* Fix: Settings page notices are hidden as intended
+* Fix: Titles with quotes or ampersands now show correctly in the player
+* Removed: Old Settings > Really Simple Featured Audio (Old) menu item; the old URL still redirects
+* Removed: Discount request form in the settings sidebar
 
 = 1.5.1 =
 * Fix: Patch for wp.org svn release

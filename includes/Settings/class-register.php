@@ -31,7 +31,13 @@ class Register {
 
 		add_action( 'init', array( $this, 'create_options' ) );
 
-		add_action( 'load-settings_page_rsfa-settings', array( $this, 'cleanup_plugin_settings_page' ) );
+		// The settings page lives under the JetixWP menu, so its load hook uses that screen id.
+		add_action( 'load-jetixwp_page_rsfa-settings', array( $this, 'cleanup_plugin_settings_page' ) );
+
+		// The old page no longer exists, so WordPress denies access before admin_init.
+		add_action( 'admin_page_access_denied', array( $this, 'redirect_old_settings_page' ) );
+		add_action( 'admin_init', array( $this, 'maybe_dismiss_review_card' ) );
+		add_action( 'wp_ajax_rsfa_dismiss_review_card', array( $this, 'dismiss_review_card' ) );
 	}
 
 	/**
@@ -80,22 +86,22 @@ class Register {
 			__( 'Featured Audio', 'really-simple-featured-audio' ),
 			'manage_options',
 			'rsfa-settings',
-			array( $this, 'settings_page' )
+			array( $this, 'settings_page' ),
+			RSFA_PLUGIN_DEFAULT_PRIORITY
 		);
 
 		// Remove duplicate menu hack.
 		// Note: It needs to go after the above add_submenu_page call.
 		remove_submenu_page( $primary_slug, $primary_slug );
 
-		// @TODO: Scheduled to be removed in 1.5.0
-		add_submenu_page(
-			'options-general.php',
-			__( 'Really Simple Featured Audio Settings', 'really-simple-featured-audio' ),
-			__( 'Really Simple Featured Audio (Old)', 'really-simple-featured-audio' ),
-			'manage_options',
-			'rsfa-settings-old',
-			array( $this, 'old_settings_menu' )
-		);
+		/**
+		 * Fires after the plugin's admin menus are registered.
+		 *
+		 * @since 1.6.0
+		 *
+		 * @param string $primary_slug Slug of the JetixWP top-level menu.
+		 */
+		do_action( 'rsfa_register_admin_menus', $primary_slug );
 	}
 
 
@@ -113,21 +119,93 @@ class Register {
 	}
 
 	/**
-	 * Redirect old settings menu to new one.
+	 * Send the old Settings > Really Simple Featured Audio (Old) URL to the settings page.
 	 *
-	 * To remove later in 1.5.0.
+	 * The old menu item is gone; this keeps bookmarks to it working.
+	 *
+	 * @since 1.6.0
 	 *
 	 * @return void
 	 */
-	public function old_settings_menu() {
-		echo "<p>Hello! This page has been moved to the <a href='" . esc_url( admin_url( 'admin.php?page=rsfa-settings' ) ) . "'>JetixWP menu</a>. You will be redirected there in a second...</p>";
-		?>
-			<script type="text/javascript">
-				setTimeout(function() {
-					window.location.href = "<?php echo esc_url( admin_url( 'admin.php?page=rsfa-settings' ) ); ?>";
-				}, 1000);
-			</script>
-		<?php
+	public function redirect_old_settings_page() {
+		global $pagenow;
+
+		if ( 'options-general.php' !== $pagenow || ! isset( $_GET['page'] ) || 'rsfa-settings-old' !== $_GET['page'] ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			return;
+		}
+
+		wp_safe_redirect( admin_url( 'admin.php?page=rsfa-settings' ) );
+		exit;
+	}
+
+	/**
+	 * Persistently dismiss the settings sidebar review card.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @return void
+	 */
+	public function dismiss_review_card() {
+		check_ajax_referer( 'rsfa_admin_nonce', '_wpnonce' );
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error(
+				array(
+					'message' => __( 'You do not have permission to perform this action.', 'really-simple-featured-audio' ),
+				),
+				403
+			);
+		}
+
+		self::set_review_card_dismissed();
+
+		wp_send_json_success();
+	}
+
+	/**
+	 * Handle a non-AJAX review card dismiss from the settings sidebar.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @return void
+	 */
+	public function maybe_dismiss_review_card() {
+		if ( ! isset( $_GET['rsfa_dismiss_review'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			return;
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		check_admin_referer( 'rsfa_dismiss_review_card' );
+
+		self::set_review_card_dismissed();
+
+		wp_safe_redirect( remove_query_arg( array( 'rsfa_dismiss_review', '_wpnonce' ) ) );
+		exit;
+	}
+
+	/**
+	 * Whether the review card has been dismissed.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @return bool
+	 */
+	public static function is_review_card_dismissed() {
+		return (bool) Options::get_instance()->get( 'review_card_dismissed' );
+	}
+
+	/**
+	 * Store a permanent review card dismiss in plugin options.
+	 *
+	 * @since 1.6.0
+	 *
+	 * @return void
+	 */
+	public static function set_review_card_dismissed() {
+		Options::get_instance()->set( 'review_card_dismissed', true );
 	}
 
 
@@ -182,6 +260,10 @@ class Register {
 
 		// We should only save on the settings page.
 		if ( ! is_admin() || ! isset( $_GET['page'] ) || 'rsfa-settings' !== $_GET['page'] ) {
+			return;
+		}
+
+		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 
@@ -248,15 +330,15 @@ function rsfa_admin_fields( $options ) {
  * Update all settings which are passed.
  *
  * @param array $options Option fields to save.
- * @param array $data Passed data.
+ * @param array $data Optional. Data to save. Defaults to the posted form.
  */
-function rsfa_update_options( $options ) {
+function rsfa_update_options( $options, $data = null ) {
 
 	if ( ! class_exists( 'Admin_Settings', false ) ) {
 		include __DIR__ . '/class-admin-settings.php';
 	}
 
-	Admin_Settings::save_fields( $options );
+	Admin_Settings::save_fields( $options, $data );
 }
 
 /**

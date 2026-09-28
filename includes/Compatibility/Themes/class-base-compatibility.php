@@ -7,8 +7,7 @@
 
 namespace RSFA\Compatibility\Themes;
 
-use function RSFA\Settings\get_post_types;
-
+use RSFA\FrontEnd;
 
 /**
  * Abstract class definition for controllers.
@@ -106,14 +105,9 @@ abstract class Base_Compatibility {
 	public function set_post_classes( $classes ) {
 		$post_id = get_the_ID();
 
-		// Get the meta value of audio embed url.
-		$audio_source = get_post_meta( $post_id, RSFA_SOURCE_META_KEY, true );
-		$media_id     = get_post_meta( $post_id, RSFA_META_KEY, true );
-		$audio_url    = get_post_meta( $post_id, RSFA_EMBED_META_KEY, true );
+		$has_audio = FrontEnd::has_featured_audio( $post_id );
 
-		$enabled_post_types = get_post_types();
-
-		if ( in_array( get_post_type(), $enabled_post_types, true ) && ( ( 'self' === $audio_source && $media_id ) || ( 'embed' === $audio_source && $audio_url ) ) ) {
+		if ( $has_audio ) {
 			$classes[] = 'rsfa-has-audio';
 		}
 
@@ -131,14 +125,9 @@ abstract class Base_Compatibility {
 		if ( is_singular() ) {
 			$post_id = get_the_ID();
 
-			// Get the meta value of audio embed url.
-			$audio_source = get_post_meta( $post_id, RSFA_SOURCE_META_KEY, true );
-			$media_id     = get_post_meta( $post_id, RSFA_META_KEY, true );
-			$audio_url    = get_post_meta( $post_id, RSFA_EMBED_META_KEY, true );
+			$has_audio = FrontEnd::has_featured_audio( $post_id );
 
-			$enabled_post_types = get_post_types();
-
-			if ( in_array( get_post_type(), $enabled_post_types, true ) && ( ( 'self' === $audio_source && $media_id ) || ( 'embed' === $audio_source && $audio_url ) ) ) {
+			if ( $has_audio ) {
 				$classes[] = 'rsfa-has-audio';
 			}
 		}

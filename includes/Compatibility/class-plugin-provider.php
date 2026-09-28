@@ -36,20 +36,55 @@ class Plugin_Provider {
 	public function __construct() {
 
 		// Register plugin engines.
+		// @note - This variable is being called early and hence translation functions will trigger a warning if used here.
 		$this->plugin_engines = apply_filters(
 			'rsfa_plugin_compatibility_engines',
 			array(
-				'woocommerce' => array(
+				'woocommerce'              => array(
 					'title'            => 'WooCommerce',
 					'file_source'      => self::COMPAT_DIR . 'WooCommerce/class-compatibility.php',
 					'class'            => 'RSFA\Compatibility\Plugins\WooCommerce\Compatibility',
 					'has_class_loaded' => 'WooCommerce',
 				),
-				'elementor'   => array(
+				'astra-addon'              => array(
+					'title'            => 'Astra Pro',
+					'file_source'      => self::COMPAT_DIR . 'AstraPro/class-compatibility.php',
+					'class'            => 'RSFA\Compatibility\Plugins\AstraPro\Compatibility',
+					'has_class_loaded' => 'Astra_Addon_Update',
+				),
+				'salient-core'             => array(
+					'title'            => 'Salient Core',
+					'file_source'      => RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/SalientCore/class-compatibility.php',
+					'class'            => 'RSFA\Compatibility\Plugins\SalientCore\Compatibility',
+					'has_class_loaded' => 'Salient_Core',
+				),
+				'elementor'                => array(
 					'title'            => 'Elementor',
 					'file_source'      => RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/Elementor/class-compatibility.php',
 					'class'            => 'RSFA\Compatibility\Plugins\Elementor\Compatibility',
 					'has_class_loaded' => 'Elementor\Plugin',
+				),
+				'divi'                     => array(
+					'title'       => 'Divi',
+					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/Divi/class-compatibility.php',
+					'class'       => 'RSFA\Compatibility\Plugins\Divi\Compatibility',
+				),
+				'tp-product-image-flipper' => array(
+					'title'        => 'TP Product Image Flipper',
+					'file_source'  => RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/TPProductImageFlipper/class-compatibility.php',
+					'class'        => 'RSFA\Compatibility\Plugins\TPProductImageFlipper\Compatibility',
+					'has_function' => 'tp_remove_action',
+				),
+				'cix-woo-gallery-slider'   => array(
+					'title'            => 'Codeixer Product Gallery Slider',
+					'file_source'      => RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/CIXWooGallerySlider/class-compatibility.php',
+					'class'            => 'RSFA\Compatibility\Plugins\CIXWooGallerySlider\Compatibility',
+					'has_class_loaded' => 'Product_Gallery_Sldier\Product',
+				),
+				'bricks'                   => array(
+					'title'       => 'Bricks',
+					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/Bricks/class-compatibility.php',
+					'class'       => 'RSFA\Compatibility\Plugins\Bricks\Compatibility',
 				),
 			)
 		);
@@ -76,8 +111,21 @@ class Plugin_Provider {
 	 * @return void
 	 */
 	public function load_plugin_compat() {
+
 		foreach ( $this->plugin_engines as $plugin_engine => $plugin_data ) {
-			if ( ! class_exists( $plugin_data['has_class_loaded'] ) ) {
+
+			// For classes.
+			if ( isset( $plugin_data['has_class_loaded'] ) && ! class_exists( $plugin_data['has_class_loaded'] ) ) {
+				continue;
+			}
+
+			// For functions.
+			if ( isset( $plugin_data['has_function'] ) && ! function_exists( $plugin_data['has_function'] ) ) {
+				continue;
+			}
+
+			// For constants.
+			if ( isset( $plugin_data['has_defined_constant'] ) && ! defined( $plugin_data['has_defined_constant'] ) ) {
 				continue;
 			}
 
