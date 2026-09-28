@@ -11,3 +11,4 @@ phpcs.xml
 gulp.config.json
 report.txt
 really-simple-featured-audio.zip
+/src/player/dist
