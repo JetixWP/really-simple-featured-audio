@@ -8,6 +8,7 @@ import { useState, useEffect, useCallback } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import ManageFeaturedAudios from './components/ManageFeaturedAudios';
 import BulkUpload from './components/BulkUpload';
+import AnalyticsReport from './components/AnalyticsReport';
 import Sidebar from './components/Sidebar';
 
 const App = () => {
@@ -19,6 +20,10 @@ const App = () => {
 		{
 			id: 'bulk-upload',
 			label: __( 'Bulk upload', 'really-simple-featured-audio' ),
+		},
+		{
+			id: 'analytics',
+			label: __( 'Analytics', 'really-simple-featured-audio' ),
 		},
 	];
 
@@ -79,6 +84,7 @@ const App = () => {
 					<div className="rsfa-main-content">
 						{ activeTab === 'manage' && <ManageFeaturedAudios /> }
 						{ activeTab === 'bulk-upload' && <BulkUpload /> }
+						{ activeTab === 'analytics' && <AnalyticsReport /> }
 					</div>
 					<Sidebar />
 				</div>
