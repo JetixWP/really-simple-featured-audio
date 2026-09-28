@@ -2,7 +2,7 @@
 Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
-Tested up to: 6.9
+Tested up to: 7.1
 Stable tag: 1.6.0
 Tags: audio commerce, podcast player, woocommerce audio, music store, audio samples
 License: GPL v2 or later
@@ -177,6 +177,8 @@ You can get support at the forums here or via support@jetixwp.com.
 * New: Use audio links from WooCommerce External/Affiliate products
 * New: Help tab and a reworked Upgrade tab in settings
 * Improvement: Freemius SDK updated to 2.13.4
+* Improvement: Version Control settings tab renamed to Rollbacks
+* Improvement: Updated translation file
 * Improvement: Auto theme engine now detects child themes and themes with capitalised folder names
 * Improvement: Autoplay, loop and mute settings now apply to WooCommerce product audio
 * Improvement: Player assets only load on pages that show audio, and players work in AJAX-loaded content
