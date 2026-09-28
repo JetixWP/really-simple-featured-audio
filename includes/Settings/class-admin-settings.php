@@ -458,9 +458,9 @@ class Admin_Settings {
 					$input_type   = str_replace( 'promo-', '', $value['type'] );
 
 					?>
-					<tr valign="top">
+					<tr valign="top" class="<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
 						<th scope="row" class="titledesc">
-							<label for="<?php echo esc_attr( $value['id'] ); ?>"><?php echo esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?></label>
+							<label for="<?php echo esc_attr( $value['id'] ); ?>"><a href="<?php echo esc_url( RSFA_PLUGIN_PRO_URL . '/?utm_source=plugin&utm_medium=referral&utm_campaign=settings' ); ?>" target="_blank"><?php echo wp_kses( $pro_tag_html, $allowed_html_tags ) . esc_html( $value['title'] ); ?> <?php echo wp_kses( $tooltip_html, $allowed_html_tags ); ?></a></label>
 						</th>
 						<td class="forminp forminp-<?php echo esc_attr( sanitize_title( $value['type'] ) ); ?>">
 							<input
@@ -471,6 +471,7 @@ class Admin_Settings {
 								value="<?php echo esc_attr( $option_value ); ?>"
 								class="<?php echo esc_attr( $value['class'] ); ?>"
 								placeholder="<?php echo esc_attr( $value['placeholder'] ); ?>"
+								disabled="disabled"
 								<?php echo esc_attr( implode( ' ', $custom_attributes ) ); ?>
 								/><?php echo esc_html( $value['suffix'] ); ?> <?php echo $description; // phpcs:ignore. ?>
 								<?php echo wp_kses( $pro_link_html, $allowed_html_tags ); ?>
