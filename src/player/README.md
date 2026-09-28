@@ -27,6 +27,10 @@ Commit the updated files in `assets/` along with the source change. Keep
 `package-lock.json` as is unless you mean to update the toolchain; it pins the
 versions that reproduce the shipped files exactly.
 
-## License
+## Credits and license
 
-GPL-3.0, see `LICENSE.md`.
+The player is based on [Shikwasa](https://github.com/jessuni/shikwasa) by
+jessuni, released under the MIT License. Its copyright and permission notice
+is kept in `LICENSE-shikwasa.md`, as that license requires.
+
+Changes in this fork are released under GPL-3.0, see `LICENSE.md`.
