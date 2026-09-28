@@ -1,6 +1,6 @@
 <?php
 /**
- * Version Control Settings
+ * Rollbacks settings tab
  *
  * @package RSFA
  */
@@ -21,7 +21,7 @@ class Version_Control_Settings extends Settings_Page {
 	 */
 	public function __construct() {
 		$this->id    = 'version_control';
-		$this->label = __( 'Version Control', 'really-simple-featured-audio' );
+		$this->label = __( 'Rollbacks', 'really-simple-featured-audio' );
 
 		parent::__construct();
 	}
