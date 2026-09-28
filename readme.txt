@@ -162,12 +162,23 @@ You can send a feedback or a feature request at [github.com/JetixWP/really-simpl
 = Where can I get help? =
 You can get support at the forums here or via support@jetixwp.com.
 
+= Does the analytics feature track my visitors? =
+It counts views and plays per audio only. Counts are anonymous, no cookies are set, IP addresses are not stored, and nothing is sent to another service. You can turn it off at JetixWP > Featured Audio > Analytics.
+
+= Where is the source code of the scripts? =
+The Audio Tools app and the audio player ship as built files. Their full sources are in the plugin's public repository at [github.com/JetixWP/really-simple-featured-audio](https://github.com/JetixWP/really-simple-featured-audio) under `src/tools` and `src/player`. The audio player is based on [Shikwasa](https://github.com/jessuni/shikwasa) (MIT), see `assets/js/jwp-audio-player-LICENSE.txt`.
+
+== Upgrade Notice ==
+
+= 1.6.0 =
+Adds Audio Tools, bulk upload and audio analytics. Analytics stays off on existing sites until you turn it on at JetixWP > Featured Audio > Analytics.
+
 == Changelog ==
 
 = 1.6.0 =
 * New: Audio Tools page to manage audio, covers and featured images for every post and product
 * New: Bulk upload audio files, audio links or a CSV/TXT sheet
-* New: Audio analytics with views and plays per audio. Existing sites start with it turned off, turn it on at Featured Audio > Analytics
+* New: Audio analytics with views and plays per audio. Existing sites start with it turned off, turn it on at JetixWP > Featured Audio > Analytics
 * New: Cover image for each featured audio, shown in the player
 * New: Play on Hover option in Controls
 * New: Download button option for self-hosted audios
