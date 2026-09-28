@@ -95,8 +95,8 @@ class Global_Settings extends Settings_Page {
 					array(
 						'title'     => __( 'Accent Color', 'really-simple-featured-audio' ),
 						'id'        => 'promo-player-theme-color',
-						'type'      => 'promo-text',
-						'default'   => '',
+						'type'      => 'promo-color',
+						'default'   => '#191919',
 						'is_option' => false,
 					),
 					array(

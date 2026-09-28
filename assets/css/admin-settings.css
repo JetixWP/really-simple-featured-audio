@@ -498,10 +498,19 @@ body.jetixwp_page_rsfa-settings #wpbody-content > *:not(.wrap.rsfa):not(#screen-
 .rsfa td[class*=" forminp-promo-"] select,
 .rsfa td[class*=" forminp-promo-"] input[type="text"],
 .rsfa td[class*=" forminp-promo-"] input[type="number"],
+.rsfa td[class*=" forminp-promo-"] input[type="color"],
 .rsfa td[class*=" forminp-promo-"] textarea,
 .rsfa td[class*=" forminp-promo-"] span > span,
 .rsfa td[class*=" forminp-promo-"] input[type="checkbox"] {
 	opacity: 0.7;
+}
+
+.rsfa td.forminp-promo-color input[type="color"] {
+	width: 48px;
+	height: 32px;
+	padding: 2px;
+	vertical-align: middle;
+	cursor: not-allowed;
 }
 
 .rsfa.upgrade .tab-heading {

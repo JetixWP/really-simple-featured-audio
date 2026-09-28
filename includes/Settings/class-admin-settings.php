@@ -454,6 +454,7 @@ class Admin_Settings {
 				case 'promo-email':
 				case 'promo-url':
 				case 'promo-tel':
+				case 'promo-color':
 					$option_value = $value['value'];
 					$input_type   = str_replace( 'promo-', '', $value['type'] );
 
