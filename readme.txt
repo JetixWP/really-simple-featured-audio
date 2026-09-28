@@ -67,6 +67,13 @@ Just like how clothing stores let you "try before you buy", Really Simple Featur
 * Upload audio files directly to WordPress Media Library
 * Link to audio files hosted anywhere (direct .mp3, .wav, .ogg or .m4a links)
 * Automatic file format detection (.mp3, .wav, .ogg, .m4a)
+* **Audio Tools** - Manage the audio, cover and featured image of every post and product from one screen
+* **Bulk upload** - Add audio files, audio links or a CSV sheet and assign them to many posts or products at once
+
+### **Audio Analytics**
+* See views and plays for every featured audio over the last 14 days
+* Counts are anonymous and stay on your site, no cookies
+* Your own visits as an editor are left out
 
 ### **Developer & Builder Friendly**
 * **Elementor Widget** - Add a Really Simple Featured Audio widget anywhere, plus Elementor Pro Posts and Archive widgets support
@@ -158,6 +165,9 @@ You can get support at the forums here or via support@jetixwp.com.
 == Changelog ==
 
 = 1.6.0 =
+* New: Audio Tools page to manage audio, covers and featured images for every post and product
+* New: Bulk upload audio files, audio links or a CSV/TXT sheet
+* New: Audio analytics with views and plays per audio. Existing sites start with it turned off, turn it on at Featured Audio > Analytics
 * New: Cover image for each featured audio, shown in the player
 * New: Play on Hover option in Controls
 * New: Download button option for self-hosted audios
@@ -166,6 +176,7 @@ You can get support at the forums here or via support@jetixwp.com.
 * New: Theme engines for Storefront, Divi, Astra, Go, Kadence, Savoy, Hestia, Flatsome, The7, Electro and Woostify
 * New: Use audio links from WooCommerce External/Affiliate products
 * New: Help tab and a reworked Upgrade tab in settings
+* Improvement: Freemius SDK updated to 2.13.4
 * Improvement: Auto theme engine now detects child themes and themes with capitalised folder names
 * Improvement: Autoplay, loop and mute settings now apply to WooCommerce product audio
 * Improvement: Player assets only load on pages that show audio, and players work in AJAX-loaded content

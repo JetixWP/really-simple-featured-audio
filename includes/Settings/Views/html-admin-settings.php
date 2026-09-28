@@ -122,6 +122,7 @@ if ( ! $tab_exists ) {
 								<p class="desc"><strong><?php esc_html_e( 'What PRO adds', 'really-simple-featured-audio' ); ?></strong></p>
 								<ul class="rsfa-upgrade-features">
 									<li>✅ <strong><?php esc_html_e( 'Priority support', 'really-simple-featured-audio' ); ?></strong> — <?php esc_html_e( 'direct help from the developer', 'really-simple-featured-audio' ); ?></li>
+									<li>✅ <strong><?php esc_html_e( 'Full audio analytics', 'really-simple-featured-audio' ); ?></strong> — <?php esc_html_e( 'longer history, listen time, completion, CSV export', 'really-simple-featured-audio' ); ?></li>
 									<li>✅ <strong><?php esc_html_e( 'WooCommerce controls', 'really-simple-featured-audio' ); ?></strong> — <?php esc_html_e( 'audio position in the product gallery and its thumbnail', 'really-simple-featured-audio' ); ?></li>
 									<li>✅ <strong><?php esc_html_e( 'Player appearance', 'really-simple-featured-audio' ); ?></strong> — <?php esc_html_e( 'accent color and light or dark player', 'really-simple-featured-audio' ); ?></li>
 									<li>✅ <strong><?php esc_html_e( 'Premium and custom themes', 'really-simple-featured-audio' ); ?></strong> — <?php esc_html_e( 'more supported, compatibility on request', 'really-simple-featured-audio' ); ?></li>

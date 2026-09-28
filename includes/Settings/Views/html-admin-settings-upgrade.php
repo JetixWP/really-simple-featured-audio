@@ -16,6 +16,11 @@ $rsfa_compare_url = $rsfa_pro_url . '#compare';
 
 $rsfa_pro_features = array(
 	array(
+		'icon'  => 'dashicons-chart-bar',
+		'title' => __( 'Full audio analytics', 'really-simple-featured-audio' ),
+		'desc'  => __( 'Keep history beyond 14 days, see listen time and how many people finish, and export to CSV. Optional country, device and referrer counts.', 'really-simple-featured-audio' ),
+	),
+	array(
 		'icon'  => 'dashicons-cart',
 		'title' => __( 'WooCommerce gallery control', 'really-simple-featured-audio' ),
 		'desc'  => __( 'Pick where the audio sits in the product gallery and use your own gallery thumbnail for it.', 'really-simple-featured-audio' ),
@@ -28,7 +33,7 @@ $rsfa_pro_features = array(
 	array(
 		'icon'  => 'dashicons-controls-play',
 		'title' => __( 'Extended play on hover', 'really-simple-featured-audio' ),
-		'desc'  => __( 'Preview audio on hover in shop, archive and listing pages, with finer control over when it plays.', 'really-simple-featured-audio' ),
+		'desc'  => __( 'Choose screen sizes, delay and larger hover areas such as whole product cards, with reduced-motion and keyboard support.', 'really-simple-featured-audio' ),
 	),
 	array(
 		'icon'  => 'dashicons-admin-appearance',
