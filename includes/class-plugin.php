@@ -11,6 +11,7 @@ use RSFA\Compatibility\Plugin_Provider;
 use RSFA\Settings\Register;
 use RSFA\Compatibility\Theme_Provider;
 use RSFA\Featuresets\Register_Featuresets as Featuresets;
+use RSFA\Tools\Register as Tools;
 
 /**
  * Class RSFA_featured_audio
@@ -135,6 +136,9 @@ final class Plugin {
 		$this->shortcode_provider    = Shortcode::get_instance();
 		$this->frontend_provider     = FrontEnd::get_instance();
 
+		// Audio Tools page and its REST routes.
+		Tools::get_instance();
+
 		// Load compatibility.
 		$this->plugin_provider = Plugin_Provider::get_instance();
 		$this->theme_provider  = Theme_Provider::get_instance();
@@ -165,6 +169,9 @@ final class Plugin {
 		require_once RSFA_PLUGIN_DIR . 'includes/Featuresets/class-register-featuresets.php';
 		require_once RSFA_PLUGIN_DIR . 'includes/class-shortcode.php';
 		require_once RSFA_PLUGIN_DIR . 'includes/class-frontend.php';
+
+		// Tools.
+		require_once RSFA_PLUGIN_DIR . 'includes/Tools/class-register.php';
 
 		// Plugin compatibility.
 		require_once RSFA_PLUGIN_DIR . 'includes/Compatibility/Plugins/class-base-compatibility.php';
