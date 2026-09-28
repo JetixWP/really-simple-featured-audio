@@ -23,6 +23,9 @@ This installs the player's own dependencies (Vite 2, kept apart from
 | `dist/jwp-audio-player.cjs.js` | `assets/js/jwp-audio-player.js`     |
 | `dist/style.css`               | `assets/css/jwp-audio-player.css`   |
 
+It also writes `assets/js/jwp-audio-player-LICENSE.txt`, which carries the
+Shikwasa MIT notice with the built files.
+
 Commit the updated files in `assets/` along with the source change. Keep
 `package-lock.json` as is unless you mean to update the toolchain; it pins the
 versions that reproduce the shipped files exactly.
