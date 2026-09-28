@@ -1,0 +1,24 @@
+{
+  "name": "jwp-audio-player",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Source of the JWP Audio Player bundled with Really Simple Featured Audio.",
+  "license": "GPL-3.0",
+  "author": "Krishna Kant <krishna@jetixwp.com> (https://jetixwp.com)",
+  "scripts": {
+    "build": "vite build",
+    "lint": "eslint --fix src"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-legacy": "^1.8.2",
+    "autoprefixer": "^10.4.2",
+    "cssnano": "^5.0.17",
+    "eslint": "^8.18.0",
+    "postcss": "^8.4.6",
+    "vite": "^2.9.8"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not ie <= 8"
+  ]
+}
