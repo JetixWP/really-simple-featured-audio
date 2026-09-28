@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-09-27T19:10:02+00:00\n"
+"POT-Creation-Date: 2026-09-28T02:54:27+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: really-simple-featured-audio\n"
@@ -42,6 +42,70 @@ msgstr ""
 msgid "https://jetixwp.com"
 msgstr ""
 
+#: includes/Analytics/class-rest-api.php:120
+msgid "Analytics is turned off."
+msgstr ""
+
+#: includes/Analytics/class-rest-api.php:137
+#: includes/Tools/class-bulk-import.php:148
+#: includes/Tools/class-rest-api.php:212
+msgid "You do not have permission to access this endpoint."
+msgstr ""
+
+#: includes/Analytics/class-rest-api.php:155
+msgid "This request was blocked."
+msgstr ""
+
+#: includes/Analytics/class-rest-api.php:216
+msgid "Too many analytics requests."
+msgstr ""
+
+#. translators: %d: registry id.
+#: includes/Analytics/class-stats.php:605
+msgid "Audio #%d"
+msgstr ""
+
+#: includes/Analytics/class-stats.php:613
+msgid "Featured"
+msgstr ""
+
+#: includes/Analytics/class-stats.php:650
+msgid "Featured image"
+msgstr ""
+
+#: includes/Analytics/class-stats.php:651
+msgid "Shortcode"
+msgstr ""
+
+#: includes/Analytics/class-stats.php:652
+#: includes/Compatibility/Plugins/Elementor/class-settings.php:25
+msgid "Elementor"
+msgstr ""
+
+#: includes/Analytics/class-stats.php:653
+msgid "Bricks"
+msgstr ""
+
+#: includes/Analytics/class-stats.php:654
+msgid "Product gallery"
+msgstr ""
+
+#: includes/Analytics/class-stats.php:655
+msgid "Shop"
+msgstr ""
+
+#: includes/Analytics/class-stats.php:669
+msgid "Self-hosted"
+msgstr ""
+
+#: includes/Analytics/class-stats.php:670
+msgid "Audio link"
+msgstr ""
+
+#: includes/Analytics/class-stats.php:671
+msgid "Other"
+msgstr ""
+
 #: includes/class-metabox.php:68
 #: includes/Settings/class-register.php:86
 msgid "Featured Audio"
@@ -52,20 +116,24 @@ msgid "Insert Audio"
 msgstr ""
 
 #: includes/class-metabox.php:94
+#: src/tools/components/AudioAction.js:29
 msgid "Use this audio"
 msgstr ""
 
 #: includes/class-metabox.php:95
 #: includes/class-metabox.php:126
+#: src/tools/components/AudioAction.js:271
 msgid "Upload Audio"
 msgstr ""
 
 #: includes/class-metabox.php:96
+#: src/tools/components/AudioAction.js:78
 msgid "Select Cover Image"
 msgstr ""
 
 #: includes/class-metabox.php:97
-#: includes/Settings/class-admin-settings.php:156
+#: includes/Settings/class-admin-settings.php:157
+#: src/tools/components/AudioAction.js:80
 msgid "Use this image"
 msgstr ""
 
@@ -101,6 +169,8 @@ msgstr ""
 #: includes/class-metabox.php:198
 #: includes/Compatibility/Plugins/Elementor/widgets/class-rsfa-audio-widget.php:140
 #: includes/Settings/Tabs/class-controls.php:180
+#: src/tools/components/AudioTypeSelect.js:68
+#: src/tools/components/BulkUpload.js:1646
 msgid "Embed"
 msgstr ""
 
@@ -108,12 +178,12 @@ msgstr ""
 msgid "Please select a audio source"
 msgstr ""
 
-#: includes/class-plugin.php:193
+#: includes/class-plugin.php:213
 msgid "Settings"
 msgstr ""
 
 #. translators: %1$s is a link to RSFA's plugin page, %2$s is a link to JetixWP's website, and %3$s is the existing html,.
-#: includes/class-plugin.php:229
+#: includes/class-plugin.php:249
 msgid "%1$s is developed and maintained by %2$s. %3$s"
 msgstr ""
 
@@ -285,10 +355,6 @@ msgstr ""
 msgid "When toggled on, it shows Featured Product Audios in Divi Woo Product Images Module/Widget. Turn it off if you're having problem with WooCommerce templates."
 msgstr ""
 
-#: includes/Compatibility/Plugins/Elementor/class-settings.php:25
-msgid "Elementor"
-msgstr ""
-
 #: includes/Compatibility/Plugins/Elementor/class-settings.php:58
 msgid "Disable Elementor Support"
 msgstr ""
@@ -442,39 +508,40 @@ msgstr ""
 msgid "Go to Plugins page"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:80
+#: includes/Settings/class-admin-settings.php:81
 msgid "Your settings have been saved."
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:154
+#: includes/Settings/class-admin-settings.php:155
 msgid "The changes you made will be lost if you navigate away from this page."
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:155
+#: includes/Settings/class-admin-settings.php:156
 msgid "Select Thumbnail Image"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:334
+#: includes/Settings/class-admin-settings.php:335
+#: src/tools/components/AnalyticsReport.js:209
 msgid "Pro"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:335
+#: includes/Settings/class-admin-settings.php:336
 msgid "Checkout Pro now"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:507
-#: includes/Settings/class-admin-settings.php:535
+#: includes/Settings/class-admin-settings.php:510
+#: includes/Settings/class-admin-settings.php:538
 msgid "Change Image"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:508
+#: includes/Settings/class-admin-settings.php:511
 msgid "Revert to Default"
 msgstr ""
 
-#: includes/Settings/class-admin-settings.php:716
-#: includes/Settings/class-admin-settings.php:749
-#: includes/Settings/class-admin-settings.php:815
-#: includes/Settings/class-admin-settings.php:887
+#: includes/Settings/class-admin-settings.php:719
+#: includes/Settings/class-admin-settings.php:752
+#: includes/Settings/class-admin-settings.php:818
+#: includes/Settings/class-admin-settings.php:890
 msgid "Toggle"
 msgstr ""
 
@@ -494,6 +561,74 @@ msgstr ""
 
 #: includes/Settings/class-register.php:154
 msgid "You do not have permission to perform this action."
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:25
+#: src/tools/App.js:26
+msgid "Analytics"
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:43
+msgctxt "settings title"
+msgid "Audio analytics"
+msgstr ""
+
+#. translators: %s: URL of the analytics report.
+#: includes/Settings/Tabs/class-analytics.php:46
+msgid "Counts are anonymous and stay on this site. No cookie is set. The report is in <a href=\"%s\">Audio Tools</a>."
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:57
+msgid "Enable analytics"
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:58
+msgid "Record views and plays for audios added with this plugin."
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:64
+msgid "Skip logged-in editors"
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:65
+msgid "Visits from people who can edit posts are left out, so your own previews do not fill the report."
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:85
+msgid "Keep counts for"
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:86
+msgid "Free keeps the last 14 days. A longer history recording is a Pro setting."
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:93
+msgid "14 days"
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:94
+msgid "30 days"
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:95
+msgid "90 days"
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:96
+msgid "365 days"
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:97
+#: src/tools/components/AnalyticsReport.js:175
+msgid "All time"
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:101
+msgid "Country, device, and referrer"
+msgstr ""
+
+#: includes/Settings/Tabs/class-analytics.php:102
+msgid "Pro can record a country when your host sends one, a general device type, and the referring site name."
 msgstr ""
 
 #: includes/Settings/Tabs/class-controls.php:24
@@ -566,6 +701,7 @@ msgid "Choose which audios play on hover."
 msgstr ""
 
 #: includes/Settings/Tabs/class-controls.php:179
+#: src/tools/components/AudioTypeSelect.js:67
 msgid "Self Hosted"
 msgstr ""
 
@@ -648,6 +784,7 @@ msgid "If featured audios aren't working as expected in your theme, you may need
 msgstr ""
 
 #: includes/Settings/Tabs/class-general.php:122
+#: src/tools/components/BulkUpload.js:1626
 msgid "Status"
 msgstr ""
 
@@ -710,23 +847,23 @@ msgstr ""
 msgid "Match the audio player to your site with an accent color and a light, dark or automatic theme. Available in Pro."
 msgstr ""
 
-#: includes/Settings/Tabs/class-global-settings.php:83
+#: includes/Settings/Tabs/class-global-settings.php:84
 msgid "Player Theme"
 msgstr ""
 
-#: includes/Settings/Tabs/class-global-settings.php:87
+#: includes/Settings/Tabs/class-global-settings.php:88
 msgid "Automatic (follows device)"
 msgstr ""
 
-#: includes/Settings/Tabs/class-global-settings.php:88
+#: includes/Settings/Tabs/class-global-settings.php:89
 msgid "Light"
 msgstr ""
 
-#: includes/Settings/Tabs/class-global-settings.php:89
+#: includes/Settings/Tabs/class-global-settings.php:90
 msgid "Dark"
 msgstr ""
 
-#: includes/Settings/Tabs/class-global-settings.php:95
+#: includes/Settings/Tabs/class-global-settings.php:96
 msgid "Accent Color"
 msgstr ""
 
@@ -775,120 +912,131 @@ msgid "If you've found a bug, please submit an issue at %1$sGitHub%2$s."
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:20
-msgid "WooCommerce gallery control"
+#: includes/Settings/Views/html-admin-settings.php:125
+#: src/tools/components/Sidebar.js:40
+msgid "Full audio analytics"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:21
-msgid "Pick where the audio sits in the product gallery and use your own gallery thumbnail for it."
+msgid "Keep history beyond 14 days, see listen time and how many people finish, and export to CSV. Optional country, device and referrer counts."
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:25
-#: includes/Settings/Views/html-admin-settings.php:126
-msgid "Player appearance"
+msgid "WooCommerce gallery control"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:26
-msgid "Match the audio player to your brand with your own accent color and a light, dark or automatic player."
+msgid "Pick where the audio sits in the product gallery and use your own gallery thumbnail for it."
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:30
-msgid "Extended play on hover"
+#: includes/Settings/Views/html-admin-settings.php:127
+#: src/tools/components/Sidebar.js:52
+msgid "Player appearance"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:31
-msgid "Preview audio on hover in shop, archive and listing pages, with finer control over when it plays."
+msgid "Match the audio player to your brand with your own accent color and a light, dark or automatic player."
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:35
-msgid "Premium and custom theme support"
+msgid "Extended play on hover"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:36
-msgid "Works with more premium themes out of the box. Using something unusual? Ask and we will add support."
+msgid "Choose screen sizes, delay and larger hover areas such as whole product cards, with reduced-motion and keyboard support."
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:40
-msgid "Priority support from the developer"
+msgid "Premium and custom theme support"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:41
-msgid "Skip the forum queue. Your questions go straight to the person who builds the plugin."
+msgid "Works with more premium themes out of the box. Using something unusual? Ask and we will add support."
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:45
-msgid "Shape the roadmap"
+msgid "Priority support from the developer"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings-upgrade.php:46
+msgid "Skip the forum queue. Your questions go straight to the person who builds the plugin."
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:50
+msgid "Shape the roadmap"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings-upgrade.php:51
 msgid "Feature and compatibility requests from PRO users go to the front of the line."
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:52
+#: includes/Settings/Views/html-admin-settings-upgrade.php:57
 msgid "Is this a subscription?"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:53
+#: includes/Settings/Views/html-admin-settings-upgrade.php:58
 msgid "No. You pay once and receive updates for life. There are no renewals and nothing to cancel."
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:56
+#: includes/Settings/Views/html-admin-settings-upgrade.php:61
 msgid "Will my current settings and audio carry over?"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:57
+#: includes/Settings/Views/html-admin-settings-upgrade.php:62
 msgid "Yes. PRO runs alongside the free plugin and adds to it. Nothing is reset or removed when you upgrade."
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:60
+#: includes/Settings/Views/html-admin-settings-upgrade.php:65
 msgid "What if PRO does not work for me?"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:61
+#: includes/Settings/Views/html-admin-settings-upgrade.php:66
 msgid "Ask for a refund within 14 days of purchase and you get your money back, no questions asked."
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:69
+#: includes/Settings/Views/html-admin-settings-upgrade.php:74
 msgid "Anniversary deal · up to 50% off for a limited time"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:70
+#: includes/Settings/Views/html-admin-settings-upgrade.php:75
 msgid "Get more out of every featured audio with RSFA PRO"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:71
+#: includes/Settings/Views/html-admin-settings-upgrade.php:76
 msgid "Control exactly how audio shows up in your WooCommerce store, make the player match your brand, and get help directly from the developer when you need it."
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:73
+#: includes/Settings/Views/html-admin-settings-upgrade.php:78
 msgid "Get PRO from $59"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:74
+#: includes/Settings/Views/html-admin-settings-upgrade.php:79
 msgid "Compare free vs PRO"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:77
+#: includes/Settings/Views/html-admin-settings-upgrade.php:82
 msgid "One-time payment"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:78
+#: includes/Settings/Views/html-admin-settings-upgrade.php:83
 msgid "Lifetime updates"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:79
+#: includes/Settings/Views/html-admin-settings-upgrade.php:84
 msgid "14-day money-back guarantee"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:84
+#: includes/Settings/Views/html-admin-settings-upgrade.php:89
 msgid "What you unlock"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings-upgrade.php:99
+#: includes/Settings/Views/html-admin-settings-upgrade.php:104
 msgid "Common questions"
 msgstr ""
 
 #. translators: 1: opening anchor tag, 2: closing anchor tag
-#: includes/Settings/Views/html-admin-settings-upgrade.php:111
+#: includes/Settings/Views/html-admin-settings-upgrade.php:116
 msgid "Still unsure? Email %1$skrishna@jetixwp.com%2$s and I will personally get back to you."
 msgstr ""
 
@@ -961,6 +1109,7 @@ msgid "What PRO adds"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings.php:124
+#: src/tools/components/Sidebar.js:60
 msgid "Priority support"
 msgstr ""
 
@@ -969,25 +1118,1021 @@ msgid "direct help from the developer"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings.php:125
-msgid "WooCommerce controls"
-msgstr ""
-
-#: includes/Settings/Views/html-admin-settings.php:125
-msgid "audio position in the product gallery and its thumbnail"
+msgid "longer history, listen time, completion, CSV export"
 msgstr ""
 
 #: includes/Settings/Views/html-admin-settings.php:126
+#: src/tools/components/Sidebar.js:44
+msgid "WooCommerce controls"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:126
+msgid "audio position in the product gallery and its thumbnail"
+msgstr ""
+
+#: includes/Settings/Views/html-admin-settings.php:127
 msgid "accent color and light or dark player"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings.php:127
+#: includes/Settings/Views/html-admin-settings.php:128
+#: src/tools/components/Sidebar.js:56
 msgid "Premium and custom themes"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings.php:127
+#: includes/Settings/Views/html-admin-settings.php:128
 msgid "more supported, compatibility on request"
 msgstr ""
 
-#: includes/Settings/Views/html-admin-settings.php:129
+#: includes/Settings/Views/html-admin-settings.php:130
+#: src/tools/components/Sidebar.js:76
 msgid "Compare free vs PRO →"
+msgstr ""
+
+#: includes/Tools/class-admin-tools.php:134
+msgid "Thumbnail"
+msgstr ""
+
+#: includes/Tools/class-admin-tools.php:139
+msgid "Title"
+msgstr ""
+
+#: includes/Tools/class-admin-tools.php:144
+msgid "Audio Status & Type"
+msgstr ""
+
+#: includes/Tools/class-admin-tools.php:149
+msgid "Action"
+msgstr ""
+
+#: includes/Tools/class-admin-tools.php:154
+#: src/tools/components/AnalyticsReport.js:191
+#: src/tools/components/BulkUpload.js:1623
+msgid "Audio"
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:175
+msgid "Send fewer rows in one check."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:228
+msgid "Send fewer rows in one save."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:296
+#: includes/Tools/class-rest-api.php:265
+msgid "The specified post type is not enabled for featured audios."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:977
+msgid "Ready."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:979
+#: src/tools/components/BulkUpload.js:381
+msgid "This will replace the current featured audio."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:981
+msgid "No post was given."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:983
+msgid "No matching post was found."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:985
+msgid "That post cannot take a featured audio."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:987
+#: src/tools/components/BulkUpload.js:325
+msgid "Source must be self or embed."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:989
+#: src/tools/components/BulkUpload.js:327
+msgid "The audio value is empty."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:991
+#: src/tools/components/BulkUpload.js:329
+msgid "A cell is too long."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:993
+#: src/tools/components/BulkUpload.js:331
+msgid "The audio link is not a valid URL."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:995
+#: includes/Tools/class-rest-api.php:497
+#: src/tools/components/BulkUpload.js:333
+msgid "Audio links must start with http or https."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:997
+#: src/tools/components/BulkUpload.js:338
+msgid "The audio link is not allowed."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:999
+#: src/tools/components/BulkUpload.js:340
+msgid "The file is not an audio file this site allows."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:1001
+#: src/tools/components/BulkUpload.js:342
+msgid "The audio file was not included."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:1003
+#: src/tools/components/BulkUpload.js:344
+msgid "The audio file name does not match the row."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:1005
+msgid "This post is already used by an earlier row."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:1007
+msgid "This post already has a featured audio. Set replace to yes to change it."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:1009
+msgid "You cannot edit that post."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:1011
+#: src/tools/components/BulkUpload.js:367
+msgid "You cannot upload files."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:1013
+#: src/tools/components/BulkUpload.js:369
+msgid "The audio is larger than this site allows."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:1015
+#: src/tools/components/BulkUpload.js:371
+msgid "The audio could not be downloaded."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:1017
+#: src/tools/components/BulkUpload.js:373
+msgid "The audio could not be saved to the library."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:1019
+msgid "The audio could not be set on the post."
+msgstr ""
+
+#: includes/Tools/class-bulk-import.php:1021
+msgid "This row was skipped."
+msgstr ""
+
+#: includes/Tools/class-register.php:81
+msgid "RSFA Tools"
+msgstr ""
+
+#: includes/Tools/class-register.php:82
+msgid "&nbsp;↳ Audio Tools"
+msgstr ""
+
+#: includes/Tools/class-rest-api.php:239
+msgid "You do not have permission to edit this post."
+msgstr ""
+
+#: includes/Tools/class-rest-api.php:274
+msgid "Invalid post type."
+msgstr ""
+
+#: includes/Tools/class-rest-api.php:389
+#: includes/Tools/class-rest-api.php:447
+#: includes/Tools/class-rest-api.php:549
+#: includes/Tools/class-rest-api.php:609
+msgid "Post not found."
+msgstr ""
+
+#: includes/Tools/class-rest-api.php:398
+#: includes/Tools/class-rest-api.php:456
+msgid "Invalid audio source type."
+msgstr ""
+
+#: includes/Tools/class-rest-api.php:437
+#: includes/Tools/class-rest-api.php:489
+msgid "Invalid audio link."
+msgstr ""
+
+#: includes/Tools/class-rest-api.php:467
+msgid "Invalid audio attachment."
+msgstr ""
+
+#: includes/Tools/class-rest-api.php:477
+msgid "Selected file is not an audio."
+msgstr ""
+
+#: includes/Tools/class-rest-api.php:560
+msgid "Invalid cover image."
+msgstr ""
+
+#: includes/Tools/class-rest-api.php:570
+#: includes/Tools/class-rest-api.php:630
+msgid "Selected file is not an image."
+msgstr ""
+
+#: includes/Tools/class-rest-api.php:620
+msgid "Invalid thumbnail image."
+msgstr ""
+
+#: includes/Tools/Views/html-admin-tools.php:19
+msgid "Really Simple Featured Audio → Tools"
+msgstr ""
+
+#: src/tools/App.js:18
+msgid "Manage Featured Audios"
+msgstr ""
+
+#: src/tools/App.js:22
+#: src/tools/components/BulkUpload.js:1315
+msgid "Bulk upload"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:70
+msgid "Views and plays over time"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:81
+#: src/tools/components/AnalyticsReport.js:184
+#: src/tools/components/AnalyticsReport.js:193
+msgid "Views"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:82
+#: src/tools/components/AnalyticsReport.js:185
+#: src/tools/components/AnalyticsReport.js:194
+msgid "Plays"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:102
+#: src/tools/components/AnalyticsReport.js:364
+msgid "Nothing in this period yet."
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:151
+msgid "The report could not be loaded."
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:167
+msgid "Loading report…"
+msgstr ""
+
+#. translators: %d: number of days.
+#: src/tools/components/AnalyticsReport.js:178
+msgid "Last %d days"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:183
+msgid "Audios tracked"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:186
+#: src/tools/components/AnalyticsReport.js:195
+msgid "Play rate"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:192
+msgid "Source"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:200
+msgid "Listen time"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:201
+#: src/tools/components/AnalyticsReport.js:269
+msgid "Completion"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:217
+msgid "Audio Analytics"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:222
+msgid "Date range"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:223
+msgid "Range"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:225
+msgid "From"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:226
+msgid "To"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:230
+msgid "Compare"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:232
+msgid "Export CSV"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:236
+msgid "A view is a player actually on screen. A play is someone starting the audio. Hover preview does not count."
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:239
+msgid "Recording only the last 14 days of history."
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:240
+msgid "Analytics settings"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:248
+msgid "Analytics is turned off. New visits are not being counted."
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:249
+msgid "Turn it on"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:265
+msgid "Average listen"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:278
+msgid "Where audios were shown"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:279
+msgid "Audio source"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:283
+msgid "Audios"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:298
+msgid "No audios yet. Add a featured audio and this list will fill in."
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:309
+msgid "Removed"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:329
+msgid "How far people listened"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:330
+msgid "Share of plays that reached each point."
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:332
+msgid "Played"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:332
+msgid "Reached 25%"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:332
+msgid "Reached 50%"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:332
+msgid "Reached 75%"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:332
+msgid "Completed"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:342
+msgid "Countries"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:342
+msgid "Devices"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:342
+msgid "Referring sites"
+msgstr ""
+
+#: src/tools/components/AnalyticsReport.js:345
+msgid "Available in Pro."
+msgstr ""
+
+#: src/tools/components/AudioAction.js:27
+msgid "Select or Upload Audio"
+msgstr ""
+
+#: src/tools/components/AudioAction.js:67
+msgid "Error saving audio."
+msgstr ""
+
+#: src/tools/components/AudioAction.js:115
+msgid "Error saving cover."
+msgstr ""
+
+#: src/tools/components/AudioAction.js:145
+msgid "Please enter a valid URL."
+msgstr ""
+
+#: src/tools/components/AudioAction.js:171
+msgid "Error saving audio link."
+msgstr ""
+
+#: src/tools/components/AudioAction.js:178
+msgid "Are you sure you want to remove the audio?"
+msgstr ""
+
+#: src/tools/components/AudioAction.js:210
+msgid "Are you sure you want to remove the cover?"
+msgstr ""
+
+#: src/tools/components/AudioAction.js:241
+msgid "Edit Cover"
+msgstr ""
+
+#: src/tools/components/AudioAction.js:242
+msgid "Set Cover"
+msgstr ""
+
+#: src/tools/components/AudioAction.js:252
+#: src/tools/components/AudioAction.js:284
+#: src/tools/components/AudioAction.js:322
+msgid "Saving..."
+msgstr ""
+
+#: src/tools/components/AudioAction.js:260
+#: src/tools/components/AudioAction.js:292
+#: src/tools/components/BulkUpload.js:1712
+msgid "Remove"
+msgstr ""
+
+#: src/tools/components/AudioAction.js:270
+msgid "Edit Audio"
+msgstr ""
+
+#: src/tools/components/AudioAction.js:314
+msgid "Enter audio link..."
+msgstr ""
+
+#: src/tools/components/AudioAction.js:322
+msgid "Save"
+msgstr ""
+
+#: src/tools/components/AudioTypeSelect.js:66
+msgid "Select Type"
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:311
+msgid "No %s was given."
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:315
+msgid "No matching %s was found."
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:321
+msgid "That %s cannot take a featured audio."
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:348
+msgid "This %s is already used by an earlier row."
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:354
+msgid "This %s already has a featured audio. Set replace to yes to change it."
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:363
+msgid "You cannot edit that %s."
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:377
+msgid "The audio could not be set on the %s."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:399
+msgid "Not checked"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:401
+msgid "Ready"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:403
+msgid "Will replace"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:405
+msgid "Discarded"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:407
+msgid "Saved"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:409
+msgid "Working"
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:559
+msgid "Select %s"
+msgstr ""
+
+#. translators: %s: post ID
+#: src/tools/components/BulkUpload.js:586
+msgid "ID %s"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:607
+msgid "Loading…"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:612
+msgid "The list could not be loaded. Close and open it to try again."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:651
+msgid "(no title)"
+msgstr ""
+
+#. translators: %d: post ID
+#: src/tools/components/BulkUpload.js:656
+msgid "ID %d"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:698
+msgid "Post"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:699
+msgid "Search"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:700
+msgid "Nothing found."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:798
+msgid "The list is limited to 10,000 rows."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:819
+msgid "Paste up to 200 links. For more, use a CSV file."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:850
+msgid "Only audio files go here. For a CSV or TXT, switch to Import CSV or TXT."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:860
+msgid "Drop up to 200 audio files at a time. For more, use a CSV with https links."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:880
+msgid "Only audio files were added."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:888
+msgid "Drop a CSV or TXT file."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:896
+msgid "Drop up to 200 audio files at a time. For more, put https links in the CSV."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:914
+msgid "Each CSV or TXT file must be 2 MB or smaller."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:927
+msgid "The first line must be post,source,value,replace."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:936
+msgid "A file can hold up to 10,000 rows."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:941
+msgid "The file has no rows."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:984
+msgid "Some audio files did not match a row, so they were left out."
+msgstr ""
+
+#. translators: 1: rows checked so far, 2: rows to check
+#: src/tools/components/BulkUpload.js:1037
+msgid "Checking %1$d of %2$d"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1059
+msgid "The check failed."
+msgstr ""
+
+#. translators: 1: current row, 2: rows to save
+#: src/tools/components/BulkUpload.js:1110
+msgid "Saving %1$d of %2$d"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1177
+msgid "The upload stopped. Saved rows are kept. Press Continue to retry the rest."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1253
+msgid "Turn on a post type in the plugin settings before uploading audios."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1271
+msgid "Check rows"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1274
+msgid "Continue"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1276
+msgid "Upload and set audios"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1283
+msgid "Add by hand"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1284
+msgid "Import CSV or TXT"
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:1319
+msgid "Every audio must go to a %s. A row without one is thrown away, and its file is never uploaded."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1338
+msgid "How to add audios"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1355
+msgid "To switch method or post type, press Start over first."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1371
+msgid "Drop audio files here"
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:1376
+msgid "You pick the %s for each one in the next step."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1391
+msgid "Choose audios"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1396
+msgid "or"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1401
+msgid "Paste audio links, one per line. They play from the link."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1423
+msgid "Add links"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1439
+msgid "Drop a CSV or TXT file here"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1442
+msgid "If a row names an audio file, drop that file at the same time."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1455
+msgid "Choose file"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1462
+msgid "File format"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1473
+msgid "Download sample CSV"
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:1483
+msgid "%s ID or slug."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1491
+msgid "self to store the audio in the media library, embed to play it from a link."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1500
+msgid "For embed, an audio link. For self, a file name like intro.mp3, or an https link ending in .mp3 that is downloaded to the media library."
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:1511
+msgid "yes to replace the audio the %s already has. Empty means no."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1521
+msgid "TXT files can use tabs. Blank lines and lines starting with # are skipped. Up to 10,000 rows."
+msgstr ""
+
+#. translators: %d: row count
+#: src/tools/components/BulkUpload.js:1564
+msgid "Not checked: %d"
+msgstr ""
+
+#. translators: %d: row count
+#: src/tools/components/BulkUpload.js:1571
+msgid "Ready: %d"
+msgstr ""
+
+#. translators: %d: row count
+#: src/tools/components/BulkUpload.js:1578
+msgid "Will replace: %d"
+msgstr ""
+
+#. translators: %d: row count
+#: src/tools/components/BulkUpload.js:1585
+msgid "Discarded: %d"
+msgstr ""
+
+#. translators: %d: row count
+#: src/tools/components/BulkUpload.js:1592
+msgid "Saved: %d"
+msgstr ""
+
+#. translators: %d: number of rows
+#: src/tools/components/BulkUpload.js:1603
+msgid "%d rows are loaded. The list is too long to edit here. Check the counts, then run it."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1625
+msgid "Replace"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1629
+msgid "Actions"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1647
+msgid "File"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1675
+msgid "Replace the current featured audio"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1724
+msgid "Discarded rows"
+msgstr ""
+
+#. translators: 1: post id or slug, 2: reason
+#: src/tools/components/BulkUpload.js:1730
+msgid "%1$s — %2$s"
+msgstr ""
+
+#. translators: %s: singular post type name, such as Product
+#: src/tools/components/BulkUpload.js:1734
+msgid "(no %s)"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1745
+msgid "Download the report to see every discarded row."
+msgstr ""
+
+#. translators: %d: number of discarded rows not listed
+#: src/tools/components/BulkUpload.js:1751
+msgid "%d more are not listed. The full list is in the report after the upload."
+msgstr ""
+
+#. translators: %d: rows that will replace an existing audio
+#: src/tools/components/BulkUpload.js:1767
+msgid "%d rows will replace an existing featured audio."
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1779
+msgid "Replace and continue"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1786
+msgid "Cancel"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1807
+msgid "Download report"
+msgstr ""
+
+#: src/tools/components/BulkUpload.js:1815
+msgid "Start over"
+msgstr ""
+
+#: src/tools/components/ManageFeaturedAudios.js:84
+msgid "posts"
+msgstr ""
+
+#: src/tools/components/ManageFeaturedAudios.js:197
+msgid "Per page:"
+msgstr ""
+
+#. translators: %s: post type name
+#: src/tools/components/ManageFeaturedAudios.js:222
+msgid "Search %s..."
+msgstr ""
+
+#: src/tools/components/ManageFeaturedAudios.js:234
+msgid "Loading posts..."
+msgstr ""
+
+#: src/tools/components/Pagination.js:34
+msgid "items"
+msgstr ""
+
+#: src/tools/components/Pagination.js:41
+msgid "First page"
+msgstr ""
+
+#: src/tools/components/Pagination.js:49
+msgid "Previous page"
+msgstr ""
+
+#: src/tools/components/Pagination.js:55
+msgid "of"
+msgstr ""
+
+#: src/tools/components/Pagination.js:63
+msgid "Next page"
+msgstr ""
+
+#: src/tools/components/Pagination.js:71
+msgid "Last page"
+msgstr ""
+
+#: src/tools/components/PostsTable.js:32
+msgid "No posts found for this post type."
+msgstr ""
+
+#: src/tools/components/PostsTable.js:41
+msgid "Has Audio"
+msgstr ""
+
+#: src/tools/components/PostsTable.js:47
+msgid "No Audio"
+msgstr ""
+
+#: src/tools/components/PostsTable.js:100
+msgid "(No title)"
+msgstr ""
+
+#: src/tools/components/PostsTable.js:110
+msgid "Edit"
+msgstr ""
+
+#: src/tools/components/PostsTable.js:120
+msgid "View"
+msgstr ""
+
+#: src/tools/components/PostTypeFilter.js:22
+msgid "Post Type:"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:18
+msgid "🙋‍♂️ Important Note"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:20
+msgid "If Featured Audios are not working with your theme, try selecting a supported"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:20
+msgid "Theme Compatibility Engine"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:20
+msgid "in Settings."
+msgstr ""
+
+#: src/tools/components/Sidebar.js:22
+msgid "If your theme is not listed and the issue persists, submit a request on our GitHub repository. Please note that PRO subscribers receive priority support over GitHub requests, which supports the continuous development of the plugin."
+msgstr ""
+
+#: src/tools/components/Sidebar.js:25
+msgid "Go to Settings"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:26
+msgid "File a Request"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:33
+msgid "🚀 Ready to go beyond?"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:36
+msgid "RSFA PRO adds deeper WooCommerce control, full audio analytics, player styling, wider theme support, and direct help from the developer."
+msgstr ""
+
+#: src/tools/components/Sidebar.js:41
+msgid "History beyond 14 days, listen time, completion, CSV export"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:45
+msgid "Gallery order and default gallery thumbnail"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:48
+msgid "Play on hover extras"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:49
+msgid "Screen sizes, delay, accessibility and custom selectors"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:53
+msgid "Accent color and light, dark or automatic theme"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:57
+msgid "More supported, compatibility on request"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:61
+msgid "Direct help from the developer"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:70
+msgid "See PRO plans"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:73
+msgid "One-time payment · lifetime updates · 14-day money-back guarantee"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:83
+msgid "Quick Tips"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:86
+msgid "Click on a thumbnail to set or change the featured image."
+msgstr ""
+
+#: src/tools/components/Sidebar.js:87
+msgid "Use the audio type dropdown to switch between self-hosted audio and audio links."
+msgstr ""
+
+#: src/tools/components/Sidebar.js:88
+msgid "Set a cover image to show artwork in the player."
+msgstr ""
+
+#: src/tools/components/Sidebar.js:89
+msgid "Search for posts by title using the search field above."
+msgstr ""
+
+#: src/tools/components/Sidebar.js:95
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:100
+msgid "Submit search"
+msgstr ""
+
+#: src/tools/components/Sidebar.js:104
+msgid "Close media modal"
+msgstr ""
+
+#: src/tools/components/ThumbnailCell.js:19
+msgid "Select Featured Image"
+msgstr ""
+
+#: src/tools/components/ThumbnailCell.js:21
+#: src/tools/components/ThumbnailCell.js:131
+msgid "Set featured image"
+msgstr ""
+
+#: src/tools/components/ThumbnailCell.js:113
+msgid "Remove featured image"
 msgstr ""

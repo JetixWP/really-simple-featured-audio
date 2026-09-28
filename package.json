@@ -8,7 +8,7 @@
     "start": "wp-scripts start --webpack-src-dir=src/tools --output-path=assets/js/tools",
     "package": "composer install --no-dev && wp-scripts plugin-zip",
     "packages-update": "wp-scripts packages-update",
-    "translate": "wp i18n make-pot . ./languages/really-simple-featured-audio.pot --exclude=node_modules,vendor,src"
+    "translate": "wp i18n make-pot . ./languages/really-simple-featured-audio.pot --exclude=node_modules,vendor,assets/js/tools"
   },
   "repository": {
     "type": "git",
