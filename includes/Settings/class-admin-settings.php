@@ -49,6 +49,7 @@ class Admin_Settings {
 			$settings[] = include 'Tabs/class-general.php';
 			$settings[] = include 'Tabs/class-global-settings.php';
 			$settings[] = include 'Tabs/class-controls.php';
+			$settings[] = include 'Tabs/class-analytics.php';
 
 			$settings = apply_filters( 'rsfa_get_settings_pages', $settings );
 

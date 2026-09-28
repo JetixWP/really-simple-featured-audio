@@ -115,6 +115,9 @@ class Shortcode {
 
 		$html = '<div id="rsfa-id-' . esc_attr( $post_id ) . '" class="rsfa-audio-wrapper"' . FrontEnd::get_player_attribute( $config ) . '>' . $fallback . '</div>';
 
+		// Mark the player for analytics with the surface it is shown on.
+		$html = \RSFA\Analytics\Stamp::decorate( $html, $post_id, \RSFA\Analytics\Stamp::current_surface() );
+
 		/**
 		 * Filters the shortcode audio player markup.
 		 *

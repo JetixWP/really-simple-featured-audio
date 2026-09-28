@@ -130,6 +130,9 @@ final class Plugin {
 	public function register() {
 		// Load classes.
 		// Let's call these providers.
+		// Audio analytics.
+		\RSFA\Analytics\Load::get_instance();
+
 		$this->registration_provider = Register::get_instance();
 		$this->metabox_provider      = Metabox::get_instance();
 		$this->featuresets_provider  = Featuresets::get_instance();
@@ -182,6 +185,16 @@ final class Plugin {
 		require_once RSFA_PLUGIN_DIR . 'includes/Compatibility/class-theme-provider.php';
 
 		// Database upgraders.
+		// Analytics. Loaded before the updater so 1.6.0 can create its tables.
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-install.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-registry.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-stats.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-sync.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-stamp.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-rest-api.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-tracker.php';
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-load.php';
+
 		require_once RSFA_PLUGIN_DIR . 'includes/class-updater.php';
 	}
 

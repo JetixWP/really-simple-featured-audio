@@ -313,6 +313,9 @@ class Compatibility extends Base_Compatibility {
 
 		$audio_html = '<div id="rsfa-id-' . esc_attr( $id ) . '" class="' . esc_attr( $wrapper_class ) . '" data-thumb="' . esc_url( $thumbnail ) . '"' . esc_attr( $wrapper_attributes ) . FrontEnd::get_player_attribute( $config ) . '><div class="rsfa-audio-wrapper">' . $fallback . '</div></div>';
 
+		$surface    = 'woo_archive' === \RSFA\Analytics\Stamp::current_surface() ? 'woo_archive' : 'woo_gallery';
+		$audio_html = \RSFA\Analytics\Stamp::decorate( $audio_html, $id, $surface );
+
 		/**
 		 * Filters the WooCommerce product audio markup.
 		 *
@@ -346,7 +349,12 @@ class Compatibility extends Base_Compatibility {
 		// Get enabled post types.
 		$post_types = get_post_types();
 
-		$audio_html = self::woo_audio_markup( $product->get_id() );
+		$previous_surface = $is_archives ? \RSFA\Analytics\Stamp::swap_surface( 'woo_archive' ) : '';
+		$audio_html       = self::woo_audio_markup( $product->get_id() );
+
+		if ( $is_archives ) {
+			\RSFA\Analytics\Stamp::swap_surface( $previous_surface );
+		}
 
 		if ( ! empty( $post_types ) ) {
 			$updated_html = $audio_html . $html;

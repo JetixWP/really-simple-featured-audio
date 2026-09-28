@@ -78,6 +78,28 @@ if ( ! function_exists( 'rsfa_fs' ) ) {
 }
 
 /**
+ * Create analytics tables on activation. Updates run from the DB routine instead.
+ */
+register_activation_hook(
+	RSFA_PLUGIN_FILE,
+	static function () {
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-install.php';
+		\RSFA\Analytics\Install::activate();
+	}
+);
+
+/**
+ * Stop the analytics cleanup cron. Stored counts stay until uninstall.
+ */
+register_deactivation_hook(
+	RSFA_PLUGIN_FILE,
+	static function () {
+		require_once RSFA_PLUGIN_DIR . 'includes/Analytics/class-install.php';
+		\RSFA\Analytics\Install::deactivate();
+	}
+);
+
+/**
  * Fire up plugin instance.
  */
 add_action(

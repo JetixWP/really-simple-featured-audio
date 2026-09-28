@@ -374,10 +374,11 @@ class FrontEnd {
 	 *
 	 * @param int    $post_id Post ID.
 	 * @param string $markup Holds markup data.
+	 * @param string $surface Where the player shows, for analytics.
 	 *
 	 * @return string
 	 */
-	public static function get_featured_audio_markup( $post_id, $markup = '' ) {
+	public static function get_featured_audio_markup( $post_id, $markup = '', $surface = 'thumbnail' ) {
 
 		// Exit early if no post id is provided.
 		if ( ! $post_id ) {
@@ -397,7 +398,10 @@ class FrontEnd {
 			return $markup;
 		}
 
-		$player = Plugin::get_instance()->shortcode_provider->get_audio_markup( $post->ID, $post->post_type );
+		$previous_surface = \RSFA\Analytics\Stamp::swap_surface( $surface );
+		$player           = Plugin::get_instance()->shortcode_provider->get_audio_markup( $post->ID, $post->post_type );
+
+		\RSFA\Analytics\Stamp::swap_surface( $previous_surface );
 
 		if ( ! $player ) {
 			return $markup;
