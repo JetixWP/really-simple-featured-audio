@@ -72,6 +72,7 @@ class Global_Settings extends Settings_Page {
 					array(
 						'title' => esc_html_x( 'Player Appearance', 'settings title', 'really-simple-featured-audio' ),
 						'desc'  => __( 'Match the audio player to your site with an accent color and a light, dark or automatic theme. Available in Pro.', 'really-simple-featured-audio' ),
+						'class' => 'promo-player-appearance',
 						'type'  => 'promo-content',
 						'id'    => 'promo-rsfa-pro-player-appearance',
 					),
