@@ -4,9 +4,11 @@
   "description": "Sell beats, music samples, audiobooks, and podcasts with seamless audio previews all inside WooCommerce and WordPress",
   "main": "index.js",
   "scripts": {
+    "build": "wp-scripts build --webpack-src-dir=src/tools --output-path=assets/js/tools",
+    "start": "wp-scripts start --webpack-src-dir=src/tools --output-path=assets/js/tools",
     "package": "composer install --no-dev && wp-scripts plugin-zip",
     "packages-update": "wp-scripts packages-update",
-    "translate": "wp i18n make-pot . ./languages/really-simple-featured-audio.pot"
+    "translate": "wp i18n make-pot . ./languages/really-simple-featured-audio.pot --exclude=node_modules,vendor,src"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,7 @@
   },
   "homepage": "https://jetixwp.com/plugins/really-simple-featured-audio",
   "devDependencies": {
-    "@wordpress/scripts": "^27.7.0"
+    "@wordpress/scripts": "^30.13.0"
   },
   "files": [
     "assets",
@@ -28,6 +30,13 @@
     "languages",
     "changelog.json",
     "readme.txt",
+    "uninstall.php",
     "really-simple-featured-audio.php"
-  ]
+  ],
+  "dependencies": {
+    "@wordpress/api-fetch": "^7.13.0",
+    "@wordpress/components": "^29.0.0",
+    "@wordpress/element": "^6.13.0",
+    "@wordpress/i18n": "^5.13.0"
+  }
 }
