@@ -49,3 +49,22 @@
 	height: calc(100% - var(--wd-gap));
 	margin-bottom: var(--wd-gap);
 }
+
+/* Product loops. */
+.wd-product-thumb:has(.rsfa-woodmart-loop-audio) :is(.wd-product-grid-slider, .wd-product-grid-slider-nav) {
+	display: none;
+}
+
+.rsfa-woodmart-loop-audio {
+	display: flex;
+	align-items: center;
+	aspect-ratio: var(--rsfa-woodmart-ratio, auto);
+	padding: 10px;
+	box-sizing: border-box;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.rsfa-woodmart-loop-audio > * {
+	flex: 1 1 100%;
+	min-width: 0;
+}

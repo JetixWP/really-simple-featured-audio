@@ -1,5 +1,5 @@
 /**
- * Woodmart gallery fixes for the featured audio slide.
+ * Woodmart gallery and product loop fixes for the featured audio.
  *
  * @package RSFA
  */
@@ -43,6 +43,13 @@
 			shiftLightbox = true;
 		}
 	}, true );
+
+	// The loop audio sits inside the product image link.
+	document.addEventListener( 'click', function ( e ) {
+		if ( e.target.closest( '.wd-product-img-link .rsfa-woodmart-loop-audio > *' ) ) {
+			e.preventDefault();
+		}
+	} );
 
 	// Woodmart moves to the first slide on variation change, which is the audio here.
 	$( document ).on( 'show_variation', '.variations_form', function ( e, variation ) {

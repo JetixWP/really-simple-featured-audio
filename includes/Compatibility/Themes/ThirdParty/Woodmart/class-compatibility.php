@@ -10,6 +10,7 @@ namespace RSFA\Compatibility\Themes\ThirdParty\Woodmart;
 use RSFA\Compatibility\Themes\Base_Compatibility;
 use RSFA\Compatibility\Plugins\WooCommerce\Compatibility as BaseWooCompatibility;
 use RSFA\FrontEnd;
+use RSFA\Options;
 use RSFA\Plugin;
 
 /**
@@ -47,6 +48,13 @@ class Compatibility extends Base_Compatibility {
 	protected $pending_thumb_classes = null;
 
 	/**
+	 * Products whose loop thumbnail was replaced with the audio.
+	 *
+	 * @var array $loop_products
+	 */
+	protected $loop_products = array();
+
+	/**
 	 * Constructor.
 	 */
 	public function __construct() {
@@ -74,9 +82,8 @@ class Compatibility extends Base_Compatibility {
 		// Add generated CSS.
 		wp_add_inline_style( 'rsfa-woodmart', Plugin::get_instance()->frontend_provider->generate_dynamic_css() );
 
-		if ( function_exists( 'is_product' ) && is_product() && FrontEnd::has_featured_audio( get_queried_object_id() ) ) {
-			wp_enqueue_script( 'rsfa-woodmart', $this->get_current_dir_url() . 'ThirdParty/Woodmart/scripts.js', array( 'jquery' ), filemtime( $this->get_current_dir() . 'ThirdParty/Woodmart/scripts.js' ), true );
-		}
+		// Enqueued where the audio is printed, product loops can show up on any page.
+		wp_register_script( 'rsfa-woodmart', $this->get_current_dir_url() . 'ThirdParty/Woodmart/scripts.js', array( 'jquery' ), filemtime( $this->get_current_dir() . 'ThirdParty/Woodmart/scripts.js' ), true );
 	}
 
 	/**
@@ -89,8 +96,19 @@ class Compatibility extends Base_Compatibility {
 			return;
 		}
 
+		$options                     = Options::get_instance();
+		$product_archives_visibility = $options->get( 'product_archives_visibility' );
+		$base_woo_compat_instance    = BaseWooCompatibility::get_instance();
+
+		if ( ( ! $options->has( 'product_archives_visibility' ) && ! $product_archives_visibility ) || $product_archives_visibility ) {
+			// Woodmart prints its own loop thumbnail, so the default audio would sit on top of the image.
+			remove_action( 'woocommerce_before_shop_loop_item_title', array( $base_woo_compat_instance, 'get_woo_archives_audio' ), 10 );
+			add_filter( 'woodmart_get_product_thumbnail', array( $this, 'set_loop_thumbnail' ), 10, 4 );
+			add_filter( 'woocommerce_placeholder_img', array( $this, 'set_loop_placeholder' ) );
+		}
+
 		// Woodmart wraps every gallery slide in `.wd-carousel-item`, so the default markup ends up outside the carousel.
-		remove_filter( 'woocommerce_single_product_image_thumbnail_html', array( BaseWooCompatibility::get_instance(), 'woo_get_audio' ), 10 );
+		remove_filter( 'woocommerce_single_product_image_thumbnail_html', array( $base_woo_compat_instance, 'woo_get_audio' ), 10 );
 
 		// After Woodmart's own gallery video filter, which rebuilds the slide markup.
 		add_filter( 'woocommerce_single_product_image_thumbnail_html', array( $this, 'woo_get_audio' ), 20, 2 );
@@ -134,6 +152,8 @@ class Compatibility extends Base_Compatibility {
 
 		$this->gallery_products[ $product_id ] = true;
 		$this->pending_thumb_product           = $product_id;
+
+		wp_enqueue_script( 'rsfa-woodmart' );
 
 		// Keeps the player controls draggable inside the carousel.
 		$audio_html = str_replace( 'class="rsfa-audio-wrapper"', 'class="rsfa-audio-wrapper swiper-no-swiping"', $audio_html );
@@ -187,5 +207,82 @@ class Compatibility extends Base_Compatibility {
 		$this->pending_thumb_classes = null;
 
 		return $html;
+	}
+
+	/**
+	 * Replaces the product loop thumbnail with the featured audio.
+	 *
+	 * @param string      $img       Thumbnail markup.
+	 * @param \WC_Product $product   Product.
+	 * @param string      $size      Image size.
+	 * @param int         $attach_id Attachment ID.
+	 *
+	 * @return string
+	 */
+	public function set_loop_thumbnail( $img, $product, $size, $attach_id ) {
+		if ( ! is_object( $product ) ) {
+			return $img;
+		}
+
+		$product_id = $product->get_id();
+
+		// Any other attachment is the hover image, which would cover the player.
+		if ( (int) $attach_id !== (int) $product->get_image_id() ) {
+			return isset( $this->loop_products[ $product_id ] ) ? '' : $img;
+		}
+
+		$audio_html = $this->get_loop_audio( $product_id );
+
+		return $audio_html ? $audio_html : $img;
+	}
+
+	/**
+	 * Replaces the placeholder of a product loop item without an image with the featured audio.
+	 *
+	 * @param string $html Placeholder markup.
+	 *
+	 * @return string
+	 */
+	public function set_loop_placeholder( $html ) {
+		global $product;
+
+		// Woodmart skips its thumbnail filter for placeholders.
+		if ( ! is_object( $product ) || ! doing_action( 'woocommerce_before_shop_loop_item_title' ) ) {
+			return $html;
+		}
+
+		$audio_html = $this->get_loop_audio( $product->get_id() );
+
+		return $audio_html ? $audio_html : $html;
+	}
+
+	/**
+	 * Get featured audio markup for a product loop item.
+	 *
+	 * @param int $product_id Product ID.
+	 *
+	 * @return string
+	 */
+	protected function get_loop_audio( $product_id ) {
+		if ( ! FrontEnd::has_featured_audio( $product_id ) ) {
+			return '';
+		}
+
+		$audio_html = BaseWooCompatibility::get_instance()->woo_get_audio( '', 0, true );
+
+		if ( ! $audio_html ) {
+			return '';
+		}
+
+		$this->loop_products[ $product_id ] = true;
+
+		wp_enqueue_script( 'rsfa-woodmart' );
+
+		// Keeps the card as tall as the image cards around it.
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id( $product_id ), 'woocommerce_thumbnail' );
+		$size  = ! empty( $image[1] ) && ! empty( $image[2] ) ? array( $image[1], $image[2] ) : array_values( wc_get_image_size( 'woocommerce_thumbnail' ) );
+		$style = ! empty( $size[0] ) && ! empty( $size[1] ) ? ' style="--rsfa-woodmart-ratio:' . absint( $size[0] ) . '/' . absint( $size[1] ) . ';"' : '';
+
+		return '<div class="rsfa-woodmart-loop-audio"' . $style . '>' . $audio_html . '</div>';
 	}
 }
