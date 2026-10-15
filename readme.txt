@@ -3,7 +3,7 @@ Contributors: jetixwp, lushkant
 Requires at least: 6.0
 Requires PHP: 8.0
 Tested up to: 7.1
-Stable tag: 1.6.0
+Stable tag: 1.6.1
 Tags: audio player, woocommerce audio, podcast player, audio preview, music
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -65,7 +65,7 @@ WooCommerce has no built-in way to preview audio. Shoppers have to buy a track, 
 
 ### 🎨 Works with your theme
 
-Built-in support for Astra, Divi, Electro, Flatsome, GeneratePress, Go, Hestia, Kadence, Neve, Ollie, Savoy, Storefront, The7, Woostify and the Twenty Twenty to Twenty Twenty-Five themes. Using something else? Most themes work out of the box, and we add support on request.
+Built-in support for Astra, Divi, Electro, Flatsome, GeneratePress, Go, Hestia, Kadence, Neve, Ollie, Savoy, Storefront, The7, Woodmart, Woostify and the Twenty Twenty to Twenty Twenty-Five themes. Using something else? Most themes work out of the box, and we add support on request.
 
 ### ⚡ Fast by default
 
@@ -134,6 +134,11 @@ The Audio Tools app and the audio player ship as built files. Their full sources
 Adds Audio Tools, bulk upload and audio analytics. Analytics stays off on existing sites until you turn it on at JetixWP > Featured Audio > Analytics.
 
 == Changelog ==
+
+= 1.6.1 =
+* New: Woodmart theme engine
+* Fix: Featured audio did not show in the Woodmart single product gallery; it now shows as the first slide with its own gallery thumbnail
+* Fix: Woodmart product loops showed the product image and the audio together; they now show the audio only
 
 = 1.6.0 =
 * New: Audio Tools page to manage audio, covers and featured images for every post and product
