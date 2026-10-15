@@ -161,6 +161,11 @@ class Theme_Provider {
 					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/ThirdParty/Woostify/class-compatibility.php',
 					'class'       => 'RSFA\Compatibility\Themes\ThirdParty\Woostify\Compatibility',
 				),
+				'woodmart'          => array(
+					'title'       => __( 'Woodmart', 'really-simple-featured-audio' ),
+					'file_source' => RSFA_PLUGIN_DIR . 'includes/Compatibility/Themes/ThirdParty/Woodmart/class-compatibility.php',
+					'class'       => 'RSFA\Compatibility\Themes\ThirdParty\Woodmart\Compatibility',
+				),
 			)
 		);
 	}

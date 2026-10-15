@@ -1,0 +1,51 @@
+.rsfa-has-audio > figure.wp-block-post-featured-image, .rsfa-has-audio > figure.wp-block-post-featured-image > a {
+	height: auto !important;
+}
+
+.single.rsfa-has-audio .wp-block-post-featured-image span.wp-block-post-featured-image__overlay,
+.page.rsfa-has-audio .wp-block-post-featured-image span.wp-block-post-featured-image__overlay {
+	display: none;
+}
+
+.rsfa-has-audio .rsfa-audio-wrapper {
+	height: auto;
+	width: 100% !important;
+	box-sizing: border-box;
+}
+
+.rsfa-has-audio audio.rsfa-audio {
+	width: 100% !important;
+}
+
+.rsfa-audio__wrapper + .woocommerce-product-gallery__image--placeholder {
+	display: none;
+}
+
+/* Single product gallery. */
+.woocommerce-product-gallery .rsfa-woodmart-audio {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	aspect-ratio: var(--rsfa-woodmart-ratio, 3/2);
+	padding: 20px;
+	box-sizing: border-box;
+	background: rgba(0, 0, 0, 0.1);
+}
+
+.woocommerce-product-gallery .rsfa-woodmart-audio > * {
+	flex: 1 1 100%;
+}
+
+.woocommerce-product-gallery .wd-gallery-thumb .rsfa-woodmart-thumb-image {
+	display: block;
+	width: 100%;
+	aspect-ratio: 1;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.woocommerce-product-gallery.thumbs-position-left .wd-gallery-thumb .rsfa-woodmart-thumb-image {
+	height: calc(100% - var(--wd-gap));
+	margin-bottom: var(--wd-gap);
+}
